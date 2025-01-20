@@ -47,6 +47,7 @@ const Hero = () => {
         //transform: "translate(-50%, 0)",
         //inset: "0",
         ease: "power2.inOut",
+        paddingBottom: "50px",
         duration: 1.2,
       }).to(".check > *", {
         opacity: 1,
@@ -69,7 +70,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="bg-bgGray pt-24 relative min-h-dvh w-[100vw] overflow-x-hidden">
+    <section className="bg-bgGray max-md:pb-24 pt-24 relative min-h-dvh w-[100vw] overflow-x-hidden">
       <div className="myFlex myContainer max-md:flex-col min-w-full">
         <div className="basis-1/2 space-y-7 check">
           <h1 className="opacity-0 translate-y-4">
@@ -119,11 +120,11 @@ const Hero = () => {
         <div className="basis-1/2 myFlex justify-center bg-bgGray">
           <div
             id="imageCont"
-            className="flex gap-3 scale-125 absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] z-30"
+            className="flex gap-2 md:gap-3 scale-125 absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] z-30"
           >
-            <div className="flex flex-col gap-3">
-              <div className="relative w-[150px] h-[150px] md:w-[225px] md:h-[225px] rounded-tl-2xl">
-                <div className="absolute min-w-[150px] p-2 py-3 myFlex gap-x-4 rounded-lg bg-white shadow-2xl bottom-3 -left-24 z-50">
+            <div className="flex flex-col gap-2 md:gap-3">
+              <div className="relative w-[170px] h-[170px] md:w-[225px] md:h-[225px] rounded-tl-2xl">
+                <div className="absolute max-md:hidden min-w-[150px] p-2 py-3 myFlex gap-x-4 rounded-lg bg-white shadow-2xl bottom-3 -left-24 z-50">
                   <div className="myFlex">
                     <p className="text-3xl font-aeoBold text-primary">100</p>
                     <div className="flex flex-col w-fit -mt-3 ml-[2px]">
@@ -154,31 +155,28 @@ const Hero = () => {
                   width={1000}
                   height={225}
                   alt="office"
-                  className="absolute inset-0 h-[225px] object-cover rounded-tl-2xl bg-white"
+                  className="absolute inset-0 h-[170px] md:h-[225px] object-cover rounded-tl-2xl bg-white"
                 />
               </div>
               <div
                 style={{
                   clipPath: "polygon(100% 0, 100% 100%, 25% 100%, 0 74%, 0 0)",
                 }}
-                className="relative w-[150px] h-[150px] md:w-[225px] md:h-[225px]"
+                className="relative w-[170px] h-[170px] md:w-[225px] md:h-[225px]"
               >
                 <Image
                   src="/officeee.jpg"
                   width={1000}
                   height={225}
                   alt="office"
-                  style={{
-                    borderRadius: "0 0 0 70px",
-                  }}
-                  className="absolute inset-0 h-[225px] object-cover bg-white"
+                  className="absolute rounded-bl-[55px] md:rounded-bl-[70px] inset-0 h-[170px] md:h-[225px] object-cover bg-white"
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-3">
               <div className="relative w-fit h-fit">
-                <div className="absolute min-w-[150px] p-2 py-3 pr-4 myFlex gap-x-4 rounded-lg bg-white shadow-2xl bottom-3 -right-24 z-50">
+                <div className="absolute min-w-[170px] p-2 py-3 pr-4 myFlex gap-x-4 rounded-lg bg-white shadow-2xl bottom-3 -right-24 z-50">
                   <MedalStar color="#F4B800" size={36} variant="Bold" />
                   <div className="space-y-2">
                     <p className="text-sm font-aeoReg whitespace-nowrap">
@@ -192,22 +190,19 @@ const Hero = () => {
                     clipPath:
                       "polygon(78% 0, 100% 19%, 100% 100%, 0 100%, 0 0)",
                   }}
-                  className="relative w-[150px] h-[250px] md:w-[225px] md:h-[325px]"
+                  className="relative w-[170px] h-[255px] md:w-[225px] md:h-[325px]"
                 >
                   <Image
                     src="/officeee.jpg"
                     width={1000}
                     height={1000}
                     alt="office"
-                    style={{
-                      borderRadius: "0 60px 0 0",
-                    }}
-                    className="absolute h-[325px] object-cover inset-0 bg-white"
+                    className="absolute rounded-tr-[47px] md:rounded-tr-[60px] h-[255px] md:h-[325px] object-cover inset-0 bg-white"
                   />
                 </div>
               </div>
 
-              <div className="w-[150px] h-[75px] md:w-[225px] md:h-[125px] bg-[#e6f5f8] rounded-br-2xl relative overflow-hidden">
+              <div className="w-[170px] h-[85px] md:w-[225px] md:h-[125px] bg-[#e6f5f8] rounded-br-2xl relative overflow-hidden">
                 <div className="absolute -left-[160px] -top-5">
                   <div className="w-[300px] h-[300px] rounded-full bg-[#83cbdc]/50 relative flex items-center justify-center">
                     <div className="absolute w-[90%] h-[90%] rounded-full bg-[#e6f5f8] flex items-center justify-center">
