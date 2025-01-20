@@ -214,7 +214,7 @@ const Hero = () => {
                   <div className="w-14 h-[7px] md:h-[9px] rounded-full bg-gradient-to-r from-gray-300 via-gray-200 to-gray-100" />
                 </div>
 
-                <div className="ml-2 min-w-7 md:min-w-10 h-[14px] md:h-[22px] bg-green-500 rounded-full relative">
+                <div className="ml-2 min-w-6 md:min-w-10 h-[14px] md:h-[22px] bg-green-500 rounded-full relative">
                   <div className="absolute right-[1px] top-[50%] translate-y-[-50%] w-3 h-3 md:w-5 md:h-5 bg-white rounded-full" />
                 </div>
               </div>
