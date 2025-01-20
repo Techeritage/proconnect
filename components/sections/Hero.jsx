@@ -122,26 +122,34 @@ const Hero = () => {
             id="imageCont"
             className="flex gap-2 md:gap-3 scale-105 md:scale-125 absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] z-30"
           >
-            <div className="flex flex-col gap-2 md:gap-3">
+            <div className="relative flex flex-col gap-2 md:gap-3">
               <div className="relative w-[170px] h-[170px] md:w-[225px] md:h-[225px] rounded-tl-2xl">
-                <div className="absolute min-w-[150px] p-2 md:py-3 myFlex gap-x-2 md:gap-x-4 rounded-lg bg-white shadow-2xl bottom-3 -left-4 md:-left-24 z-50">
+                <div className="absolute max-md:hidden min-w-[150px] p-2 md:py-3 myFlex gap-x-2 md:gap-x-4 rounded-lg bg-white shadow-2xl bottom-3 -left-4 md:-left-24 z-50">
                   <div className="myFlex">
-                    <p className="text-xl md:text-3xl font-aeoBold text-primary">
+                    <p className="text-lg md:text-3xl font-aeoBold text-primary">
                       100
                     </p>
-                    <div className="flex flex-col w-fit -mt-3 ml-[2px]">
+                    <div className="flex flex-col w-fit -mt-1.5 md:-mt-3 ml-[1px] md:ml-[2px]">
                       <div className="h-fit">
-                        <ArrowUp2 color="#023bc6" size={14} />
                         <ArrowUp2
                           color="#023bc6"
                           size={14}
-                          className="-mt-[9px]"
+                          className="max-md:size-2"
+                        />
+                        <ArrowUp2
+                          color="#023bc6"
+                          size={14}
+                          className="-mt-[6px] md:-mt-[9px] max-md:size-2"
                         />
                       </div>
-                      <Percent color="#023bc6" size={14} />
+                      <Percent
+                        color="#023bc6"
+                        size={14}
+                        className="max-md:size-2"
+                      />
                     </div>
                   </div>
-                  <div className="space-y-1 md:space-y-2">
+                  <div className="md:space-y-2">
                     <p className="text-[10px] md:text-sm font-aeoReg whitespace-nowrap">
                       Effortless Hiring
                     </p>
@@ -174,6 +182,42 @@ const Hero = () => {
                   className="absolute rounded-bl-[55px] md:rounded-bl-[70px] inset-0 h-[170px] md:h-[225px] object-cover bg-white"
                 />
               </div>
+              <div className="absolute md:hidden min-w-[150px] p-2 md:py-3 myFlex gap-x-2 md:gap-x-4 rounded-lg bg-white shadow-2xl bottom-3 -left-5 md:-left-24 z-50">
+                <div className="myFlex">
+                  <p className="text-lg md:text-3xl font-aeoBold text-primary">
+                    100
+                  </p>
+                  <div className="flex flex-col w-fit -mt-1.5 md:-mt-3 ml-[1px] md:ml-[2px]">
+                    <div className="h-fit">
+                      <ArrowUp2
+                        color="#023bc6"
+                        size={14}
+                        className="max-md:size-2"
+                      />
+                      <ArrowUp2
+                        color="#023bc6"
+                        size={14}
+                        className="-mt-[6px] md:-mt-[9px] max-md:size-2"
+                      />
+                    </div>
+                    <Percent
+                      color="#023bc6"
+                      size={14}
+                      className="max-md:size-2"
+                    />
+                  </div>
+                </div>
+                <div className="md:space-y-2">
+                  <p className="text-[10px] md:text-sm font-aeoReg whitespace-nowrap">
+                    Effortless Hiring
+                  </p>
+                  <div className="w-14 h-[7px] md:h-[9px] rounded-full bg-gradient-to-r from-gray-300 via-gray-200 to-gray-100" />
+                </div>
+
+                <div className="ml-2 min-w-7 md:min-w-10 h-[14px] md:h-[22px] bg-green-500 rounded-full relative">
+                  <div className="absolute right-[1px] top-[50%] translate-y-[-50%] w-3 h-3 md:w-5 md:h-5 bg-white rounded-full" />
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col gap-3">
@@ -184,7 +228,7 @@ const Hero = () => {
                     className="size-7 md:size-10"
                     variant="Bold"
                   />
-                  <div className="space-y-1 md:space-y-2">
+                  <div className="md:space-y-2">
                     <p className="text-[10px] md:text-sm font-aeoReg whitespace-nowrap">
                       Employers Satisfaction
                     </p>
