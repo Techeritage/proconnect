@@ -46,7 +46,7 @@ const Header = () => {
   return (
     <header
       ref={navContainerRef}
-      className="fixed top-0 left-0 right-0 z-50 bg-bgGray px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between"
+      className="fixed top-0 left-0 right-0 z-50 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between"
     >
       <Image src="/logo1.png" width={110} height={100} alt="office" />
       <nav className="max-md:hidden">

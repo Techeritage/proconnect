@@ -38,14 +38,38 @@ const Hero = () => {
       };
     });
 
-    mm.add("(max-width: 767px)", () => {
+    mm.add("(max-width: 380px)", () => {
       const tl = gsap.timeline();
       tl.to("#imageCont", {
-        scale: 1,
-        top: "900px",
+        scale: 0.9,
+        top: "970px",
         //left: "50%",
         //transform: "translate(-50%, 0)",
         //inset: "0",
+        ease: "power2.inOut",
+        paddingBottom: "50px",
+        duration: 1.2,
+      }).to(".check > *", {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        ease: "power2.out",
+        duration: 0.8,
+      });
+
+      // Cleanup function to kill the timeline when the media query no longer matches
+      return () => {
+        tl.kill();
+      };
+    });
+
+    mm.add("(min-width: 380px) and (max-width: 767px)", () => {
+      const tl = gsap.timeline();
+      tl.to("#imageCont", {
+        scale: 1,
+        top: "740px",
+        left: "50%",
+        transform: "translateX(-50%)", // Center horizontally
         ease: "power2.inOut",
         paddingBottom: "50px",
         duration: 1.2,
@@ -70,14 +94,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="bg-bgGray max-md:pb-24 pt-24 relative min-h-dvh w-[100vw] overflow-x-hidden">
-      <div className="myFlex myContainer max-md:flex-col min-w-full">
+    <section className="bg-bgGray pt-24 relative h-dvh w-[100vw] overflow-y-scroll overflow-x-hidden">
+      {/** Hero Container */}
+      <div className="myFlex myContainer max-md:flex-col">
+        {/** Hero Content */}
         <div className="basis-1/2 space-y-7 check">
           <h1 className="opacity-0 translate-y-4">
             Discover Top Talent, <br /> Build Exceptional <br /> Teams.
           </h1>
           <div className="opacity-0 translate-y-4">
-            <p className="opacity-80 max-w-[80%]">
+            <p className="opacity-85 max-w-[80%]">
               ProConnect offers seamless recruitment solutions tailored to your
               business. We connect you with top professionals to achieve your
               goals faster.
@@ -101,7 +127,7 @@ const Hero = () => {
               <Briefcase color="#023BC6" size={28} variant="Bold" />
               <div className="space-y-[2px]">
                 <p className="font-aeoBold text-sm">Streamlined Hiring</p>
-                <p className="opacity-80 text-sm whitespace-nowrap">
+                <p className="opacity-85 text-sm whitespace-nowrap">
                   Simplify your recruitment process.
                 </p>
               </div>
@@ -110,20 +136,25 @@ const Hero = () => {
               <MedalStar color="#023BC6" size={28} variant="Bold" />
               <div className="space-y-[2px]">
                 <p className="font-aeoBold text-sm">Exceptional Talent</p>
-                <p className="opacity-80 text-sm whitespace-nowrap">
+                <p className="opacity-85 text-sm whitespace-nowrap">
                   Find the best fit for your team.
                 </p>
               </div>
             </div>
           </div>
         </div>
+        {/** Hero Image */}
         <div className="basis-1/2 myFlex justify-center bg-bgGray">
+          {/** Hero Container */}
           <div
             id="imageCont"
-            className="flex gap-2 md:gap-3 scale-105 md:scale-125 absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] z-30"
+            className="flex gap-2 md:gap-3 max-xs:scale-100 scale-105 md:scale-125 absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] z-30"
           >
+            {/** First Image Column */}
             <div className="relative flex flex-col gap-2 md:gap-3">
+              {/** Row 1  */}
               <div className="relative w-[170px] h-[170px] md:w-[225px] md:h-[225px] rounded-tl-2xl">
+                {/** Desktop Effortless Hiring */}
                 <div className="absolute max-md:hidden min-w-[150px] p-2 md:py-3 myFlex gap-x-2 md:gap-x-4 rounded-lg bg-white shadow-2xl bottom-3 -left-4 md:-left-24 z-50">
                   <div className="myFlex">
                     <p className="text-lg md:text-3xl font-aeoBold text-primary">
@@ -160,6 +191,7 @@ const Hero = () => {
                     <div className="absolute right-[1px] top-[50%] translate-y-[-50%] w-3 h-3 md:w-5 md:h-5 bg-white rounded-full" />
                   </div>
                 </div>
+
                 <Image
                   src="/officeee.jpg"
                   width={1000}
@@ -168,6 +200,7 @@ const Hero = () => {
                   className="absolute inset-0 h-[170px] md:h-[225px] object-cover rounded-tl-2xl bg-white"
                 />
               </div>
+              {/** Row 2 */}
               <div
                 style={{
                   clipPath: "polygon(100% 0, 100% 100%, 25% 100%, 0 74%, 0 0)",
@@ -182,6 +215,7 @@ const Hero = () => {
                   className="absolute rounded-bl-[55px] md:rounded-bl-[70px] inset-0 h-[170px] md:h-[225px] object-cover bg-white"
                 />
               </div>
+              {/** Mobile Effortless Hiring */}
               <div className="absolute md:hidden min-w-[150px] p-2 md:py-3 myFlex gap-x-2 md:gap-x-4 rounded-lg bg-white shadow-2xl bottom-3 -left-5 md:-left-24 z-50">
                 <div className="myFlex">
                   <p className="text-lg md:text-3xl font-aeoBold text-primary">
@@ -219,9 +253,11 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-
+            {/** Second Image Column */}
             <div className="flex flex-col gap-3">
+              {/** Row 1 */}
               <div className="relative w-fit h-fit">
+                {/** Employer satisfaction */}
                 <div className="absolute md:min-w-[170px] p-2 md:py-3 pr-4 myFlex gap-x-2 md:gap-x-4 rounded-lg bg-white shadow-2xl bottom-3 -right-5 md:-right-24 z-50">
                   <MedalStar
                     color="#F4B800"
@@ -235,6 +271,7 @@ const Hero = () => {
                     <div className="w-14 h-[7px] md:h-[9px] rounded-full bg-gradient-to-r from-gray-300 via-gray-200 to-gray-100" />
                   </div>
                 </div>
+
                 <div
                   style={{
                     clipPath:
@@ -251,7 +288,7 @@ const Hero = () => {
                   />
                 </div>
               </div>
-
+              {/** Row 2 */}
               <div className="w-[170px] h-[125px] md:w-[225px] md:h-[125px] bg-[#e6f5f8] rounded-br-2xl relative overflow-hidden">
                 <div className="absolute -left-[160px] -top-5">
                   <div className="w-[300px] h-[300px] rounded-full bg-[#83cbdc]/50 relative flex items-center justify-center">
@@ -280,6 +317,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      {/** Partners */}
       <div className="myFlex mt-10 max-md:hidden check">
         <div className="basis-[35%] px-[3%] lg:px-[5%] opacity-0 transalate-y-4">
           <p className="font-aeoBold text-sm">
