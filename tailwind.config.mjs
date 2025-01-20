@@ -8,8 +8,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        bgGray: "#F7F7F8",
+        primary: "#023BC6",
+        secondary: {
+          DEFAULT: "#0797B9",
+          1: "#059AC4",
+        },
+      },
+      fontFamily: {
+        aeoBold: ["Aeonik-Bold", "sans-serif"],
+        aeoReg: ["Aeonik-Regular", "sans-serif"],
+        aeoLight: ["Aeonik-Light", "sans-serif"],
       },
     },
   },
