@@ -277,19 +277,19 @@ const Hero = () => {
                     clipPath:
                       "polygon(78% 0, 100% 19%, 100% 100%, 0 100%, 0 0)",
                   }}
-                  className="relative w-[170px] h-[215px] md:w-[225px] md:h-[325px]"
+                  className="relative w-[170px] h-[250px] md:w-[225px] md:h-[325px]"
                 >
                   <Image
                     src="/officeee.jpg"
                     width={1000}
                     height={1000}
                     alt="office"
-                    className="absolute rounded-tr-[47px] md:rounded-tr-[60px] h-[215px] md:h-[325px] object-cover inset-0 bg-white"
+                    className="absolute rounded-tr-[47px] md:rounded-tr-[60px] h-[250px] md:h-[325px] object-cover inset-0 bg-white"
                   />
                 </div>
               </div>
               {/** Row 2 */}
-              <div className="w-[170px] h-[125px] md:w-[225px] md:h-[125px] bg-[#e6f5f8] rounded-br-2xl relative overflow-hidden">
+              <div className="w-[170px] h-[90px] md:w-[225px] md:h-[125px] bg-[#e6f5f8] rounded-br-2xl relative overflow-hidden">
                 <div className="absolute -left-[160px] -top-5">
                   <div className="w-[300px] h-[300px] rounded-full bg-[#83cbdc]/50 relative flex items-center justify-center">
                     <div className="absolute w-[90%] h-[90%] rounded-full bg-[#e6f5f8] flex items-center justify-center">
