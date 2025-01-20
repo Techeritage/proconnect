@@ -48,7 +48,7 @@ const Header = () => {
       ref={navContainerRef}
       className="fixed top-0 left-0 right-0 z-50 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between"
     >
-      <Image src="/logo1.png" width={110} height={70} alt="office" />
+      <Image src="/logo1.png" width={110} height={100} alt="office" />
       <nav className="max-md:hidden">
         <ul className="myFlex justify-between space-x-7 text-sm">
           {NavLinks.map(({ title, link }) => (

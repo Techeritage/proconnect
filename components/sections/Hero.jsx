@@ -116,7 +116,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="basis-1/2 myFlex justify-center max-md:min-h-[400px] bg-bgGray">
+        <div className="basis-1/2 myFlex justify-center bg-bgGray">
           <div
             id="imageCont"
             className="flex gap-3 scale-125 absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] z-30"
