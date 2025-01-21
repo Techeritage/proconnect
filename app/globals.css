@@ -50,6 +50,10 @@
     @apply flex justify-center items-center;
   }
 
+  .stat {
+    clip-path: polygon(5% 0, 100% 0, 100% 72%, 94% 100%, 0 100%, 0 30%);
+  }
+
   .floating-nav {
     @apply rounded-lg border bg-bgGray;
   }
@@ -60,5 +64,11 @@
 
   .myContainer {
     @apply px-[3%] lg:px-[5%] py-10 md:py-16 mx-auto;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .stat {
+    clip-path: polygon(15% 0, 100% 0, 100% 80%, 85% 100%, 0 100%, 0 20%);
   }
 }

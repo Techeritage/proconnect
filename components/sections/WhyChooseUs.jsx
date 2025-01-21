@@ -1,8 +1,6 @@
 import { I24Support } from "iconsax-react";
-import { Handshake } from "lucide-react";
 import { Sparkles } from "lucide-react";
 import { Rocket } from "lucide-react";
-import React from "react";
 import Button from "../Button";
 
 const WhyChooseUs = () => {

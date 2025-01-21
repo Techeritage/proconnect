@@ -9,6 +9,7 @@ import { Briefcase, MedalStar } from "iconsax-react";
 import { ArrowUp2 } from "iconsax-react";
 import { Percent } from "lucide-react";
 import gsap from "gsap";
+import SpiralCircle from "../SpiralCircle";
 
 const Hero = () => {
   useEffect(() => {
@@ -21,7 +22,7 @@ const Hero = () => {
         top: "140px",
         left: "55vw",
         transform: "none",
-        inset: "0", // Reset any previous inset
+        inset: "0",
         ease: "power2.inOut",
         duration: 1.2,
       }).to(".check > *", {
@@ -32,7 +33,6 @@ const Hero = () => {
         duration: 0.8,
       });
 
-      // Cleanup function to kill the timeline when the media query no longer matches
       return () => {
         tl.kill();
       };
@@ -43,11 +43,7 @@ const Hero = () => {
       tl.to("#imageCont", {
         scale: 0.9,
         top: "970px",
-        //left: "50%",
-        //transform: "translate(-50%, 0)",
-        //inset: "0",
         ease: "power2.inOut",
-        //paddingBottom: "50px",
         duration: 1.2,
       }).to(".check > *", {
         opacity: 1,
@@ -57,7 +53,6 @@ const Hero = () => {
         duration: 0.8,
       });
 
-      // Cleanup function to kill the timeline when the media query no longer matches
       return () => {
         tl.kill();
       };
@@ -69,9 +64,8 @@ const Hero = () => {
         scale: 1,
         top: "740px",
         left: "50%",
-        transform: "translateX(-50%)", // Center horizontally
+        transform: "translateX(-50%)",
         ease: "power2.inOut",
-        //paddingBottom: "50px",
         duration: 1.2,
       }).to(".check > *", {
         opacity: 1,
@@ -81,13 +75,11 @@ const Hero = () => {
         duration: 0.8,
       });
 
-      // Cleanup function to kill the timeline when the media query no longer matches
       return () => {
         tl.kill();
       };
     });
 
-    // Cleanup function to remove matchMedia listeners when the component unmounts
     return () => {
       mm.revert();
     };
@@ -290,19 +282,11 @@ const Hero = () => {
               </div>
               {/** Row 2 */}
               <div className="w-[170px] h-[90px] md:w-[225px] md:h-[125px] bg-[#e6f5f8] rounded-br-2xl relative overflow-hidden">
-                <div className="absolute -left-[160px] -top-5">
-                  <div className="w-[300px] h-[300px] rounded-full bg-[#83cbdc]/50 relative flex items-center justify-center">
-                    <div className="absolute w-[90%] h-[90%] rounded-full bg-[#e6f5f8] flex items-center justify-center">
-                      <div className="absolute w-[80%] h-[80%] rounded-full bg-[#83cbdc]/50 flex items-center justify-center">
-                        <div className="absolute w-[86%] h-[86%] rounded-full bg-[#e6f5f8] flex items-center justify-center">
-                          <div className="absolute w-[70%] h-[70%] rounded-full bg-[#83cbdc]/50 flex items-center justify-center">
-                            <div className="absolute w-[80%] h-[80%] rounded-full bg-[#e6f5f8]" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <SpiralCircle
+                  position="-left-[160px] -top-5"
+                  mainColor="#83cbdc"
+                  dimColor="#e6f5f8"
+                />
 
                 <ArrowUpRight
                   size={22}
