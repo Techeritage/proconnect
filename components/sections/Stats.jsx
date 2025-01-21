@@ -3,8 +3,8 @@ import SpiralCircle from "../SpiralCircle";
 
 const Stats = () => {
   return (
-    <section className="myContainer !py-20">
-      <div className="relative stat text-white bg-primary w-full overflow-hidden h-[450px] md:h-[300px] rounded-tr-xl rounded-bl-xl md:rounded-tr-2xl md:rounded-bl-2xl rounded-tl-[67px] md:rounded-tl-[82px] rounded-br-[70px] md:rounded-br-[95px]">
+    <section className="md:myContainer pt-14 md:!py-20 max-md:bg-bgGray">
+      <div className="relative stat text-white bg-primary w-full overflow-hidden h-[450px] md:h-[300px] md:rounded-tr-2xl md:rounded-bl-2xl md:rounded-tl-[82px] md:rounded-br-[95px]">
         <SpiralCircle
           dimColor="#023BC6"
           mainColor="#3562d1"
@@ -15,16 +15,16 @@ const Stats = () => {
           mainColor="#3562d1"
           position="-top-[170px] -right-[170px]"
         />
-        <div className="relative z-10 h-full myFlex max-md:flex-col justify-around">
-          <div>
+        <div className="relative z-10 h-full myFlex max-md:flex-col justify-evenly">
+          <div className="myFlex flex-col justify-center">
             <h1>100K</h1>
             <p>Satisfied Customers</p>
           </div>
-          <div>
+          <div className="myFlex flex-col justify-center">
             <h1>100K</h1>
             <p>Satisfied Customers</p>
           </div>
-          <div>
+          <div className="myFlex flex-col justify-center">
             <h1>100K</h1>
             <p>Satisfied Customers</p>
           </div>
