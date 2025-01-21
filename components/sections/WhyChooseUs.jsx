@@ -5,7 +5,7 @@ import Button from "../Button";
 
 const WhyChooseUs = () => {
   return (
-    <section className="myContainer bg-bgGray max-xs:pt-[400px] max-md:pt-[300px]">
+    <section className="myContainer !pb-20 bg-bgGray max-xs:pt-[400px] max-md:pt-[300px]">
       <h2 className="font-aeoBold">Why Choose Us</h2>
       <p className="opacity-85 mt-2 text-sm w-[90%]">
         We make hiring simple, effective, and stress-free. Here’s why employers
@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
           </p>
         </div>
       </div>
-      <div className="mt-8">
+      <div className="mt-14">
         <p className="text-sm mb-3 font-aeoReg">Ready to Hire Smarter? Let’s Connect!</p>
         <Button
           cta="Contact Us Now"

@@ -3,8 +3,8 @@ import SpiralCircle from "../SpiralCircle";
 
 const Stats = () => {
   return (
-    <section className="myContainer">
-      <div className="relative stat text-white bg-primary w-full overflow-hidden h-[400px] md:h-[300px] rounded-tr-2xl rounded-bl-2xl rounded-tl-[67px] md:rounded-tl-[82px] rounded-br-[70px] md:rounded-br-[95px]">
+    <section className="myContainer !py-20">
+      <div className="relative stat text-white bg-primary w-full overflow-hidden h-[400px] md:h-[300px] rounded-tr-xl rounded-bl-xl md:rounded-tr-2xl md:rounded-bl-2xl rounded-tl-[67px] md:rounded-tl-[82px] rounded-br-[70px] md:rounded-br-[95px]">
         <SpiralCircle
           dimColor="#023BC6"
           mainColor="#3562d1"
