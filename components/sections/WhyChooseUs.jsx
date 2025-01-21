@@ -52,7 +52,7 @@ const WhyChooseUs = () => {
         </div>
       </div>
       <div className="mt-8">
-        <p className="text-sm mb-3">Ready to Hire Smarter? Let’s Connect!</p>
+        <p className="text-sm mb-3 font-aeoReg">Ready to Hire Smarter? Let’s Connect!</p>
         <Button
           cta="Contact Us Now"
           link="contact"
