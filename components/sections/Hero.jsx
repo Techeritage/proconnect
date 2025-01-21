@@ -94,7 +94,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="bg-bgGray pt-24 relative h-dvh w-[100vw] overflow-y-scroll overflow-x-hidden">
+    <section className="bg-bgGray pt-24 relative min-h-[100dvh] w-[100vw] max-xs:pb-[400px] max-md:pb-[450px]">
       {/** Hero Container */}
       <div className="myFlex myContainer max-md:flex-col">
         {/** Hero Content */}
@@ -318,7 +318,7 @@ const Hero = () => {
         </div>
       </div>
       {/** Partners */}
-      <div className="myFlex mt-10 max-md:hidden check">
+      <div className="myFlex mt-10 !hidden check">
         <div className="basis-[35%] px-[3%] lg:px-[5%] opacity-0 transalate-y-4">
           <p className="font-aeoBold text-sm">
             We collaborate with 1000+ companies
