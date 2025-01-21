@@ -19,7 +19,7 @@ const Services = () => {
           <div
             key={serv.title}
             //ref={(el) => (cardsRef.current[index] = el)}
-            className="bg-service p-6 py-8 border border-[#314DFF4D] rounded-2xl space-y-6"
+            className="bg-service p-6 py-8 border border-[#b3c4ee] rounded-2xl space-y-6"
           >
             <div className="relative">
               <div className="relative p-3 w-fit rounded-full bg-white/20 backdrop-blur-[100px] border border-white/30 shadow-md">

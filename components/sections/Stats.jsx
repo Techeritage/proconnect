@@ -4,7 +4,7 @@ import SpiralCircle from "../SpiralCircle";
 const Stats = () => {
   return (
     <section className="md:myContainer pt-14 md:!py-20 max-md:bg-gradient-to-b from-bgGray to-white">
-      <div className="relative stat text-white bg-primary w-full overflow-hidden h-[450px] md:h-[300px] rounded-tl-[55px] rounded-br-[55px] md:rounded-tr-2xl md:rounded-bl-2xl md:rounded-tl-[82px] md:rounded-br-[95px]">
+      <div className="relative stat text-white bg-primary w-full overflow-hidden h-[450px] md:h-[300px] md:rounded-tr-2xl md:rounded-bl-2xl md:rounded-tl-[82px] md:rounded-br-[95px]">
         <SpiralCircle
           dimColor="#023BC6"
           mainColor="#3562d1"

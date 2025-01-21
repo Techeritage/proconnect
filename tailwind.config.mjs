@@ -24,7 +24,7 @@ export default {
         aeoLight: ["Aeonik-Light", "sans-serif"],
       },
       backgroundImage: {
-        service: "linear-gradient(180deg, #314DFF14 0%, #FFFFFF 100%);",
+        service: "linear-gradient(180deg, #e6ebf9 0%, #FFFFFF 100%);",
       },
     },
   },
