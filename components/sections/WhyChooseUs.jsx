@@ -3,6 +3,7 @@ import { Handshake } from "lucide-react";
 import { Sparkles } from "lucide-react";
 import { Rocket } from "lucide-react";
 import React from "react";
+import Button from "../Button";
 
 const WhyChooseUs = () => {
   return (
@@ -12,6 +13,7 @@ const WhyChooseUs = () => {
         We make hiring simple, effective, and stress-free. Here’s why employers
         trust us:
       </p>
+      {/* Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mt-20 place-items-center">
         <div className="myFlex flex-col justify-center gap-3 bg-white rounded-2xl border border-gray-200 p-6 max-w-[400px] h-[250px] mx-auto">
           <Rocket size={32} className="fill-primary text-primary" />
@@ -48,6 +50,14 @@ const WhyChooseUs = () => {
             here to ensure your hiring experience is smooth and successful.
           </p>
         </div>
+      </div>
+      <div className="mt-8">
+        <p className="text-sm mb-3">Ready to Hire Smarter? Let’s Connect!</p>
+        <Button
+          cta="Contact Us Now"
+          link="contact"
+          className="bg-primary text-white"
+        />
       </div>
     </section>
   );
