@@ -1,6 +1,6 @@
 import Header from "@/components/Navigation/Header";
 import "../public/Aeonik/stylesheet.css";
-import { Raleway } from "@next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
