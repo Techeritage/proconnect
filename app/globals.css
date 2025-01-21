@@ -65,6 +65,13 @@
   .myContainer {
     @apply px-[3%] lg:px-[5%] py-10 md:py-16 mx-auto;
   }
+  .lineText {
+    -webkit-text-stroke-width: 1px;
+    stroke-width: 1px;
+    -webkit-text-stroke-color: #bec6fc;
+    stroke: #bec6fc;
+    -webkit-text-fill-color: #02010100;
+  }
 }
 
 @media screen and (max-width: 728px) {

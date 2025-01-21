@@ -17,16 +17,16 @@ const Stats = () => {
         />
         <div className="relative z-10 h-full myFlex max-md:flex-col justify-evenly">
           <div className="myFlex flex-col justify-center">
-            <h1>100K</h1>
-            <p>Satisfied Customers</p>
+            <h1>10K+</h1>
+            <p>Verified Professionals</p>
           </div>
           <div className="myFlex flex-col justify-center">
-            <h1>100K</h1>
-            <p>Satisfied Customers</p>
+            <h1>100K+</h1>
+            <p>Successful Connections</p>
           </div>
           <div className="myFlex flex-col justify-center">
-            <h1>100K</h1>
-            <p>Satisfied Customers</p>
+            <h1>95%</h1>
+            <p>Hiring Success Rate</p>
           </div>
         </div>
       </div>
