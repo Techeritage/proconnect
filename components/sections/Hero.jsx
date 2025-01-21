@@ -47,7 +47,7 @@ const Hero = () => {
         //transform: "translate(-50%, 0)",
         //inset: "0",
         ease: "power2.inOut",
-        paddingBottom: "50px",
+        //paddingBottom: "50px",
         duration: 1.2,
       }).to(".check > *", {
         opacity: 1,
@@ -71,7 +71,7 @@ const Hero = () => {
         left: "50%",
         transform: "translateX(-50%)", // Center horizontally
         ease: "power2.inOut",
-        paddingBottom: "50px",
+        //paddingBottom: "50px",
         duration: 1.2,
       }).to(".check > *", {
         opacity: 1,
@@ -109,7 +109,7 @@ const Hero = () => {
               goals faster.
             </p>
           </div>
-          <div className="myFlex max-md:flex-col max-md:!items-start max-md:gap-y-3 md:space-x-4 opacity-0 translate-y-4">
+          <div className="myFlex max-md:flex-col max-md:!items-start max-md:gap-y-5 md:space-x-4 opacity-0 translate-y-4">
             <Button
               cta="Get Started Today"
               className="bg-primary text-white"
