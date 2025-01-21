@@ -94,7 +94,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="bg-bgGray pt-24 relative min-h-[100dvh] w-[100vw] max-xs:pb-[400px] max-md:pb-[450px]">
+    <section className="bg-bgGray pt-24 relative min-h-[100dvh] w-[100vw]">
       {/** Hero Container */}
       <div className="myFlex myContainer max-md:flex-col">
         {/** Hero Content */}
