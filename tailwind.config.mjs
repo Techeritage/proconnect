@@ -25,6 +25,7 @@ export default {
       },
       backgroundImage: {
         service: "linear-gradient(180deg, #e6ebf9 0%, #FFFFFF 100%);",
+        wavy: "url('/wavy.svg')",
       },
     },
   },
