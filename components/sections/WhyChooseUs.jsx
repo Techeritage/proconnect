@@ -2,6 +2,7 @@ import { I24Support } from "iconsax-react";
 import { Sparkles } from "lucide-react";
 import { Rocket } from "lucide-react";
 import Button from "../Button";
+import Link from "next/link";
 
 const WhyChooseUs = () => {
   return (
@@ -50,12 +51,9 @@ const WhyChooseUs = () => {
         </div>
       </div>
       <div className="mt-14">
-        <p className="text-sm mb-3 font-aeoReg">Ready to Hire Smarter? Let’s Connect!</p>
-        <Button
-          cta="Contact Us Now"
-          link="contact"
-          className="bg-primary text-white"
-        />
+        <p className="text-sm mb-3 font-aeoReg">
+          Ready to Hire Smarter? <Link href="/contact" className="border-b italic border-primary">Let’s Connect!</Link>
+        </p>
       </div>
     </section>
   );
