@@ -55,7 +55,7 @@ const HiringSteps = () => {
       <div className="w-full myFlex justify-center max-md:mt-20">
         <Button
           cta="Start Hiring"
-          className="text-white bg-primary px-10 tracking-wider"
+          className="text-white bg-primary px-20 tracking-wider"
         />
       </div>
     </section>
