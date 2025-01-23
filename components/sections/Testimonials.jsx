@@ -12,7 +12,7 @@ const Testimonials = () => {
         ProConnect.
       </p>
       <div className="mt-10 myFlex gap-4 overflow-x-scroll no-scrollbar">
-        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
+        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 min-h-[250px] max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
           <div className="myFlex justify-between">
             <div className="myFlex gap-2">
               <div className="size-14 rounded-full bg-gray-200" />
@@ -34,7 +34,7 @@ const Testimonials = () => {
             efficiently. The process was seamless and stress-free!
           </p>
         </div>
-        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
+        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 min-h-[250px] max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
           <div className="myFlex justify-between">
             <div className="myFlex gap-2">
               <div className="size-14 rounded-full bg-gray-200" />
@@ -56,7 +56,7 @@ const Testimonials = () => {
             efficiently. The process was seamless and stress-free!
           </p>
         </div>
-        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
+        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 min-h-[250px] max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
           <div className="myFlex justify-between">
             <div className="myFlex gap-2">
               <div className="size-14 rounded-full bg-gray-200" />
@@ -78,7 +78,7 @@ const Testimonials = () => {
             efficiently. The process was seamless and stress-free!
           </p>
         </div>
-        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
+        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 min-h-[250px] max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
           <div className="myFlex justify-between">
             <div className="myFlex gap-2">
               <div className="size-14 rounded-full bg-gray-200" />
@@ -100,7 +100,7 @@ const Testimonials = () => {
             efficiently. The process was seamless and stress-free!
           </p>
         </div>
-        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
+        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 min-h-[250px] max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
           <div className="myFlex justify-between">
             <div className="myFlex gap-2">
               <div className="size-14 rounded-full bg-gray-200" />
@@ -122,7 +122,7 @@ const Testimonials = () => {
             efficiently. The process was seamless and stress-free!
           </p>
         </div>
-        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
+        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 min-h-[250px] max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
           <div className="myFlex justify-between">
             <div className="myFlex gap-2">
               <div className="size-14 rounded-full bg-gray-200" />
@@ -144,7 +144,7 @@ const Testimonials = () => {
             efficiently. The process was seamless and stress-free!
           </p>
         </div>
-        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
+        <div className="bg-bgGray space-y-5 rounded-2xl p-3 md:p-5 pb-16 min-h-[250px] max-w-[330px] min-w-[330px] md:min-w-[400px] md:max-w-[450px]">
           <div className="myFlex justify-between">
             <div className="myFlex gap-2">
               <div className="size-14 rounded-full bg-gray-200" />

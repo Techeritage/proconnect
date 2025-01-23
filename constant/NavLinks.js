@@ -4,4 +4,5 @@ export const NavLinks = [
   { title: "Services", link: "/services" },
   { title: "Hire Talent", link: "/employers" },
   { title: "Browse Jobs", link: "/job-listings" },
+  { title: "Submit CV", link: "/submit-cv" },
 ];

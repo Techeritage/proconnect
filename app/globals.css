@@ -87,7 +87,7 @@
   }
 
   .floating-nav {
-    @apply rounded-lg border bg-bgGray;
+    @apply bg-bgGray;
   }
 
   .nav-hover-btn {
