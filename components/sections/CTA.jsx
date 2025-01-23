@@ -14,7 +14,7 @@ const CTA = () => {
           <br className="max-md:hidden" />
           talent today. Let’s make hiring effortless!
         </p>
-        <div className="px-20 mt-6 relative p-2 rounded-full bg-white/20 backdrop-blur-[100px] border border-white/30 shadow-md">
+        <div className="md:px-20 mt-6 relative p-1 md:p-2 rounded-full bg-white/20 backdrop-blur-[100px] border border-white/30 shadow-md">
           <Button
             cta="Contact Us"
             className="bg-white !px-10 text-primary tracking-wider !font-aeoBold"

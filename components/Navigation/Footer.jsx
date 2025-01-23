@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="md:flex border-b w-full md:pb-12">
         <div className="md:basis-[35%]">
           <Image src="/logo.png" width={130} height={100} alt="office" />
-          <p className="opacity-85 -mt-3 -ml-1 max-w-[80%] font-aeoReg">
+          <p className="opacity-85 -mt-3 -ml-1 max-w-[80%] md:font-aeoReg">
             ProConnect offers seamless recruitment solutions tailored to your
             business. We connect you with top professionals to achieve your
             goals faster.
