@@ -121,7 +121,7 @@ const Header = () => {
                 <Link
                   href={link}
                   className={clsx(
-                    "nav-hover-btn text-3xl font-aeoReg",
+                    "nav-hover-btn !ml-0 text-3xl font-aeoReg",
                     pathName === link && "text-primary !font-aeoBold"
                   )}
                 >
