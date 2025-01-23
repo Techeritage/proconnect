@@ -27,6 +27,28 @@ export default {
         service: "linear-gradient(180deg, #e6ebf9 0%, #FFFFFF 100%);",
         wavy: "url('/wavy.svg')",
       },
+      keyframes: {
+        slideIn: {
+          "0%": {
+            transform: "translateX(100%)",
+          },
+          "100%": {
+            transform: "translateX(0)",
+          },
+        },
+        slideOut: {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(100%)",
+          },
+        },
+      },
+      animation: {
+        "slide-in": "slideIn 0.2s ease-out forwards",
+        "slide-out": "slideOut 0.2s ease-in forwards",
+      },
     },
   },
   plugins: [],

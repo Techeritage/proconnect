@@ -21,8 +21,20 @@ const Header = () => {
 
   const { y: currentScrollY } = useWindowScroll();
   const [isNavVisible, setIsNavVisible] = useState(true);
+  const [menuVisible, setMenuVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavActive, setIsNavActive] = useState(false);
+
+  // Disable body scroll when menu is open
+  useEffect(() => {
+    if (isNavActive) {
+      document.body.style.overflow = "hidden";
+      setMenuVisible(true); // Show menu immediately when isMenu is true
+    } else {
+      document.body.style.overflow = "auto";
+      setTimeout(() => setMenuVisible(false), 200); // Delay hiding to allow animation to play
+    }
+  }, [isNavActive]);
 
   useEffect(() => {
     if (currentScrollY === 0) {
@@ -96,8 +108,13 @@ const Header = () => {
         )}
       </button>
 
-      {isNavActive && (
-        <nav className="fixed top-0 myFlex justify-center z-[1000] h-dvh bottom-0 right-0 left-0 bg-bgGray">
+      {menuVisible && (
+        <nav
+          className={clsx(
+            "fixed top-0 myFlex justify-center z-[1000] h-dvh bottom-0 right-0 left-0 bg-bgGray",
+            isNavActive ? "animate-slide-in" : "animate-slide-out"
+          )}
+        >
           <ul className="grid gap-5">
             {NavLinks.map(({ title, link }) => (
               <li key={title} className="text-center">
