@@ -2,6 +2,7 @@ import Header from "@/components/Navigation/Header";
 import "../public/Aeonik/stylesheet.css";
 import { Raleway } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Navigation/Footer";
 
 export const metadata = {
   title: "ProConnect - Your Recruitment Partner",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       <body className="font-aeoLight antialiased">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

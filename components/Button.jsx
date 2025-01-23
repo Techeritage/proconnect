@@ -4,8 +4,10 @@ import Link from "next/link";
 const Button = ({ cta, link, action, icon, className }) => {
   return (
     <button
-     
-      className={clsx("group h-[48px] rounded-full px-5 font-aeoReg", className)}
+      className={clsx(
+        "group h-[48px] rounded-full px-5 font-aeoBold tracking-wider",
+        className
+      )}
       onClick={action && action}
     >
       {link ? (
