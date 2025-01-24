@@ -14,7 +14,7 @@ import {
 
 const TestimonialsNew = () => {
   return (
-    <section className="md:myFlex myContainer max-w-[1440px] mx-auto">
+    <section className="md:myFlex myContainer md:gap-10 max-w-[1440px] mx-auto">
       <div className="md:basis-[60%]">
         <CarouselPlugin />
       </div>

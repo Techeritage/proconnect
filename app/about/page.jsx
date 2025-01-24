@@ -51,7 +51,7 @@ const AboutPage = () => {
         <h2 className="text-center font-aeoBold">Who We Are</h2>
         <div className="grid md:grid-cols-2 mt-10 gap-10 md:mt-16">
           <div>
-            <p className="max-w-[90%]">
+            <p className="md:max-w-[90%]">
               At <span className="font-aeoBold">ProConnect</span>, we are a
               dynamic platform dedicated to transforming the way professionals
               and businesses connect. Founded on the principles of innovation
@@ -106,7 +106,7 @@ const AboutPage = () => {
         <h2 className="text-center font-aeoBold">What We Offer</h2>
         <div className="grid md:grid-cols-2 gap-10 mt-10 md:mt-16">
           <div className="flex flex-col md:gap-7">
-            <p className="max-w-[90%]">
+            <p className="md:max-w-[90%]">
               At <span className="font-aeoBold">ProConnect</span>, we provide a
               comprehensive suite of services designed to bridge the gap between
               top talent and the businesses that need them. Whether you're an

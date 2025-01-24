@@ -3,7 +3,7 @@ import Steps from "../Steps";
 
 const HiringSteps = () => {
   return (
-    <section className="myContainer">
+    <section className="myContainer bg-bgGray">
       <h1>
         Simplified <br /> Hiring Process
       </h1>
