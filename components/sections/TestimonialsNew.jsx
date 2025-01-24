@@ -14,18 +14,26 @@ import {
 
 const TestimonialsNew = () => {
   return (
-    <section className="md:myFlex myContainer md:gap-10 max-w-[1440px] mx-auto">
-      <div className="md:basis-[60%]">
-        <CarouselPlugin />
-      </div>
-      <div className="max-md:hidden md:basis-[40%]">
-        <div
-          style={{
-            clipPath:
-              "polygon(15% 0, 100% 0, 100% 72%, 85% 100%, 0 100%, 0 30%)",
-          }}
-          className="bg-gray-300 h-[400px] w-full max-w-[500px] rounded-tr-2xl rounded-bl-2xl rounded-tl-[95px] rounded-br-[90px]"
-        />
+    <section className="myContainer">
+      <h1 className="text-center">What Our Clients Say</h1>
+      <p className="opacity-85 mt-2 text-sm mx-auto text-center w-[90%]">
+        Discover the experiences of employers and job seekers who have
+        successfully connected <br className="max-md:hidden" /> through
+        ProConnect.
+      </p>
+      <div className="md:myFlex md:gap-10 mt-24 lg:mt-32 max-w-[1440px] mx-auto">
+        <div className="md:basis-[60%]">
+          <CarouselPlugin />
+        </div>
+        <div className="max-md:hidden md:basis-[40%]">
+          <div
+            style={{
+              clipPath:
+                "polygon(15% 0, 100% 0, 100% 72%, 85% 100%, 0 100%, 0 30%)",
+            }}
+            className="bg-gray-300 h-[400px] w-full max-w-[500px] rounded-tr-2xl rounded-bl-2xl rounded-tl-[95px] rounded-br-[90px]"
+          />
+        </div>
       </div>
     </section>
   );
@@ -45,8 +53,8 @@ export function CarouselPlugin() {
         onMouseLeave={plugin.current.reset}
       >
         {/* Navigation Buttons */}
-        <CarouselPrevious className="btn bottom-4 right-16 md:right-[200px] z-10" />
-        <CarouselNext className="btn bottom-4 z-10 right-5 md:right-[150px] bg-primary text-white" />
+        <CarouselPrevious className="btn size-10 bottom-2 right-16 md:right-[200px] z-10" />
+        <CarouselNext className="btn size-10 bottom-2 z-10 right-5 md:right-[150px] bg-primary text-white" />
 
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (

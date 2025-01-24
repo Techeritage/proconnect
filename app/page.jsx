@@ -20,6 +20,7 @@ const HomePage = () => {
       <TestimonialsNew />
       <Blog />
       <CTA />
+      {/**FAQs */}
     </main>
   );
 };
