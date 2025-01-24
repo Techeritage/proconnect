@@ -5,6 +5,7 @@ import HiringSteps from "@/components/sections/HiringSteps";
 import Services from "@/components/sections/Services";
 import Stats from "@/components/sections/Stats";
 import Testimonials from "@/components/sections/Testimonials";
+import TestimonialsNew from "@/components/sections/TestimonialsNew";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 
 const HomePage = () => {
@@ -15,7 +16,8 @@ const HomePage = () => {
       <Stats />
       <Services />
       <HiringSteps />
-      <Testimonials />
+      {/*<Testimonials />*/}
+      <TestimonialsNew />
       <Blog />
       <CTA />
     </main>
