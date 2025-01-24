@@ -26,7 +26,7 @@ const FAQs = ({faqs}) => {
 export function AccordionDemo({ faqs }) {
   return (
     <Accordion type="single" collapsible className="w-full">
-      {faqs.map((faq, i) => (
+      {faqs?.map((faq, i) => (
         <AccordionItem
           key={i}
           value={`item-${i + 1}`}

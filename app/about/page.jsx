@@ -3,7 +3,6 @@ import FAQs from "@/components/sections/FAQs";
 import Stats from "@/components/sections/Stats";
 import { AboutFaqs } from "@/constant/AboutFaqs";
 import { CheckCheck } from "lucide-react";
-import React from "react";
 
 const AboutPage = () => {
   return (
@@ -204,7 +203,7 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-      <FAQs faq={AboutFaqs} />
+      <FAQs faqs={AboutFaqs} />
       <CTA />
       {/*contact, map*/}
     </main>
