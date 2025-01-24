@@ -16,7 +16,7 @@ const ServicePage = () => {
         </p>
       </section>
       <section className="!pt-0 myContainer">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 gap-y-10 mt-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 gap-y-10">
           {ServicesList.map((serv, index) => (
             <div
               key={serv.title}

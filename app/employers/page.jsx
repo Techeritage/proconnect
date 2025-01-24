@@ -1,3 +1,4 @@
+import CTA from "@/components/sections/CTA";
 import Steps from "@/components/Steps";
 import React from "react";
 
@@ -14,6 +15,8 @@ const HireTalentPage = () => {
         </p>
       </section>
       <Steps />
+      {/**Faqs, form */}
+      <CTA />
     </main>
   );
 };
