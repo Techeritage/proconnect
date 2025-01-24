@@ -87,7 +87,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="bg-bgGray pt-24 relative min-h-[100dvh] lg:border-b w-[100vw]">
+      <section className="bg-bgGray pt-24 relative min-h-[100dvh] w-[100vw]">
         {/** Hero Container */}
         <div className="myFlex myContainer max-md:flex-col">
           {/** Hero Content */}

@@ -5,7 +5,7 @@ import Button from "../Button";
 
 const Services = () => {
   return (
-    <section className="myContainer">
+    <section className="myContainer bg-bgGray">
       <h2 className="font-aeoBold">
         Services Tailored <br /> to Your Needs
       </h2>
