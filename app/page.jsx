@@ -1,5 +1,6 @@
 import Blog from "@/components/sections/Blog";
 import CTA from "@/components/sections/CTA";
+import FAQs from "@/components/sections/FAQs";
 import Hero from "@/components/sections/Hero";
 import HiringSteps from "@/components/sections/HiringSteps";
 import Services from "@/components/sections/Services";
@@ -17,6 +18,7 @@ const HomePage = () => {
       <HiringSteps />
       <TestimonialsNew />
       <Blog />
+      <FAQs />
       <CTA />
       {/**FAQs */}
     </main>
