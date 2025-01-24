@@ -7,7 +7,7 @@ const AboutPage = () => {
   return (
     <main className="min-h-dvh !pt-20">
       <div className="grid md:grid-cols-2 gap-7 md:gap-20 myContainer max-w-[1440px] mx-auto">
-        <h1 className="md:leading-[70px] whitespace-nowrap">
+        <h1 className="md:leading-[70px] md:whitespace-nowrap">
           Connecting Top <br /> Talent with{" "}
           <span className="opacity-50">
             Leading <br /> Employers – Seamlessly.
