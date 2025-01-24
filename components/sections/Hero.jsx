@@ -112,7 +112,6 @@ const Hero = () => {
                 cta="Browse Our Services"
                 link="#"
                 className="bg-white ring-1 ring-gray-200"
-                icon={<ArrowRight size={18} />}
               />
             </div>
             <div className="myFlex max-md:!items-start max-md:gap-y-7 gap-10 max-md:flex-col md:pt-7 opacity-0 translate-y-4">

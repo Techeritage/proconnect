@@ -13,7 +13,7 @@ const WhyChooseUs = () => {
       </p>
       {/* Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mt-14 md:mt-20 place-items-center">
-        <div className="myFlex flex-col justify-center gap-3 bg-white rounded-2xl border-2 border-bgGray p-6 max-w-[400px] h-[250px] mx-auto">
+        <div className="myFlex flex-col justify-center gap-3 bg-white rounded-2xl border border-bgGray p-6 max-w-[400px] h-[250px] mx-auto">
           <Rocket size={32} className="fill-primary text-primary" />
           <h4 className="font-aeoBold text-center tracking-wider mt-5 mb-2">
             Streamlined Hiring Process
@@ -23,7 +23,7 @@ const WhyChooseUs = () => {
             simplify every step of your recruitment journey.
           </p>
         </div>
-        <div className="relative overflow-hidden bg-white rounded-2xl border-2 border-bgGray p-6 max-w-[400px] lg:min-h-[280px] mx-auto">
+        <div className="relative overflow-hidden bg-white rounded-2xl border border-bgGray p-6 max-w-[400px] lg:min-h-[280px] mx-auto">
           <div className="relative z-10 myFlex flex-col justify-center h-full gap-3">
             <Sparkles size={32} className="fill-primary text-primary" />
             <h4 className="font-aeoBold text-center tracking-wider mt-5 mb-2">
@@ -35,7 +35,7 @@ const WhyChooseUs = () => {
             </p>
           </div>
         </div>
-        <div className="myFlex flex-col justify-center gap-3 bg-white rounded-2xl border-2 border-bgGray p-6 max-w-[400px] h-[250px] mx-auto">
+        <div className="myFlex flex-col justify-center gap-3 bg-white rounded-2xl border border-bgGray p-6 max-w-[400px] h-[250px] mx-auto">
           <I24Support size="36" color="#023BC6" variant="Bold" />
           <h4 className="font-aeoBold text-center tracking-wider mt-5 mb-2">
             Dedicated Support

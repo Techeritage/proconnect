@@ -14,7 +14,7 @@ import {
 
 const TestimonialsNew = () => {
   return (
-    <section className="myContainer">
+    <section className="myContainer border-t">
       {/* <h1 className="text-center">What Our Clients Say</h1>
       <p className="opacity-85 mt-2 text-sm mx-auto text-center w-[90%]">
         Discover the experiences of employers and job seekers who have
@@ -31,7 +31,7 @@ const TestimonialsNew = () => {
               clipPath:
                 "polygon(15% 0, 100% 0, 100% 72%, 85% 100%, 0 100%, 0 30%)",
             }}
-            className="bg-gray-300 h-[400px] w-full max-w-[500px] rounded-tr-2xl rounded-bl-2xl rounded-tl-[95px] rounded-br-[90px]"
+            className="bg-bgGray h-[400px] w-full max-w-[500px] rounded-tr-2xl rounded-bl-2xl rounded-tl-[95px] rounded-br-[90px]"
           />
         </div>
       </div>
@@ -63,8 +63,7 @@ export function CarouselPlugin() {
                 <div className="space-y-5 md:w-[80%] pb-8 border-b">
                   <QuoteUp
                     size="32"
-                    color="black"
-                    className="opacity-30"
+                    color="#023BC6"
                     variant="Bold"
                   />
                   <p className="text-xl md:text-2xl font-aeoReg">

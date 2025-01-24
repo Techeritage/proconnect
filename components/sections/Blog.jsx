@@ -3,7 +3,7 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <section className="myContainer !pb-28 border-t">
+    <section className="myContainer !pb-28 bg-bgGray">
       <h1 className="max-w-[90%]">
         Insights and Inspiration <br className="max-md:hidden" /> for Smarter
         Hiring
@@ -13,7 +13,7 @@ const Blog = () => {
         strategies.
       </p>
       <div className="mt-10 md:mt-16 max-md:myFlex max-md:gap-4 max-md:overflow-x-scroll max-md:no-scrollbar md:grid gap-x-7 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-        <div className="border border-gray-300 max-md:min-w-[330px] max-md:max-w-[330px] rounded-2xl p-2">
+        <div className="border border-gray-300 bg-white max-md:min-w-[330px] max-md:max-w-[330px] rounded-2xl p-2">
           <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
           <h4 className="text-base md:text-lg font-aeoBold mt-2">
             5 Proven Strategies to Attract Top Talent in 2024
@@ -27,7 +27,7 @@ const Blog = () => {
             <p className="text-sm">3 mins reading time</p>
           </div>
         </div>
-        <div className="border border-gray-300 rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
+        <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
           <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
           <h4 className="text-base md:text-lg font-aeoBold mt-2">
             5 Proven Strategies to Attract Top Talent in 2024
@@ -41,7 +41,7 @@ const Blog = () => {
             <p className="text-sm">3 mins reading time</p>
           </div>
         </div>
-        <div className="border border-gray-300 rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
+        <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
           <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
           <h4 className="text-base md:text-lg font-aeoBold mt-2">
             5 Proven Strategies to Attract Top Talent in 2024
@@ -55,7 +55,7 @@ const Blog = () => {
             <p className="text-sm">3 mins reading time</p>
           </div>
         </div>
-        <div className="border border-gray-300 rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
+        <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
           <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
           <h4 className="text-base md:text-lg font-aeoBold mt-2">
             5 Proven Strategies to Attract Top Talent in 2024
@@ -69,7 +69,7 @@ const Blog = () => {
             <p className="text-sm">3 mins reading time</p>
           </div>
         </div>
-        <div className="border border-gray-300 rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
+        <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
           <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
           <h4 className="text-base md:text-lg font-aeoBold mt-2">
             5 Proven Strategies to Attract Top Talent in 2024
@@ -83,7 +83,7 @@ const Blog = () => {
             <p className="text-sm">3 mins reading time</p>
           </div>
         </div>
-        <div className="border border-gray-300 rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
+        <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
           <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
           <h4 className="text-base md:text-lg font-aeoBold mt-2">
             5 Proven Strategies to Attract Top Talent in 2024
@@ -97,7 +97,7 @@ const Blog = () => {
             <p className="text-sm">3 mins reading time</p>
           </div>
         </div>
-        <div className="border border-gray-300 rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
+        <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
           <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
           <h4 className="text-base md:text-lg font-aeoBold mt-2">
             5 Proven Strategies to Attract Top Talent in 2024
@@ -111,7 +111,7 @@ const Blog = () => {
             <p className="text-sm">3 mins reading time</p>
           </div>
         </div>
-        <div className="border border-gray-300 rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
+        <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
           <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
           <h4 className="text-base md:text-lg font-aeoBold mt-2">
             5 Proven Strategies to Attract Top Talent in 2024

@@ -120,7 +120,7 @@
   }
 
   .floating-nav {
-    @apply bg-bgGray;
+    @apply bg-white;
   }
 
   .nav-hover-btn {
