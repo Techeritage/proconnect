@@ -4,9 +4,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CommonFaqs } from "@/constant/CommonFaqs";
 
-const FAQs = () => {
+const FAQs = ({faqs}) => {
   return (
     <section className="myContainer">
       <h1 className="text-center">
@@ -18,7 +17,7 @@ const FAQs = () => {
         Contact us!
       </p>
       <div className="max-w-3xl mx-auto mt-20">
-        <AccordionDemo faqs={CommonFaqs} />
+        <AccordionDemo faqs={faqs} />
       </div>
     </section>
   );

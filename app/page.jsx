@@ -7,6 +7,7 @@ import Services from "@/components/sections/Services";
 import Stats from "@/components/sections/Stats";
 import TestimonialsNew from "@/components/sections/TestimonialsNew";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import { CommonFaqs } from "@/constant/CommonFaqs";
 
 const HomePage = () => {
   return (
@@ -18,9 +19,8 @@ const HomePage = () => {
       <HiringSteps />
       <TestimonialsNew />
       <Blog />
-      <FAQs />
+      <FAQs faqs={CommonFaqs} />
       <CTA />
-      {/**FAQs */}
     </main>
   );
 };

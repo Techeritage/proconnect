@@ -339,7 +339,7 @@ const Hero = () => {
           </div>
         </div>
       </section>
-      <div className="max-xs:pt-[400px] max-md:pt-[300px]" />
+      <div className="max-xs:pt-[400px] max-md:pt-[300px] bg-bgGray" />
     </>
   );
 };
