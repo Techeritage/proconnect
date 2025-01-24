@@ -6,8 +6,8 @@ import { CheckCheck } from "lucide-react";
 const ServicePage = () => {
   return (
     <main className="min-h-dvh !pt-20">
-      <section className="grid gap-7 myContainer">
-        <h1 className="">
+      <section className="grid gap-3 md:gap-7 myContainer">
+        <h1>
           Empowering Connections, <br /> Enabling Success
         </h1>
         <p className="md:max-w-[80%] md:leading-[30px] font-aeoReg opacity-85">
