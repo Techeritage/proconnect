@@ -1,9 +1,10 @@
 import { Clock } from "lucide-react";
 import React from "react";
+import Button from "../Button";
 
 const Blog = () => {
   return (
-    <section className="!pb-28 bg-bgGray">
+    <section className="!pb-20 bg-bgGray">
       <div className="myContainer">
         <h1 className="max-w-[90%]">
           Insights and Inspiration <br className="max-md:hidden" /> for Smarter
@@ -126,6 +127,9 @@ const Blog = () => {
               <p className="text-sm">3 mins reading time</p>
             </div>
           </div>
+        </div>
+        <div className="myFlex justify-center mt-16">
+          <Button cta="View More" link="/blog" className="border bg-white !px-20" />
         </div>
       </div>
     </section>

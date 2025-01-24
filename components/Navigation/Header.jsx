@@ -93,9 +93,9 @@ const Header = () => {
         </ul>
       </nav>
       <Button
-        cta="Get Started Today"
+        cta="Contact Us"
         className="bg-primary text-white max-md:hidden"
-        link="#"
+        link="/contact"
       />
       <button
         className="z-[5000] md:hidden transition-all duration-300"

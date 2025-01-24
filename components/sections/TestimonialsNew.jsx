@@ -15,13 +15,15 @@ import {
 const TestimonialsNew = () => {
   return (
     <section className="myContainer border-t">
-      {/* <h1 className="text-center">What Our Clients Say</h1>
-      <p className="opacity-85 mt-2 text-sm mx-auto text-center w-[90%]">
-        Discover the experiences of employers and job seekers who have
-        successfully connected <br className="max-md:hidden" /> through
+      <h1 className="">
+        What Our <br /> Clients Say
+      </h1>
+      <p className="opacity-85 mt-2 text-sm w-[90%]">
+        Discover the experiences of employers and job seekers who have{" "}
+        <br className="max-md:hidden" /> successfully connected through
         ProConnect.
-      </p> */}
-      <div className="md:myFlex md:gap-10 max-w-[1440px] mx-auto">
+      </p>
+      <div className="md:myFlex mt-16 md:gap-10 max-w-[1440px] mx-auto">
         <div className="md:basis-[60%]">
           <CarouselPlugin />
         </div>
@@ -61,11 +63,7 @@ export function CarouselPlugin() {
             <CarouselItem key={index}>
               <div className="w-full">
                 <div className="space-y-5 md:w-[80%] pb-8 border-b">
-                  <QuoteUp
-                    size="32"
-                    color="#023BC6"
-                    variant="Bold"
-                  />
+                  <QuoteUp size="32" color="#023BC6" variant="Bold" />
                   <p className="text-xl md:text-2xl font-aeoReg">
                     ProConnect helped us find the perfect candidates quickly and
                     efficiently. The process was seamless and stress-free!

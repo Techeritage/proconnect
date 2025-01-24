@@ -28,9 +28,17 @@ export function AccordionDemo({ faqs }) {
   return (
     <Accordion type="single" collapsible className="w-full">
       {faqs.map((faq, i) => (
-        <AccordionItem key={i} value={`item-${i + 1}`}>
-          <AccordionTrigger className="text-base font-aeoReg">{faq.question}</AccordionTrigger>
-          <AccordionContent className="max-w-[80%]">{faq.answer}</AccordionContent>
+        <AccordionItem
+          key={i}
+          value={`item-${i + 1}`}
+          className="last:border-b-0"
+        >
+          <AccordionTrigger className="text-base font-aeoReg">
+            {faq.question}
+          </AccordionTrigger>
+          <AccordionContent className="max-w-[80%]">
+            {faq.answer}
+          </AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>
