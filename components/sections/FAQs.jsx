@@ -33,10 +33,10 @@ export function AccordionDemo({ faqs }) {
           value={`item-${i + 1}`}
           className="last:border-b-0"
         >
-          <AccordionTrigger className="text-base font-aeoReg">
+          <AccordionTrigger className="text-base md:text-lg font-aeoBold tracking-wider">
             {faq.question}
           </AccordionTrigger>
-          <AccordionContent className="max-w-[80%]">
+          <AccordionContent className="max-w-[80%] md:text-base tracking-wider">
             {faq.answer}
           </AccordionContent>
         </AccordionItem>

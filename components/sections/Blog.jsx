@@ -4,7 +4,7 @@ import Button from "../Button";
 
 const Blog = () => {
   return (
-    <section className="!pb-20 bg-bgGray">
+    <section className="bg-bgGray">
       <div className="myContainer">
         <h1 className="max-w-[90%]">
           Insights and Inspiration <br className="max-md:hidden" /> for Smarter
