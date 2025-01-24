@@ -1,7 +1,6 @@
 import { I24Support } from "iconsax-react";
 import { Sparkles } from "lucide-react";
 import { Rocket } from "lucide-react";
-import Button from "../Button";
 import Link from "next/link";
 
 const WhyChooseUs = () => {

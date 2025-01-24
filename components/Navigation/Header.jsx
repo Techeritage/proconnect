@@ -98,7 +98,7 @@ const Header = () => {
         link="#"
       />
       <button
-        className="z-[5000] transition-all duration-300"
+        className="z-[5000] md:hidden transition-all duration-300"
         onClick={() => setIsNavActive(!isNavActive)}
       >
         {isNavActive ? (
