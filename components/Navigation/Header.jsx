@@ -69,7 +69,7 @@ const Header = () => {
       <Link href="/" className="z-[5000]">
         <Image
           src="/logo.png"
-          width={110}
+          width={90}
           height={100}
           alt="office"
           className="object-contain max-md:w-[80px] -mb-7"
@@ -119,6 +119,7 @@ const Header = () => {
             {NavLinks.map(({ title, link }) => (
               <li key={title} className="text-center">
                 <Link
+                  onClick={() => setIsNavActive(false)}
                   href={link}
                   className={clsx(
                     "nav-hover-btn !ml-0 text-3xl font-aeoReg",

@@ -5,16 +5,16 @@ import React from "react";
 
 const AboutPage = () => {
   return (
-    <main className="min-h-dvh !pt-20 md:!pt-40">
-      <div className="grid md:grid-cols-2 myContainer">
-        <h1 className="md:leading-[70px]">
+    <main className="min-h-dvh !pt-20">
+      <div className="grid md:grid-cols-2 gap-7 md:gap-20 myContainer max-w-[1440px] mx-auto">
+        <h1 className="md:leading-[70px] whitespace-nowrap">
           Connecting Top <br /> Talent with{" "}
           <span className="opacity-50">
             Leading <br /> Employers – Seamlessly.
           </span>
         </h1>
         <div className="md:flex items-end">
-          <p className="max-md:mt-5 md:max-w-[80%] md:leading-[30px] font-aeoReg opacity-85">
+          <p className="md:max-w-[80%] md:leading-[30px] font-aeoReg opacity-85">
             ProConnect bridges the gap between skilled professionals and
             companies seeking exceptional talent, creating opportunities for
             growth and success.
@@ -93,7 +93,7 @@ const AboutPage = () => {
                 <CheckCheck size={18} className="text-primary min-w-[18px]" />{" "}
                 <span className="tracking-wider">
                   <span className="font-aeoBold">Proven Results:</span> Over
-                  [insert number] successful hires and counting, with a growing
+                  100+ successful hires and counting, with a growing
                   network of satisfied job seekers and hirers.
                 </span>
               </li>
@@ -201,6 +201,7 @@ const AboutPage = () => {
         </div>
       </section>
       <CTA />
+      {/*faqs, contact, map*/}
     </main>
   );
 };
