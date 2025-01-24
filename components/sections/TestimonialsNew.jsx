@@ -15,13 +15,13 @@ import {
 const TestimonialsNew = () => {
   return (
     <section className="myContainer">
-      <h1 className="text-center">What Our Clients Say</h1>
+      {/* <h1 className="text-center">What Our Clients Say</h1>
       <p className="opacity-85 mt-2 text-sm mx-auto text-center w-[90%]">
         Discover the experiences of employers and job seekers who have
         successfully connected <br className="max-md:hidden" /> through
         ProConnect.
-      </p>
-      <div className="md:myFlex md:gap-10 mt-24 lg:mt-32 max-w-[1440px] mx-auto">
+      </p> */}
+      <div className="md:myFlex md:gap-10 max-w-[1440px] mx-auto">
         <div className="md:basis-[60%]">
           <CarouselPlugin />
         </div>
@@ -53,7 +53,7 @@ export function CarouselPlugin() {
         onMouseLeave={plugin.current.reset}
       >
         {/* Navigation Buttons */}
-        <CarouselPrevious className="btn size-10 bottom-2 right-16 md:right-[200px] z-10" />
+        <CarouselPrevious className="btn size-10 bottom-2 right-[70px] md:right-[200px] z-10" />
         <CarouselNext className="btn size-10 bottom-2 z-10 right-5 md:right-[150px] bg-primary text-white" />
 
         <CarouselContent>

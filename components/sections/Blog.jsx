@@ -3,7 +3,7 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <section className="myContainer !pb-28 border-t border-bgGray">
+    <section className="myContainer !pb-28 border-t">
       <h1 className="max-w-[90%]">
         Insights and Inspiration <br className="max-md:hidden" /> for Smarter
         Hiring
