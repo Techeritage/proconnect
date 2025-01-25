@@ -15,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
+import { SlidersHorizontal } from "lucide-react";
 
 export const sortOptions = [{ item: "Date", value: "date" }];
 
@@ -46,13 +47,14 @@ const JobListingsPage = () => {
       </section>
       <section className="bg-bgGray">
         <div className="myContainer h-full">
-          <div className="myFlex justify-between mb-7">
+          <div className="md:myFlex justify-between mb-7">
             <h3 className="font-aeoReg">100 jobs found for you</h3>
-            <div className="min-w-[200px] myFlex">
+            <div className="max-md:max-w-[200px] max-md:mt-2 md:min-w-[200px] myFlex">
               <SelectBtn label="Sort By" options={sortOptions} />
             </div>
           </div>
-          <div className="space-x-5">
+          <div className="myFlex gap-5">
+            <SlidersHorizontal className="opacity-85" />
             <DropdownMenuRadioGroupDemo trigger="Work Location" />
             <DropdownMenuRadioGroupDemo trigger="Job Type" />
           </div>
@@ -65,7 +67,7 @@ const JobListingsPage = () => {
                 <p className="opacity-85">Spleet Company</p>
                 <p className="opacity-85">Lagos</p>
               </div>
-              <div className="bg-gray-100 w-fit p-1 px-2 rounded-md font-aeoBold text-gray-600">
+              <div className="bg-gray-100 w-fit p-1 text-sm px-2 rounded-md font-aeoBold text-gray-600">
                 Full time
               </div>
               <p className="text-xs opacity-85">Posted 3 days ago</p>
@@ -78,7 +80,7 @@ const JobListingsPage = () => {
                 <p className="opacity-85">Spleet Company</p>
                 <p className="opacity-85">Lagos</p>
               </div>
-              <div className="bg-gray-100 w-fit p-1 px-2 rounded-md font-aeoBold text-gray-600">
+              <div className="bg-gray-100 w-fit p-1 text-sm px-2 rounded-md font-aeoBold text-gray-600">
                 Full time
               </div>
               <p className="text-xs opacity-85">Posted 3 days ago</p>
@@ -91,7 +93,7 @@ const JobListingsPage = () => {
                 <p className="opacity-85">Spleet Company</p>
                 <p className="opacity-85">Lagos</p>
               </div>
-              <div className="bg-gray-100 w-fit p-1 px-2 rounded-md font-aeoBold text-gray-600">
+              <div className="bg-gray-100 w-fit p-1 text-sm px-2 rounded-md font-aeoBold text-gray-600">
                 Full time
               </div>
               <p className="text-xs opacity-85">Posted 3 days ago</p>
