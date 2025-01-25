@@ -36,6 +36,6 @@ export const CommonFaqs = [
   {
     question: "How do I contact ProConnect for further assistance?",
     answer:
-      "You can reach out to us via our Contact Us page or email us at info@proconnect.com.",
+      "You can reach out to us via our Contact Us page or email us at info@officialproconnect.com.",
   },
 ];
