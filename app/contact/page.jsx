@@ -26,7 +26,7 @@ const ContactPage = () => {
           </p>
         </div>
         <div className="md:basis-[55%] max-md:mt-14">
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-5">
             <div className="bg-gradient-to-br from-gray-100 to-white border border-gray-200 p-3 py-5 rounded-xl">
               <MessageCircleMore
                 className="text-primary mb-4 max-md:mb-8"
@@ -39,7 +39,7 @@ const ContactPage = () => {
               </div>
 
               <a
-                className="text-primary w-fit font-aeoReg underline"
+                className="text-primary w-fit font-aeoReg underline max-md:text-sm"
                 href="mailto:info@officialproconnect.com"
               >
                 info@officialproconnect.com
@@ -57,7 +57,7 @@ const ContactPage = () => {
                 </p>
                 <p className="opacity-85">We're available to help via email</p>
               </div>
-              <a className="text-primary w-fit font-aeoReg underline" href="#">
+              <a className="text-primary w-fit font-aeoReg underline max-md:text-sm" href="#">
                 send ticket
               </a>
             </div>
@@ -73,7 +73,7 @@ const ContactPage = () => {
                 </p>
                 <p className="opacity-85">Visit our location in real life</p>
               </div>
-              <a className="text-primary w-fit font-aeoReg underline" href="#">
+              <a className="text-primary w-fit font-aeoReg underline max-md:text-sm" href="#">
                 18, Karimu Street, Surulere
               </a>
             </div>
@@ -90,7 +90,7 @@ const ContactPage = () => {
                 <p className="opacity-85">Available during working hours</p>
               </div>
               <a
-                className="text-primary w-fit font-aeoReg underline"
+                className="text-primary w-fit font-aeoReg underline max-md:text-sm"
                 href="tel:+2348024352278"
               >
                 (+234) 802 631 4926
