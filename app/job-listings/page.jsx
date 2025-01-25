@@ -14,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
 export const sortOptions = [{ item: "Date", value: "date" }];
 
@@ -45,11 +46,55 @@ const JobListingsPage = () => {
       </section>
       <section className="bg-bgGray">
         <div className="myContainer h-full">
-          <div className="myFlex justify-between">
+          <div className="myFlex justify-between mb-7">
             <h3 className="font-aeoReg">100 jobs found for you</h3>
             <div className="min-w-[200px] myFlex">
-              <DropdownMenuRadioGroupDemo />
               <SelectBtn label="Sort By" options={sortOptions} />
+            </div>
+          </div>
+          <div className="space-x-5">
+            <DropdownMenuRadioGroupDemo trigger="Work Location" />
+            <DropdownMenuRadioGroupDemo trigger="Job Type" />
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-14">
+            <div className="bg-white py-5 px-3 rounded-xl border border-gray-200 space-y-4 shadow-sm">
+              <h4 className="text-lg md:text-xl opacity-90 tracking-wider font-aeoBold">
+                Frontend Engineer
+              </h4>
+              <div>
+                <p className="opacity-85">Spleet Company</p>
+                <p className="opacity-85">Lagos</p>
+              </div>
+              <div className="bg-gray-100 w-fit p-1 px-2 rounded-md font-aeoBold text-gray-600">
+                Full time
+              </div>
+              <p className="text-xs opacity-85">Posted 3 days ago</p>
+            </div>
+            <div className="bg-white py-5 px-3 rounded-xl border border-gray-200 space-y-4 shadow-sm">
+              <h4 className="text-lg md:text-xl opacity-90 tracking-wider font-aeoBold">
+                Frontend Engineer
+              </h4>
+              <div>
+                <p className="opacity-85">Spleet Company</p>
+                <p className="opacity-85">Lagos</p>
+              </div>
+              <div className="bg-gray-100 w-fit p-1 px-2 rounded-md font-aeoBold text-gray-600">
+                Full time
+              </div>
+              <p className="text-xs opacity-85">Posted 3 days ago</p>
+            </div>
+            <div className="bg-white py-5 px-3 rounded-xl border border-gray-200 space-y-4 shadow-sm">
+              <h4 className="text-lg md:text-xl opacity-90 tracking-wider font-aeoBold">
+                Frontend Engineer
+              </h4>
+              <div>
+                <p className="opacity-85">Spleet Company</p>
+                <p className="opacity-85">Lagos</p>
+              </div>
+              <div className="bg-gray-100 w-fit p-1 px-2 rounded-md font-aeoBold text-gray-600">
+                Full time
+              </div>
+              <p className="text-xs opacity-85">Posted 3 days ago</p>
             </div>
           </div>
         </div>
@@ -59,8 +104,8 @@ const JobListingsPage = () => {
   );
 };
 
-export function DropdownMenuRadioGroupDemo() {
-  const [position, setPosition] = React.useState("bottom");
+export function DropdownMenuRadioGroupDemo({ trigger }) {
+  const [workType, setWorkType] = React.useState("bottom");
 
   return (
     <DropdownMenu>
@@ -68,15 +113,19 @@ export function DropdownMenuRadioGroupDemo() {
         asChild
         className="!bg-transparent !border-0 !ring-0 !shadow-none !p-0"
       >
-        <Button variant="outline">Open</Button>
+        <Button
+          variant="outline"
+          className="text-base md:text-lg opacity-85 font-aeoReg"
+        >
+          {trigger} <ChevronDown />
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-          <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
+        <DropdownMenuRadioGroup value={workType} onValueChange={setWorkType}>
+          <DropdownMenuRadioItem value="top">All</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="top">Remote</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="bottom">Hybrid</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="right">On-site</DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
