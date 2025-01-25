@@ -16,7 +16,7 @@ const HireTalentPage = () => {
       </section>
       <Steps />
       {/**Faqs, form */}
-      <CTA />
+      {/* <CTA /> */}
     </main>
   );
 };

@@ -14,7 +14,9 @@ const CTA = ({
     <section className="relative text-white overflow-hidden bg-[#000c28] min-h-[500px] md:min-h-[550px] myFlex justify-center">
       <div className="bg-primary absolute -bottom-[150px] md:-bottom-[220px] left-[50%] -translate-x-[50%] size-[280px] md:size-[450px] rounded-full blur-3xl -z-0" />
       <div className="relative myFlex flex-col gap-y-6 justify-center">
-        <h2 className="font-aeoBold text-center md:max-w-[70%]">{heading}</h2>
+        <h2 className="font-aeoBold text-center max-w-[90%] mx-auto md:max-w-[70%]">
+          {heading}
+        </h2>
         <p className="text-center opacity-90 max-md:max-w-[90%] max-w-[70%]">
           {content}
         </p>
@@ -31,7 +33,7 @@ const CTA = ({
               type="text"
               name=""
               id=""
-              className="bg-transparent pl-6 placeholder:text-black/70"
+              className="bg-transparent pl-6 placeholder:text-black/70 focus:ring-0 focus:outline-none text-black/70 pr-3"
               placeholder={placeholder}
             />
           )}

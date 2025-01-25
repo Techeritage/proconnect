@@ -111,10 +111,11 @@ const BlogPage = () => {
           </div>
         </div>
       </section>
-      <p className="text-center font-aeoReg mt-7 mb-20">Load More</p>
+      <p className="text-center font-aeoReg mt-7 mb-20 underline">Load More</p>
       <CTA
         isBtn={false}
         heading="Stay Updated with the Latest Insights"
+        placeholder="Enter Email Address"
         btnCTA="Subscribe Now"
         content="Never miss an update! Subscribe to our newsletter and get exclusive content, industry insights, and expert tips delivered straight to your inbox."
       />
