@@ -11,14 +11,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogFooter } from "@/components/ui/dialog";
 import {
   Drawer,
   DrawerClose,
@@ -35,10 +28,10 @@ import { MapPin } from "lucide-react";
 export const sortOptions = [{ item: "Date", value: "date" }];
 
 const JobListingsPage = () => {
-  const [isJob, setIsJob] = React.useState(true);
+  const [isJob, setIsJob] = React.useState(false);
   return (
     <main className="!pt-24">
-      <section className="bg-[#01184f] h-[200px] w-full">
+      <section className="bg-[#01184f] h-[200px] w-full sticky top-0 z-50">
         <div className="myContainer">
           <div className="text-white font-aeoReg myFlex gap-1">
             <Link className="opacity-85 hover:opacity-100" href="/">
