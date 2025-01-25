@@ -9,8 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { X } from "lucide-react";
-import { UploadCloud } from "lucide-react";
+import { X, UploadCloud } from "lucide-react";
 
 export const experienceOption = [
   { item: "Entry-Level", value: "Entry-Level" },
@@ -28,36 +27,13 @@ const SubmitCVForm = () => {
     phone: "",
     jobTitle: "",
     experienceLevel: "",
-    cvFile: "",
+    cvFile: null,
   });
 
   const fileInputRef = React.useRef(null);
 
-  // const handleButtonClick = () => {
-  //   if (fileInputRef.current) {
-  //     fileInputRef.current.click();
-  //   }
-  // };
-
-  // const handleFileChange = (e) => {
-  //   const file = e.target.files?.[0];
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       if (typeof reader.result === "string") {
-  //         form.setValue(
-  //           name as Path<TFieldValues>,
-  //           reader.result as PathValue<TFieldValues, Path<TFieldValues>>
-  //         );
-  //       }
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
-
   const handleFormChange = (e) => {
     const { name, value } = e.target;
-
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -65,9 +41,31 @@ const SubmitCVForm = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    console.log(file);
+    if (file) {
+      const allowedFormats = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      ];
+      if (!allowedFormats.includes(file.type)) {
+        alert("Invalid file format. Please upload a PDF or Word document.");
+        return;
+      }
+      setForm((prev) => ({ ...prev, cvFile: file }));
+    }
+  };
+
+  const handleDeleteFile = () => {
+    setForm((prev) => ({ ...prev, cvFile: null }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form);
+    // Add submission logic here (e.g., API call)
   };
 
   return (
@@ -110,6 +108,7 @@ const SubmitCVForm = () => {
               />
             </div>
           </div>
+
           <div className="grid md:grid-cols-2 gap-7 md:gap-3">
             <div className="grid gap-1">
               <label>Job Title</label>
@@ -132,20 +131,15 @@ const SubmitCVForm = () => {
               />
             </div>
           </div>
+
           <div className="grid gap-3">
             <label>Upload CV</label>
             <div className="bg-white h-[180px] ring-1 ring-gray-300 rounded-lg myFlex justify-center">
               {form.cvFile ? (
                 <div className="relative">
-                  <Image
-                    src={form.cvFile}
-                    width={150}
-                    height={150}
-                    alt="Preview"
-                    className="rounded-lg w-[150px] h-[150px] object-cover"
-                  />
+                  <p className="text-sm">{form.cvFile.name}</p>
                   <button
-                    //onClick={handleDeleteImage}
+                    onClick={handleDeleteFile}
                     className="absolute -right-2 -top-2 text-red-500 bg-white rounded-full p-1"
                   >
                     <X strokeWidth={1.2} size={14} />
@@ -153,22 +147,23 @@ const SubmitCVForm = () => {
                 </div>
               ) : (
                 <div
-                  //onClick={handleButtonClick}
-                  className="myFlex flex-col gap-1"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="myFlex flex-col gap-1 cursor-pointer"
                 >
                   <input
                     type="file"
-                    accept="image/*"
+                    accept=".pdf,.doc,.docx"
                     ref={fileInputRef}
-                    //onChange={handleFileChange}
+                    onChange={handleFileChange}
                     className="hidden"
                   />
                   <UploadCloud />
-                  <p className="text-sm">Click to select file</p>
+                  <p className="text-sm font-aeoReg">Click to select file</p>
                 </div>
               )}
             </div>
           </div>
+
           <button className="w-full h-[56px] tracking-wider bg-primary rounded-lg text-white font-aeoBold">
             Submit
           </button>

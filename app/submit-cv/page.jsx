@@ -13,7 +13,7 @@ const SubmitCVPage = () => {
         <p className="md:max-w-[80%] md:leading-[30px] font-aeoReg opacity-85">
           Submit your CV and let top employers discover your talent.{" "}
           <br className="max-md:hidden" /> Fill out the form below to get
-          started!"
+          started!
         </p>
       </section>
       <SubmitCVForm />
