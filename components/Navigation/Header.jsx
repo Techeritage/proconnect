@@ -6,7 +6,7 @@ import Button from "../Button";
 import gsap from "gsap";
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
-import { NavLinks } from "@/constant/NavLinks";
+import { MobileNavLinks, NavLinks } from "@/constant/NavLinks";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { Menu } from "lucide-react";
@@ -116,7 +116,7 @@ const Header = () => {
           )}
         >
           <ul className="grid gap-5">
-            {NavLinks.map(({ title, link }) => (
+            {MobileNavLinks.map(({ title, link }) => (
               <li key={title} className="text-center">
                 <Link
                   onClick={() => setIsNavActive(false)}
