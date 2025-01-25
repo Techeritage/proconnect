@@ -79,6 +79,7 @@ const HireTalentForm = () => {
           <div className="grid gap-1">
             <label>Company Name</label>
             <input
+              className="input"
               type="text"
               name="companyName"
               required
@@ -89,6 +90,7 @@ const HireTalentForm = () => {
           <div className="grid gap-1">
             <label>Fullname</label>
             <input
+              className="input"
               type="text"
               name="contactPerson"
               required
@@ -101,6 +103,7 @@ const HireTalentForm = () => {
           <div className="grid gap-1">
             <label>Email</label>
             <input
+              className="input"
               type="email"
               name="email"
               required
@@ -111,6 +114,7 @@ const HireTalentForm = () => {
           <div className="grid gap-1">
             <label>Phone</label>
             <input
+              className="input"
               type="text"
               name="phone"
               required
@@ -122,6 +126,7 @@ const HireTalentForm = () => {
         <div className="grid gap-1">
           <label>Job Title</label>
           <input
+            className="input"
             type="text"
             name="jobTitle"
             required
@@ -154,12 +159,12 @@ const HireTalentForm = () => {
                 type="text"
                 value={skill}
                 onChange={(e) => handleSkillChange(index, e.target.value)}
-                className="flex-1"
+                className="flex-1 input"
               />
               <button
                 type="button"
                 onClick={() => removeSkill(index)}
-                className="text-red-500"
+                className="text-red-500 w-[10%] myFlex justify-center"
               >
                 <Trash2 size={18} />
               </button>

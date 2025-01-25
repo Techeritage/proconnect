@@ -76,6 +76,7 @@ const SubmitCVForm = () => {
         <div className="grid gap-1">
           <label>Fullname</label>
           <input
+            className="input"
             type="text"
             name="name"
             required
@@ -88,6 +89,7 @@ const SubmitCVForm = () => {
           <div className="grid gap-1">
             <label>Email</label>
             <input
+              className="input"
               type="email"
               name="email"
               required
@@ -98,6 +100,7 @@ const SubmitCVForm = () => {
           <div className="grid gap-1">
             <label>Phone</label>
             <input
+              className="input"
               type="text"
               name="phone"
               required
@@ -110,6 +113,7 @@ const SubmitCVForm = () => {
           <div className="grid gap-1">
             <label>Job Title</label>
             <input
+              className="input"
               type="text"
               name="jobTitle"
               required
@@ -129,7 +133,7 @@ const SubmitCVForm = () => {
         </div>
         <div className="grid gap-3">
           <label>Upload CV</label>
-          <div className="bg-gray-100 h-[180px] rounded-lg myFlex justify-center">
+          <div className="bg-gray-100 h-[180px] ring-1 ring-gray-300 rounded-lg myFlex justify-center">
             {form.cvFile ? (
               <div className="relative">
                 <Image
