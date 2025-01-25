@@ -15,6 +15,7 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -22,20 +23,19 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { SlidersHorizontal } from "lucide-react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { BriefcaseBusiness } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 export const sortOptions = [{ item: "Date", value: "date" }];
 
 const JobListingsPage = () => {
-  const [isJob, setIsJob] = React.useState(false);
+  const [isJob, setIsJob] = React.useState(true);
   return (
     <main className="!pt-24">
       <section className="bg-[#01184f] h-[200px] w-full">
@@ -137,13 +137,46 @@ export function DrawerDialogDemo({ open, setOpen }) {
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you're done.
-            </DialogDescription>
-          </DialogHeader>
+        <DialogContent className="sm:max-w-[425px] max-h-[80dvh]">
+          <div className="overflow-y-scroll no-scrollbar max-h-[80dvh] pb-[100px]">
+            <div className="py-4 pt-7 space-y-1 border-b">
+              <h3 className="font-aeoBold">Frontend Developer</h3>
+              <p className="opacity-85">Spleet Company</p>
+              <p className="opacity-85">Lagos</p>
+            </div>
+            <div className="py-4 border-b">
+              <h4 className="font-aeoBold">Job Details</h4>
+              <div className="flex gap-5 opacity-85 mt-3">
+                <BriefcaseBusiness />
+                <div>
+                  <p className="font-aeoBold mb-1">Job Type</p>
+                  <div className="bg-gray-100 w-fit p-1 text-sm px-2 rounded-md font-aeoBold text-gray-600">
+                    Full time
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="py-4">
+              <h4 className="font-aeoBold">Location</h4>
+              <div className="mt-3 opacity-85 myFlex gap-5">
+                <MapPin />
+                <p>Lagos</p>
+              </div>
+            </div>
+            <div className="py-4">
+              <h4 className="font-aeoBold">Full Job Description</h4>
+              <p className="opacity-85 mt-3">
+                Lagos dgfwe wefgbweg wgfw weigwg weigewg weifigw wig ewigf wifgw
+                fwigewg wgeegnwe wg wegbwoew wow ow wow wowg gwrng wrgrwrowr{" "}
+              </p>
+            </div>
+          </div>
+
+          <DialogFooter className="fixed bottom-0 right-0 left-0 p-2">
+            <Button className="bg-primary hover:text-primary hover:bg-white w-full text-white h-[56px] font-aeoBold">
+              Apply Now
+            </Button>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
     );
@@ -151,23 +184,44 @@ export function DrawerDialogDemo({ open, setOpen }) {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerContent>
-        <DrawerHeader className="text-left border-b">
-          <DrawerTitle>Frontend Developer</DrawerTitle>
-          <DrawerDescription>
-            Spleet Company
-          </DrawerDescription>
-          <DrawerDescription>
-            Lagos
-          </DrawerDescription>
-        </DrawerHeader>
-        <div className="py-3 px-3">
-          
+      <DrawerContent className="px-3 h-[80dvh]">
+        <div className="py-4 pt-7 space-y-1 border-b">
+          <h3 className="font-aeoBold">Frontend Developer</h3>
+          <p className="opacity-85">Spleet Company</p>
+          <p className="opacity-85">Lagos</p>
         </div>
-        
+        <div className="py-4 border-b">
+          <h4 className="font-aeoBold">Job Details</h4>
+          <div className="flex gap-5 opacity-85 mt-3">
+            <BriefcaseBusiness />
+            <div>
+              <p className="font-aeoBold mb-1">Job Type</p>
+              <div className="bg-gray-100 w-fit p-1 text-sm px-2 rounded-md font-aeoBold text-gray-600">
+                Full time
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="py-4">
+          <h4 className="font-aeoBold">Location</h4>
+          <div className="mt-3 opacity-85 myFlex gap-5">
+            <MapPin />
+            <p>Lagos</p>
+          </div>
+        </div>
+        <div className="py-4">
+          <h4 className="font-aeoBold">Full Job Description</h4>
+          <p className="opacity-85 mt-3">
+            Lagos dgfwe wefgbweg wgfw weigwg weigewg weifigw wig ewigf wifgw
+            fwigewg wgeegnwe wg wegbwoew wow ow wow wowg gwrng wrgrwrowr{" "}
+          </p>
+        </div>
+
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
+            <Button className="bg-primary hover:text-primary hover:bg-white text-white h-[56px] font-aeoBold">
+              Apply Now
+            </Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
