@@ -1,15 +1,8 @@
 "use client";
-import * as React from "react";
+
 import { useState } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Trash2 } from "lucide-react";
+import SelectBtn from "../SelectBtn";
 
 export const experienceOption = [
   { item: "Entry-Level", value: "Entry-Level" },
@@ -177,7 +170,7 @@ const HireTalentForm = () => {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div className="grid gap-1">
-              <SelectDemo
+              <SelectBtn
                 name="experienceLevel"
                 handleChange={handleSelectChange}
                 label="Select Experience Level"
@@ -185,7 +178,7 @@ const HireTalentForm = () => {
               />
             </div>
             <div className="grid gap-1">
-              <SelectDemo
+              <SelectBtn
                 label="Select Location"
                 options={locationOption}
                 name="location"
@@ -201,24 +194,5 @@ const HireTalentForm = () => {
     </section>
   );
 };
-
-export function SelectDemo({ label, options, name, handleChange }) {
-  return (
-    <Select name={name} onValueChange={(value) => handleChange(name, value)}>
-      <SelectTrigger className="w-full select">
-        <SelectValue placeholder={label} />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          {options.map((opt, i) => (
-            <SelectItem key={i} value={opt.value}>
-              {opt.item}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-  );
-}
 
 export default HireTalentForm;
