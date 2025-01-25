@@ -1,4 +1,6 @@
 import SubmitCVForm from "@/components/Forms/SubmitCVForm";
+import FAQs from "@/components/sections/FAQs";
+import { SubmitCVFaqs } from "@/constant/SubmitCVFaqs";
 import React from "react";
 
 const SubmitCVPage = () => {
@@ -15,7 +17,7 @@ const SubmitCVPage = () => {
         </p>
       </section>
       <SubmitCVForm />
-      {/* faqs */}
+      <FAQs faqs={SubmitCVFaqs} />
     </main>
   );
 };

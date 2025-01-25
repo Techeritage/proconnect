@@ -71,107 +71,109 @@ const SubmitCVForm = () => {
   };
 
   return (
-    <section className="max-w-3xl mx-auto py-16 px-[3%]">
-      <form className="space-y-7" onSubmit={handleSubmit}>
-        <div className="grid gap-1">
-          <label>Fullname</label>
-          <input
-            className="input"
-            type="text"
-            name="name"
-            required
-            value={form.name}
-            onChange={handleFormChange}
-          />
-        </div>
+    <section className="py-10 bg-bgGray px-[3%]">
+      <div className="max-w-3xl mx-auto">
+        <form className="space-y-7" onSubmit={handleSubmit}>
+          <div className="grid gap-1">
+            <label>Fullname</label>
+            <input
+              className="input"
+              type="text"
+              name="name"
+              required
+              value={form.name}
+              onChange={handleFormChange}
+            />
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-7 md:gap-3">
-          <div className="grid gap-1">
-            <label>Email</label>
-            <input
-              className="input"
-              type="email"
-              name="email"
-              required
-              value={form.email}
-              onChange={handleFormChange}
-            />
+          <div className="grid md:grid-cols-2 gap-7 md:gap-3">
+            <div className="grid gap-1">
+              <label>Email</label>
+              <input
+                className="input"
+                type="email"
+                name="email"
+                required
+                value={form.email}
+                onChange={handleFormChange}
+              />
+            </div>
+            <div className="grid gap-1">
+              <label>Phone</label>
+              <input
+                className="input"
+                type="text"
+                name="phone"
+                required
+                value={form.phone}
+                onChange={handleFormChange}
+              />
+            </div>
           </div>
-          <div className="grid gap-1">
-            <label>Phone</label>
-            <input
-              className="input"
-              type="text"
-              name="phone"
-              required
-              value={form.phone}
-              onChange={handleFormChange}
-            />
+          <div className="grid md:grid-cols-2 gap-7 md:gap-3">
+            <div className="grid gap-1">
+              <label>Job Title</label>
+              <input
+                className="input"
+                type="text"
+                name="jobTitle"
+                required
+                value={form.jobTitle}
+                onChange={handleFormChange}
+              />
+            </div>
+            <div className="grid gap-1">
+              <label>Experience</label>
+              <SelectDemo
+                name="experienceLevel"
+                handleChange={handleSelectChange}
+                label="Select Experience Level"
+                options={experienceOption}
+              />
+            </div>
           </div>
-        </div>
-        <div className="grid md:grid-cols-2 gap-7 md:gap-3">
-          <div className="grid gap-1">
-            <label>Job Title</label>
-            <input
-              className="input"
-              type="text"
-              name="jobTitle"
-              required
-              value={form.jobTitle}
-              onChange={handleFormChange}
-            />
-          </div>
-          <div className="grid gap-1">
-            <label>Experience</label>
-            <SelectDemo
-              name="experienceLevel"
-              handleChange={handleSelectChange}
-              label="Select Experience Level"
-              options={experienceOption}
-            />
-          </div>
-        </div>
-        <div className="grid gap-3">
-          <label>Upload CV</label>
-          <div className="bg-gray-100 h-[180px] ring-1 ring-gray-300 rounded-lg myFlex justify-center">
-            {form.cvFile ? (
-              <div className="relative">
-                <Image
-                  src={form.cvFile}
-                  width={150}
-                  height={150}
-                  alt="Preview"
-                  className="rounded-lg w-[150px] h-[150px] object-cover"
-                />
-                <button
-                  //onClick={handleDeleteImage}
-                  className="absolute -right-2 -top-2 text-red-500 bg-white rounded-full p-1"
+          <div className="grid gap-3">
+            <label>Upload CV</label>
+            <div className="bg-white h-[180px] ring-1 ring-gray-300 rounded-lg myFlex justify-center">
+              {form.cvFile ? (
+                <div className="relative">
+                  <Image
+                    src={form.cvFile}
+                    width={150}
+                    height={150}
+                    alt="Preview"
+                    className="rounded-lg w-[150px] h-[150px] object-cover"
+                  />
+                  <button
+                    //onClick={handleDeleteImage}
+                    className="absolute -right-2 -top-2 text-red-500 bg-white rounded-full p-1"
+                  >
+                    <X strokeWidth={1.2} size={14} />
+                  </button>
+                </div>
+              ) : (
+                <div
+                  //onClick={handleButtonClick}
+                  className="myFlex flex-col gap-1"
                 >
-                  <X strokeWidth={1.2} size={14} />
-                </button>
-              </div>
-            ) : (
-              <div
-                //onClick={handleButtonClick}
-                className="myFlex flex-col gap-1"
-              >
-                <input
-                  type="file"
-                  accept="image/*"
-                  ref={fileInputRef}
-                  //onChange={handleFileChange}
-                  className="hidden"
-                />
-                <UploadCloud />
-                <p className="text-sm">Click to select file</p>
-              </div>
-            )}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    ref={fileInputRef}
+                    //onChange={handleFileChange}
+                    className="hidden"
+                  />
+                  <UploadCloud />
+                  <p className="text-sm">Click to select file</p>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-        <button className="w-full h-[56px] tracking-wider bg-primary rounded-lg text-white font-aeoBold">
-          Submit
-        </button>
-      </form>
+          <button className="w-full h-[56px] tracking-wider bg-primary rounded-lg text-white font-aeoBold">
+            Submit
+          </button>
+        </form>
+      </div>
     </section>
   );
 };

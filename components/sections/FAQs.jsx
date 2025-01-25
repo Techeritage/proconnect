@@ -12,7 +12,7 @@ const FAQs = ({ faqs }) => {
         Got Questions? <br />{" "}
         <span className="opacity-50"> We’ve Got Answers</span>
       </h1>
-      <p className="opacity-85 text-center mt-2 text-sm w-[90%] md:w-[50%] mx-auto">
+      <p className="opacity-95 text-center mt-2 text-sm w-[90%] md:w-[50%] mx-auto">
         Explore common questions from employers and job seekers about
         ProConnect. Need more help? Contact us!
       </p>
@@ -32,7 +32,7 @@ export function AccordionDemo({ faqs }) {
           value={`item-${i + 1}`}
           className="last:border-b-0"
         >
-          <AccordionTrigger className="text-base opacity-85 md:text-lg font-aeoBold">
+          <AccordionTrigger className="text-base py-7 opacity-85 md:text-lg font-aeoBold">
             {faq.question}
           </AccordionTrigger>
           <AccordionContent className="max-w-[80%] text-base tracking-wider">
