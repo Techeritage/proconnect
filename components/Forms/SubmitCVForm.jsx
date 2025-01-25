@@ -147,7 +147,9 @@ const SubmitCVForm = () => {
                       alt="file image"
                       className="h-[130px] object-contain"
                     />
-                    <p className="text-sm font-aeoReg">{form.cvFile.name}</p>
+                    <p className="text-sm font-aeoReg text-center">
+                      {form.cvFile.name}
+                    </p>
                   </div>
 
                   <button
