@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { X, UploadCloud } from "lucide-react";
+import Image from "next/image";
 
 export const experienceOption = [
   { item: "Entry-Level", value: "Entry-Level" },
@@ -42,6 +43,7 @@ const SubmitCVForm = () => {
   };
 
   const handleFileChange = (e) => {
+    console.log(e);
     const file = e.target.files?.[0];
     console.log(file);
     if (file) {
@@ -137,12 +139,22 @@ const SubmitCVForm = () => {
             <div className="bg-white h-[180px] ring-1 ring-gray-300 rounded-lg myFlex justify-center">
               {form.cvFile ? (
                 <div className="relative">
-                  <p className="text-sm">{form.cvFile.name}</p>
+                  <div>
+                    <Image
+                      src="/file.jpg"
+                      width={180}
+                      height={130}
+                      alt="file image"
+                      className="h-[130px] object-contain"
+                    />
+                    <p className="text-sm font-aeoReg">{form.cvFile.name}</p>
+                  </div>
+
                   <button
                     onClick={handleDeleteFile}
-                    className="absolute -right-2 -top-2 text-red-500 bg-white rounded-full p-1"
+                    className="absolute -right-2 -top-2 text-red-500 bg-bgGray border rounded-full p-1"
                   >
-                    <X strokeWidth={1.2} size={14} />
+                    <X strokeWidth={1.2} size={16} />
                   </button>
                 </div>
               ) : (
@@ -158,7 +170,9 @@ const SubmitCVForm = () => {
                     className="hidden"
                   />
                   <UploadCloud />
-                  <p className="text-sm font-aeoReg">Click to select file</p>
+                  <p className="text-sm font-aeoReg">
+                    Click to select file(PDF, DOCX, DOC)
+                  </p>
                 </div>
               )}
             </div>
