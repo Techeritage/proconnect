@@ -1,5 +1,7 @@
 import ContactForm from "@/components/Forms/ContactForm";
+import FAQs from "@/components/sections/FAQs";
 import Map from "@/components/sections/Map";
+import { ContactFaqs } from "@/constant/ContactFaqs";
 import { Ticket } from "lucide-react";
 import { Phone } from "lucide-react";
 import { Landmark } from "lucide-react";
@@ -100,7 +102,7 @@ const ContactPage = () => {
         </div>
       </section>
       <ContactForm />
-      {/* faq */}
+      <FAQs faqs={ContactFaqs} />
       <Map />
     </main>
   );

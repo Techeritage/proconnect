@@ -4,22 +4,38 @@ import * as React from "react";
 import SelectBtn from "@/components/SelectBtn";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+} from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { SlidersHorizontal } from "lucide-react";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export const sortOptions = [{ item: "Date", value: "date" }];
 
 const JobListingsPage = () => {
+  const [isJob, setIsJob] = React.useState(false);
   return (
     <main className="!pt-24">
       <section className="bg-[#01184f] h-[200px] w-full">
@@ -59,48 +75,29 @@ const JobListingsPage = () => {
             <DropdownMenuRadioGroupDemo trigger="Job Type" />
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-14">
-            <div className="bg-white py-5 px-3 rounded-xl border border-gray-200 space-y-4 shadow-sm">
-              <h4 className="text-lg md:text-xl opacity-90 tracking-wider font-aeoBold">
-                Frontend Engineer
-              </h4>
-              <div>
-                <p className="opacity-85">Spleet Company</p>
-                <p className="opacity-85">Lagos</p>
+            {[0, 0, 0].map((_, i) => (
+              <div
+                key={i}
+                onClick={() => setIsJob(!isJob)}
+                className="bg-white py-5 px-3 cursor-pointer rounded-xl border border-gray-200 space-y-4 shadow-sm"
+              >
+                <h4 className="text-lg md:text-xl opacity-90 tracking-wider font-aeoBold">
+                  Frontend Engineer
+                </h4>
+                <div>
+                  <p className="opacity-85">Spleet Company</p>
+                  <p className="opacity-85">Lagos</p>
+                </div>
+                <div className="bg-gray-100 w-fit p-1 text-sm px-2 rounded-md font-aeoBold text-gray-600">
+                  Full time
+                </div>
+                <p className="text-xs opacity-85">Posted 3 days ago</p>
               </div>
-              <div className="bg-gray-100 w-fit p-1 text-sm px-2 rounded-md font-aeoBold text-gray-600">
-                Full time
-              </div>
-              <p className="text-xs opacity-85">Posted 3 days ago</p>
-            </div>
-            <div className="bg-white py-5 px-3 rounded-xl border border-gray-200 space-y-4 shadow-sm">
-              <h4 className="text-lg md:text-xl opacity-90 tracking-wider font-aeoBold">
-                Frontend Engineer
-              </h4>
-              <div>
-                <p className="opacity-85">Spleet Company</p>
-                <p className="opacity-85">Lagos</p>
-              </div>
-              <div className="bg-gray-100 w-fit p-1 text-sm px-2 rounded-md font-aeoBold text-gray-600">
-                Full time
-              </div>
-              <p className="text-xs opacity-85">Posted 3 days ago</p>
-            </div>
-            <div className="bg-white py-5 px-3 rounded-xl border border-gray-200 space-y-4 shadow-sm">
-              <h4 className="text-lg md:text-xl opacity-90 tracking-wider font-aeoBold">
-                Frontend Engineer
-              </h4>
-              <div>
-                <p className="opacity-85">Spleet Company</p>
-                <p className="opacity-85">Lagos</p>
-              </div>
-              <div className="bg-gray-100 w-fit p-1 text-sm px-2 rounded-md font-aeoBold text-gray-600">
-                Full time
-              </div>
-              <p className="text-xs opacity-85">Posted 3 days ago</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+      <DrawerDialogDemo open={isJob} setOpen={setIsJob} />
       {/* faq */}
     </main>
   );
@@ -131,6 +128,43 @@ export function DropdownMenuRadioGroupDemo({ trigger }) {
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
+  );
+}
+
+export function DrawerDialogDemo({ open, setOpen }) {
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+
+  if (isDesktop) {
+    return (
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Edit profile</DialogTitle>
+            <DialogDescription>
+              Make changes to your profile here. Click save when you're done.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  return (
+    <Drawer open={open} onOpenChange={setOpen}>
+      <DrawerContent>
+        <DrawerHeader className="text-left">
+          <DrawerTitle>Edit profile</DrawerTitle>
+          <DrawerDescription>
+            Make changes to your profile here. Click save when you're done.
+          </DrawerDescription>
+        </DrawerHeader>
+        <DrawerFooter className="pt-2">
+          <DrawerClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   );
 }
 
