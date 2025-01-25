@@ -1,3 +1,4 @@
+import SubmitCVForm from "@/components/Forms/SubmitCVForm";
 import React from "react";
 
 const SubmitCVPage = () => {
@@ -13,7 +14,8 @@ const SubmitCVPage = () => {
           started!"
         </p>
       </section>
-      {/**form */}
+      <SubmitCVForm />
+      {/* faqs */}
     </main>
   );
 };

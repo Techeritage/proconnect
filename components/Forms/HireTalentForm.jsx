@@ -73,7 +73,7 @@ const HireTalentForm = () => {
   };
 
   return (
-    <section className="max-w-3xl mx-auto py-16">
+    <section className="max-w-3xl mx-auto py-16 px-[3%]">
       <form className="space-y-7" onSubmit={handleSubmit}>
         <div className="grid md:grid-cols-2 gap-7 md:gap-3">
           <div className="grid gap-1">
