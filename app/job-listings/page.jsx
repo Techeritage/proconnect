@@ -152,12 +152,19 @@ export function DrawerDialogDemo({ open, setOpen }) {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerContent>
-        <DrawerHeader className="text-left">
-          <DrawerTitle>Edit profile</DrawerTitle>
+        <DrawerHeader className="text-left border-b">
+          <DrawerTitle>Frontend Developer</DrawerTitle>
           <DrawerDescription>
-            Make changes to your profile here. Click save when you're done.
+            Spleet Company
+          </DrawerDescription>
+          <DrawerDescription>
+            Lagos
           </DrawerDescription>
         </DrawerHeader>
+        <div className="py-3 px-3">
+          
+        </div>
+        
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Cancel</Button>
