@@ -1,3 +1,4 @@
+import HireTalentForm from "@/components/Forms/HireTalentForm";
 import CTA from "@/components/sections/CTA";
 import Steps from "@/components/Steps";
 import React from "react";
@@ -15,6 +16,7 @@ const HireTalentPage = () => {
         </p>
       </section>
       <Steps />
+      <HireTalentForm />
       {/**Faqs, form */}
       {/* <CTA /> */}
     </main>

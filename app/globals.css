@@ -56,6 +56,15 @@
   p {
     @apply text-base tracking-wider;
   }
+
+  label {
+    @apply font-aeoReg;
+  }
+
+  input,
+  textarea, .select {
+    @apply !bg-bgGray p-3 !border-0 ring-1 ring-gray-300 rounded-lg min-h-[56px] w-full focus:outline-none focus:border-0 focus:ring-primary;
+  }
 }
 
 @layer utilities {
