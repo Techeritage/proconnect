@@ -10,7 +10,7 @@ const ContactPage = () => {
     <main className="pt-20 min-h-dvh">
       <section className="myContainer md:myFlex md:justify-between gap-16">
         <div className="md:basis-[45%] space-y-5">
-          <p className="font-aeoReg border opacity-85 w-fit rounded-full px-3 pt-[2px]">
+          <p className="font-aeoReg border border-gray-200 opacity-85 w-fit rounded-full px-3 pt-[2px]">
             Reach Out To Us
           </p>
           <h2 className="font-aeoBold">Send Us A Message</h2>

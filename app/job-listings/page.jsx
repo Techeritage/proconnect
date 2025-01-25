@@ -15,10 +15,21 @@ const JobListingsPage = () => {
             <p className="">jobs</p>
           </div>
           <div className="mt-8">
-            <input type="text" className="md:w-[50%]" />
-            <button>Search</button>
+            <div className="bg-white p-1 rounded-full md:w-[50%] myFlex">
+              <input
+                type="text"
+                className="input !ring-0 font-aeoReg !rounded-full !px-7 placeholder:text-black/80"
+                placeholder="job title or keyword"
+              />
+              <button className="h-[56px] bg-primary font-aeoReg tracking-wider transition-all duration-300 hover:ring-2 hover:ring-primary hover:bg-white hover:text-primary text-white px-10 rounded-full">
+                Search
+              </button>
+            </div>
           </div>
         </div>
+      </section>
+      <section>
+        
       </section>
       {/* faq */}
     </main>
