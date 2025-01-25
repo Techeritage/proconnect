@@ -71,7 +71,7 @@ const SubmitCVForm = () => {
   };
 
   return (
-    <section className="py-10 bg-bgGray px-[3%]">
+    <section className="py-10 md:py-16 bg-bgGray px-[3%]">
       <div className="max-w-3xl mx-auto">
         <form className="space-y-7" onSubmit={handleSubmit}>
           <div className="grid gap-1">

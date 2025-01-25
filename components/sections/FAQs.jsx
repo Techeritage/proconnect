@@ -13,8 +13,7 @@ const FAQs = ({ faqs }) => {
         <span className="opacity-50"> We’ve Got Answers</span>
       </h1>
       <p className="opacity-95 text-center mt-2 text-sm w-[90%] md:w-[50%] mx-auto">
-        Explore common questions from employers and job seekers about
-        ProConnect. Need more help? Contact us!
+        Discover FAQs for employers and job seekers. Need more help? Contact us!
       </p>
       <div className="max-w-3xl mx-auto mt-20">
         <AccordionDemo faqs={faqs} />
