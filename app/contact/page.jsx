@@ -27,11 +27,11 @@ const ContactPage = () => {
         </div>
         <div className="md:basis-[55%] max-md:mt-14">
           <div className="grid md:grid-cols-2 gap-8 md:gap-5">
-            <div className="bg-gradient-to-br from-gray-100 to-white border border-gray-200 p-3 py-5 rounded-xl">
+            <div className="border border-gray-200 p-3 py-5 rounded-xl">
               <MessageCircleMore
-                className="text-primary mb-4 max-md:mb-8"
+                className="text-white fill-primary mb-4 max-md:mb-8"
                 strokeWidth={1.8}
-                size={24}
+                size={32}
               />
               <div className="space-y-1 mb-4 max-md:mb-7">
                 <p className="text-lg font-aeoBold opacity-90">Live Chat</p>
@@ -39,17 +39,17 @@ const ContactPage = () => {
               </div>
 
               <a
-                className="text-primary w-fit font-aeoReg underline max-md:text-sm"
+                className="opacity-85 w-fit font-aeoReg underline max-md:text-sm"
                 href="mailto:info@officialproconnect.com"
               >
                 info@officialproconnect.com
               </a>
             </div>
-            <div className="bg-gradient-to-br from-gray-100 to-white border border-gray-200 p-3 py-5 rounded-xl">
+            <div className="border border-gray-200 p-3 py-5 rounded-xl">
               <Ticket
-                className="text-primary mb-4 max-md:mb-8"
+                className="text-white fill-primary mb-4 max-md:mb-8"
                 strokeWidth={1.8}
-                size={24}
+                size={32}
               />
               <div className="space-y-1 mb-4">
                 <p className="text-lg font-aeoBold opacity-90">
@@ -57,15 +57,15 @@ const ContactPage = () => {
                 </p>
                 <p className="opacity-85">We're available to help via email</p>
               </div>
-              <a className="text-primary w-fit font-aeoReg underline max-md:text-sm" href="#">
+              <a className="opacity-85 w-fit font-aeoReg underline max-md:text-sm" href="#">
                 send ticket
               </a>
             </div>
-            <div className="bg-gradient-to-br from-gray-100 to-white border border-gray-200 p-3 py-5 rounded-xl">
+            <div className="border border-gray-200 p-3 py-5 rounded-xl">
               <Landmark
-                className="text-primary mb-4 max-md:mb-8"
+                className="fill-primary text-primary mb-4 max-md:mb-8"
                 strokeWidth={1.8}
-                size={24}
+                size={28}
               />
               <div className="space-y-1 mb-4">
                 <p className="text-lg font-aeoBold opacity-90">
@@ -73,15 +73,15 @@ const ContactPage = () => {
                 </p>
                 <p className="opacity-85">Visit our location in real life</p>
               </div>
-              <a className="text-primary w-fit font-aeoReg underline max-md:text-sm" href="#">
+              <a className="opacity-85 w-fit font-aeoReg underline max-md:text-sm" href="#">
                 18, Karimu Street, Surulere
               </a>
             </div>
-            <div className="bg-gradient-to-br from-gray-100 to-white border border-gray-200 p-3 py-5 rounded-xl">
+            <div className="border border-gray-200 p-3 py-5 rounded-xl">
               <Phone
-                className="text-primary mb-4 max-md:mb-8"
+                className="text-white fill-primary mb-4 max-md:mb-8"
                 strokeWidth={1.8}
-                size={24}
+                size={32}
               />
               <div className="space-y-1 mb-4">
                 <p className="text-lg font-aeoBold opacity-90">
@@ -90,7 +90,7 @@ const ContactPage = () => {
                 <p className="opacity-85">Available during working hours</p>
               </div>
               <a
-                className="text-primary w-fit font-aeoReg underline max-md:text-sm"
+                className="opacity-85 w-fit font-aeoReg underline max-md:text-sm"
                 href="tel:+2348024352278"
               >
                 (+234) 802 631 4926
