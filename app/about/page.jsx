@@ -129,7 +129,7 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-      <Stats />
+      <Stats className="!from-bgGray !to-white" />
       <section className="myContainer">
         <h2 className="text-center font-aeoBold">What We Offer</h2>
         <div className="grid md:grid-cols-2 gap-10 mt-10 md:mt-16">

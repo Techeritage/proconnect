@@ -1,9 +1,14 @@
-import React from "react";
 import SpiralCircle from "../SpiralCircle";
+import clsx from "clsx";
 
-const Stats = () => {
+const Stats = ({ className }) => {
   return (
-    <section className="md:myContainer md:!py-20 max-md:bg-gradient-to-b from-white to-bgGray">
+    <section
+      className={clsx(
+        "md:myContainer md:!py-20 max-md:bg-gradient-to-b from-white to-bgGray",
+        className
+      )}
+    >
       <div className="relative stat text-white bg-primary w-full overflow-hidden h-[450px] md:h-[300px] md:rounded-tr-2xl md:rounded-bl-2xl md:rounded-tl-[82px] md:rounded-br-[95px]">
         <SpiralCircle
           dimColor="#023BC6"

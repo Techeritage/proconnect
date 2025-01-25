@@ -16,7 +16,7 @@ const Services = () => {
         </p>
         {/**Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 gap-y-10 mt-16">
-          {ServicesList.map((serv, index) => (
+          {ServicesList.slice(0, 6).map((serv, index) => (
             <div
               key={serv.title}
               //ref={(el) => (cardsRef.current[index] = el)}

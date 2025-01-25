@@ -1,3 +1,4 @@
+import CTA from "@/components/sections/CTA";
 import { Clock } from "lucide-react";
 
 const BlogPage = () => {
@@ -110,8 +111,13 @@ const BlogPage = () => {
           </div>
         </div>
       </section>
-      <p className="text-center font-aeoReg">Load More</p>
-      {/**Subscribe to newsletter */}
+      <p className="text-center font-aeoReg mt-7 mb-20">Load More</p>
+      <CTA
+        isBtn={false}
+        heading="Stay Updated with the Latest Insights"
+        btnCTA="Subscribe Now"
+        content="Never miss an update! Subscribe to our newsletter and get exclusive content, industry insights, and expert tips delivered straight to your inbox."
+      />
     </main>
   );
 };
