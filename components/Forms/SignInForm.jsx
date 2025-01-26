@@ -53,7 +53,7 @@ const SignInForm = () => {
         <div className="mt-12">
           <InputOTPDemo otp={otp} setOtp={setOtp} />
           {error && (
-            <p className="text-red-500 mt-1 text-xs pl-2 md:text-sm">{error}</p>
+            <p className="text-red-500 mt-1 text-xs font-aeoReg pl-2 md:text-sm">{error}</p>
           )}
         </div>
         <Button

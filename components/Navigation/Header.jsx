@@ -64,7 +64,7 @@ const Header = () => {
   return (
     <header
       ref={navContainerRef}
-      className="fixed top-0 left-0 right-0 z-50 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[90px]"
+      className="fixed z-[1000] top-0 left-0 right-0 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[90px]"
     >
       <Link href="/" className="z-[5000]">
         <Image

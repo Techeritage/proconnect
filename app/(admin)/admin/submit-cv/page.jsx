@@ -1,7 +1,7 @@
 import { HireTalentTable } from "@/components/Table/HireTalentTable";
 import { redirect } from "next/navigation";
 
-const HireTalentPage = async ({ searchParams }) => {
+const SubmitCVPage = async ({ searchParams }) => {
   const { signIn } = await searchParams;
 
   if (!signIn || signIn !== "true") {
@@ -11,11 +11,11 @@ const HireTalentPage = async ({ searchParams }) => {
   return (
     <main className="px-[3%] py-20">
       <div className="bg-white p-10 rounded-2xl">
-        <h2 className="font-aeoBold opacity-85 mb-10">Hire Talent Requests</h2>
+        <h2 className="font-aeoBold opacity-85 mb-10">CV Submissions</h2>
         <HireTalentTable />
       </div>
     </main>
   );
 };
 
-export default HireTalentPage;
+export default SubmitCVPage;
