@@ -1,6 +1,6 @@
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import { ServicesList } from "@/constant/ServicesList";
-import { raleway } from "../layout";
+import { raleway } from "../../layout";
 import { CheckCheck } from "lucide-react";
 import Stats from "@/components/sections/Stats";
 import TestimonialsNew from "@/components/sections/TestimonialsNew";

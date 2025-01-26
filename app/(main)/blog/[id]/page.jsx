@@ -1,5 +1,5 @@
-const BlogPostPage = ({ params }) => {
-  const { id } = params;
+const BlogPostPage = async({ params }) => {
+  const { id } = await params;
   const decodedId = decodeURI(id);
   return (
     <main className="min-h-dvh !pt-24">
