@@ -62,7 +62,8 @@
   }
 
   .input,
-  textarea, .select {
+  textarea,
+  .select {
     @apply !bg-white p-3 !border-0 ring-1 ring-gray-300 rounded-lg min-h-[56px] w-full focus:outline-none focus:border-0 focus:ring-primary;
   }
 }
@@ -151,6 +152,35 @@
     stroke: #b3c4ee;
     -webkit-text-fill-color: #02010100;
   }
+}
+
+.tiptap {
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  /* List styles */
+  ul li {
+    list-style-type: disc;
+    margin-left: 1.25rem;
+    p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+  }
+  ol li {
+    list-style-type: decimal;
+    margin-left: 1.25rem;
+    li p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+.custom-text-style {
+  font-size: var(--font-size);
+  line-height: var(--line-height);
 }
 
 @media screen and (max-width: 728px) {
