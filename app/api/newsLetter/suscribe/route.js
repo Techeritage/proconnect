@@ -25,19 +25,20 @@ export async function POST(req) {
             email,
             suscribedAt: new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' })
         })
+
         await suscribeData.save()
         return NextResponse.json({
             data: suscribeData,
-            message: 'you suscribed to our news letter',
+            message: `you subscribed, hooray`,
             status: 201
         })
+
     } catch (error) {
         console.error('internal error:', error.message)
         return NextResponse.json({
             error: error.message,
             message: 'server error',
             status: 500
-        })
-        
+        }) 
     }
 }
