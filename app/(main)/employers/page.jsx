@@ -1,5 +1,8 @@
+import HireTalentForm from "@/components/Forms/HireTalentForm";
 import CTA from "@/components/sections/CTA";
+import FAQs from "@/components/sections/FAQs";
 import Steps from "@/components/Steps";
+import { HireTalentFaqs } from "@/constant/HireTalentFaqs";
 import React from "react";
 
 const HireTalentPage = () => {
@@ -15,8 +18,14 @@ const HireTalentPage = () => {
         </p>
       </section>
       <Steps />
-      {/**Faqs, form */}
-      <CTA />
+      <HireTalentForm />
+      <FAQs faqs={HireTalentFaqs} />
+      <CTA
+        heading="Still Have Questions? We're Here to Help!"
+        content="Contact our team to learn more about how we can support your hiring needs."
+        btnCTA="Speak to Our Team"
+        btnLink="/contact"
+      />
     </main>
   );
 };

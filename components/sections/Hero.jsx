@@ -106,11 +106,11 @@ const Hero = () => {
               <Button
                 cta="Get Started Today"
                 className="bg-primary text-white"
-                link="#"
+                link="/contact"
               />
               <Button
                 cta="Browse Our Services"
-                link="#"
+                link="/services"
                 className="bg-white ring-1 ring-gray-200"
               />
             </div>
@@ -339,7 +339,7 @@ const Hero = () => {
           </div>
         </div>
       </section>
-      <div className="max-xs:pt-[400px] max-md:pt-[300px]" />
+      <div className="max-xs:pt-[400px] max-md:pt-[300px] bg-bgGray" />
     </>
   );
 };

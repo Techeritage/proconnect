@@ -1,7 +1,9 @@
 import CTA from "@/components/sections/CTA";
+import FAQs from "@/components/sections/FAQs";
+import Map from "@/components/sections/Map";
 import Stats from "@/components/sections/Stats";
+import { AboutFaqs } from "@/constant/AboutFaqs";
 import { CheckCheck } from "lucide-react";
-import React from "react";
 
 const AboutPage = () => {
   return (
@@ -93,15 +95,41 @@ const AboutPage = () => {
                 <CheckCheck size={18} className="text-primary min-w-[18px]" />{" "}
                 <span className="tracking-wider">
                   <span className="font-aeoBold">Proven Results:</span> Over
-                  100+ successful hires and counting, with a growing
-                  network of satisfied job seekers and hirers.
+                  100+ successful hires and counting, with a growing network of
+                  satisfied job seekers and hirers.
                 </span>
               </li>
             </ul>
           </div>
         </div>
       </section>
-      <Stats />
+      <section className="bg-bgGray">
+        <div className="myContainer">
+          <div className="pb-10 border-b-2 border-black">
+            <h2 className="font-aeoBold">
+              Meet our <br /> amazing team
+            </h2>
+          </div>
+          <div className="mt-16 grid md:grid-cols-3 gap-7 max-w-[1440px] mx-auto">
+            <div className="space-y-2">
+              <div className="bg-gray-200 rounded-xl h-[300px]" />
+              <p className="font-aeoBold text-xl">Mrs. Kelechi</p>
+              <p className="max-md:text-sm">Founder & CEO</p>
+            </div>
+            <div className="space-y-2">
+              <div className="bg-gray-200 rounded-xl h-[300px]" />
+              <p className="font-aeoBold text-xl">Mrs. Kelechi</p>
+              <p className="max-md:text-sm">Founder & CEO</p>
+            </div>
+            <div className="space-y-2">
+              <div className="bg-gray-200 rounded-xl h-[300px]" />
+              <p className="font-aeoBold text-xl">Mrs. Kelechi</p>
+              <p className="max-md:text-sm">Founder & CEO</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Stats className="!from-bgGray !to-white" />
       <section className="myContainer">
         <h2 className="text-center font-aeoBold">What We Offer</h2>
         <div className="grid md:grid-cols-2 gap-10 mt-10 md:mt-16">
@@ -176,32 +204,9 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-      <section className="bg-bgGray myContainer">
-        <div className="pb-10 border-b-2 border-black">
-          <h2 className="font-aeoBold">
-            Meet our <br /> amazing team
-          </h2>
-        </div>
-        <div className="mt-16 grid md:grid-cols-3 gap-7 max-w-[1440px] mx-auto">
-          <div className="space-y-2">
-            <div className="bg-gray-200 rounded-xl h-[300px]" />
-            <p className="font-aeoBold text-xl">Mrs. Kelechi</p>
-            <p>Founder & CEO</p>
-          </div>
-          <div className="space-y-2">
-            <div className="bg-gray-200 rounded-xl h-[300px]" />
-            <p className="font-aeoBold text-xl">Mrs. Kelechi</p>
-            <p>Founder & CEO</p>
-          </div>
-          <div className="space-y-2">
-            <div className="bg-gray-200 rounded-xl h-[300px]" />
-            <p className="font-aeoBold text-xl">Mrs. Kelechi</p>
-            <p>Founder & CEO</p>
-          </div>
-        </div>
-      </section>
+      <FAQs faqs={AboutFaqs} />
       <CTA />
-      {/*faqs, contact, map*/}
+      <Map />
     </main>
   );
 };

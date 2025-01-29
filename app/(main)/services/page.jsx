@@ -1,7 +1,12 @@
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import { ServicesList } from "@/constant/ServicesList";
-import { raleway } from "../layout";
+import { raleway } from "../../layout";
 import { CheckCheck } from "lucide-react";
+import Stats from "@/components/sections/Stats";
+import TestimonialsNew from "@/components/sections/TestimonialsNew";
+import FAQs from "@/components/sections/FAQs";
+import { ServicesFaqs } from "@/constant/ServicesFaqs";
+import CTA from "@/components/sections/CTA";
 
 const ServicePage = () => {
   return (
@@ -51,6 +56,15 @@ const ServicePage = () => {
         </div>
       </section>
       <WhyChooseUs />
+      <Stats />
+      <TestimonialsNew />
+      <FAQs faqs={ServicesFaqs} />
+      <CTA
+        heading="Ready to Elevate Your Business?"
+        content="Our team is here to help you achieve your goals. Let’s discuss how our tailored services can bridge the gap between talent and opportunity, driving your success."
+        btnCTA="Get Started Today"
+        btnLink="/contact"
+      />
     </main>
   );
 };

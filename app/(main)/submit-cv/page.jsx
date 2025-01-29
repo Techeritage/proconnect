@@ -1,3 +1,6 @@
+import SubmitCVForm from "@/components/Forms/SubmitCVForm";
+import FAQs from "@/components/sections/FAQs";
+import { SubmitCVFaqs } from "@/constant/SubmitCVFaqs";
 import React from "react";
 
 const SubmitCVPage = () => {
@@ -10,10 +13,11 @@ const SubmitCVPage = () => {
         <p className="md:max-w-[80%] md:leading-[30px] font-aeoReg opacity-85">
           Submit your CV and let top employers discover your talent.{" "}
           <br className="max-md:hidden" /> Fill out the form below to get
-          started!"
+          started!
         </p>
       </section>
-      {/**form */}
+      <SubmitCVForm />
+      <FAQs faqs={SubmitCVFaqs} />
     </main>
   );
 };

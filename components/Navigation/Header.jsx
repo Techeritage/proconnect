@@ -6,7 +6,7 @@ import Button from "../Button";
 import gsap from "gsap";
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
-import { NavLinks } from "@/constant/NavLinks";
+import { MobileNavLinks, NavLinks } from "@/constant/NavLinks";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { Menu } from "lucide-react";
@@ -64,7 +64,7 @@ const Header = () => {
   return (
     <header
       ref={navContainerRef}
-      className="fixed top-0 left-0 right-0 z-50 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[90px]"
+      className="fixed z-[1000] top-0 left-0 right-0 px-[3%] lg:px-[5%] border-none transition-all duration-700 myFlex justify-between h-[90px]"
     >
       <Link href="/" className="z-[5000]">
         <Image
@@ -93,9 +93,9 @@ const Header = () => {
         </ul>
       </nav>
       <Button
-        cta="Get Started Today"
+        cta="Contact Us"
         className="bg-primary text-white max-md:hidden"
-        link="#"
+        link="/contact"
       />
       <button
         className="z-[5000] md:hidden transition-all duration-300"
@@ -116,7 +116,7 @@ const Header = () => {
           )}
         >
           <ul className="grid gap-5">
-            {NavLinks.map(({ title, link }) => (
+            {MobileNavLinks.map(({ title, link }) => (
               <li key={title} className="text-center">
                 <Link
                   onClick={() => setIsNavActive(false)}
