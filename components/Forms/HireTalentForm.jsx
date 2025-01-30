@@ -76,7 +76,6 @@ const HireTalentForm = () => {
                 className="input"
                 type="text"
                 name="companyName"
-                required
                 value={form.companyName}
                 onChange={handleFormChange}
               />
