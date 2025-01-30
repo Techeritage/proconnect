@@ -6,8 +6,6 @@ import Underline from "@tiptap/extension-underline";
 import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
 import TextAlign from "@tiptap/extension-text-align";
-import ListItem from "@tiptap/extension-list-item";
-import Heading from "@tiptap/extension-heading";
 import TextStyle from "@tiptap/extension-text-style";
 import { Color } from "@tiptap/extension-color";
 import { FontFamily } from "@tiptap/extension-font-family";
@@ -156,7 +154,7 @@ const Toolbar = ({ editor }) => {
           editor.chain().focus().setFontSize(value).run();
         }}
       >
-        <SelectTrigger className="w-[100px]">
+        <SelectTrigger className="w-[100px] bg-white shadow-none">
           <SelectValue placeholder="Font size" />
         </SelectTrigger>
         <SelectContent>
@@ -174,7 +172,7 @@ const Toolbar = ({ editor }) => {
           editor.chain().focus().setLineHeight(lineHeight).run();
         }}
       >
-        <SelectTrigger className="w-[100px]">
+        <SelectTrigger className="w-[100px] bg-white shadow-none">
           <SelectValue placeholder="Line height" />
         </SelectTrigger>
         <SelectContent>
@@ -201,11 +199,6 @@ const Editor = ({ content, onChange }) => {
       TextAlign.configure({
         types: ["heading", "paragraph"],
       }),
-      ListItem,
-      Heading.configure({
-        levels: [1, 2, 3],
-      }),
-      TextStyle,
       Color,
       FontFamily,
       FontSize,
@@ -217,6 +210,7 @@ const Editor = ({ content, onChange }) => {
         },
       }),
     ],
+    immediatelyRender: false,
     content,
     onUpdate: ({ editor }) => {
       onChange?.(editor.getHTML());
@@ -230,11 +224,11 @@ const Editor = ({ content, onChange }) => {
   });
 
   return (
-    <div className="border rounded-md shadow-md">
+    <div className="border border-gray-300 rounded-md">
       <Toolbar editor={editor} />
       <EditorContent
         editor={editor}
-        className="p-4 min-h-[200px] focus:outline-none focus:ring-0 tiptap prose max-w-none"
+        className="p-4 min-h-[400px] bg-white rounded-br-md rounded-bl-md focus:outline-none focus:ring-0 tiptap prose max-w-none"
       />
     </div>
   );

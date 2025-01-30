@@ -1,30 +1,6 @@
 "use client";
 import * as React from "react";
 import { useState } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Trash2 } from "lucide-react";
-
-export const experienceOption = [
-  { item: "Entry-Level", value: "Entry-Level" },
-  { item: "Mid-Career", value: "Mid-Career" },
-  { item: "Experienced", value: "Experienced" },
-  { item: "Senior-Level", value: "Senior-Level" },
-  { item: "3-5 years", value: "3-5" },
-  { item: "5+ years", value: "5+" },
-];
-
-export const locationOption = [
-  { item: "Remote", value: "Remote" },
-  { item: "On-site", value: "On-site" },
-  { item: "Hybrid", value: "Hybrid" },
-];
 
 const ContactForm = () => {
   const [form, setForm] = useState({
@@ -38,28 +14,6 @@ const ContactForm = () => {
     const { name, value } = e.target;
 
     setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSelectChange = (name, value) => {
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSkillChange = (index, value) => {
-    const updatedSkills = [...form.requiredSkills];
-    updatedSkills[index] = value;
-    setForm((prev) => ({ ...prev, requiredSkills: updatedSkills }));
-  };
-
-  const addSkill = () => {
-    setForm((prev) => ({
-      ...prev,
-      requiredSkills: [...prev.requiredSkills, ""],
-    }));
-  };
-
-  const removeSkill = (index) => {
-    const updatedSkills = form.requiredSkills.filter((_, i) => i !== index);
-    setForm((prev) => ({ ...prev, requiredSkills: updatedSkills }));
   };
 
   const handleSubmit = (e) => {

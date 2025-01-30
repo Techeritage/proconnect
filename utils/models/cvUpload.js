@@ -40,4 +40,3 @@ const cvSchema = new mongoose.Schema({
 const cvUpload = mongoose.models.cvUpload || mongoose.model('cvUpload', cvSchema);
 
 export default cvUpload;
-
