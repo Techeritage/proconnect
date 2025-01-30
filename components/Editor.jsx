@@ -56,6 +56,7 @@ const Toolbar = ({ editor }) => {
     <div className="flex flex-wrap gap-2 p-2 border-b bg-gray-100 rounded-t-md">
       <div className="flex gap-1">
         <Button
+          type="button"
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().toggleBold().run()}
@@ -64,6 +65,7 @@ const Toolbar = ({ editor }) => {
           <Bold size={16} />
         </Button>
         <Button
+          type="button"
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().toggleItalic().run()}
@@ -72,6 +74,7 @@ const Toolbar = ({ editor }) => {
           <Italic size={16} />
         </Button>
         <Button
+          type="button"
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().toggleUnderline().run()}
@@ -84,6 +87,7 @@ const Toolbar = ({ editor }) => {
       <div className="flex gap-1">
         {[1, 2, 3].map((level) => (
           <Button
+            type="button"
             key={level}
             variant="ghost"
             size="sm"
@@ -101,6 +105,7 @@ const Toolbar = ({ editor }) => {
 
       <div className="flex gap-1">
         <Button
+          type="button"
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().setTextAlign("left").run()}
@@ -111,6 +116,7 @@ const Toolbar = ({ editor }) => {
           <AlignLeft size={16} />
         </Button>
         <Button
+          type="button"
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().setTextAlign("center").run()}
@@ -121,6 +127,7 @@ const Toolbar = ({ editor }) => {
           <AlignCenter size={16} />
         </Button>
         <Button
+          type="button"
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().setTextAlign("right").run()}
@@ -133,13 +140,14 @@ const Toolbar = ({ editor }) => {
       </div>
 
       <div className="flex gap-1">
-        <Button variant="ghost" size="sm" onClick={addImage}>
+        <Button type="button" variant="ghost" size="sm" onClick={addImage}>
           <ImageIcon size={16} />
         </Button>
-        <Button variant="ghost" size="sm" onClick={addLink}>
+        <Button type="button" variant="ghost" size="sm" onClick={addLink}>
           <LinkIcon size={16} />
         </Button>
         <Button
+          type="button"
           variant="ghost"
           size="sm"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
