@@ -3,7 +3,7 @@ import React from "react";
 
 const AdminLayout = ({ children }) => {
   return (
-    <div className="bg-bgGray h-dvh">
+    <div className="h-dvh">
       <SideNav />
       <main className="pl-[300px]">{children}</main>
     </div>

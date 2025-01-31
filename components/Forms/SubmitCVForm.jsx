@@ -139,15 +139,15 @@ const SubmitCVForm = () => {
             <div className="bg-white h-[180px] ring-1 ring-gray-300 rounded-lg myFlex justify-center">
               {form.cvFile ? (
                 <div className="relative">
-                  <div>
+                  <div className="max-w-[200px] mx-auto">
                     <Image
                       src="/file.jpg"
                       width={180}
                       height={130}
                       alt="file image"
-                      className="h-[130px] object-contain"
+                      className="h-[130px] mx-auto object-contain"
                     />
-                    <p className="text-sm font-aeoReg text-center">
+                    <p className="text-sm truncate font-aeoReg text-center">
                       {form.cvFile.name}
                     </p>
                   </div>

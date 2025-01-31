@@ -9,7 +9,7 @@ const HireTalentPage = async ({ searchParams }) => {
   }
 
   return (
-    <main className="px-[3%] py-20">
+    <main className="px-[3%] py-20 bg-bgGray min-h-dvh">
       <div className="bg-white p-10 rounded-2xl">
         <h2 className="font-aeoBold opacity-85 mb-10">Hire Talent Requests</h2>
         <HireTalentTable />

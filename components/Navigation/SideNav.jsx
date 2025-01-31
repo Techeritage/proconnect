@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 
 const SideNav = () => {
   const pathName = usePathname();
-  console.log(pathName);
   return (
     <aside className="fixed top-0 bottom-0 left-0 w-[300px] bg-white px-3">
       <div className="pt-2 border-b">
