@@ -12,17 +12,12 @@ const blogSchema = await new mongoose.Schema({
         required: true
     },
 
-    blogImage: {
+    thumbNail: {
         type: String,
         required: true
     },
 
-    blogPhoto: {
-        type: String,
-        required: true
-    },
-
-    blogAuthor: {
+    excerpt: {
         type: String,
         required: true
     },

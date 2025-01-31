@@ -5,9 +5,9 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
     try {
 
-        const { blogTitle, blogBody, blogImage, blogPhoto, blogAuthor, blogReadTime } = await req.json();
+        const { blogTitle, blogBody, thumbNail, excerpt, blogReadTime } = await req.json();
 
-        if(!blogTitle || !blogBody || !blogImage || !blogPhoto || !blogAuthor || !blogReadTime){
+        if(!blogTitle || !blogBody || !thumbNail || !excerpt || !blogReadTime){
             return NextResponse.json({
                 message: 'provide all fields',
                 status:400
@@ -19,10 +19,9 @@ export async function POST(req) {
         const newBlog = new blog({
             blogTitle, 
             blogBody, 
-            blogImage, 
-            blogPhoto, 
-            blogAuthor, 
+            thumbNail, 
             blogReadTime,
+            excerpt,
             createdAt: new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' }) 
         })
 

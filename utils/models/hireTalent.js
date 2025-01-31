@@ -4,7 +4,6 @@ const hireTalentSchema = new mongoose.Schema({
 
     companyName : {
         type: String,
-        required: true,
     },
 
     fullName: {
@@ -34,17 +33,14 @@ const hireTalentSchema = new mongoose.Schema({
 
     requiredSkills: {
         type: [String],
-        required: true
     },
 
     experience: {
         type: String,
-        required: true
     },
 
     location: {
         type: String,
-        required: true
     },
 
     status: {
