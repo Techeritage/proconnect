@@ -76,14 +76,14 @@ const Header = () => {
         />
       </Link>
       <nav className="max-md:hidden">
-        <ul className="myFlex justify-between space-x-7 text-sm">
+        <ul className="myFlex justify-between space-x-1 text-sm">
           {NavLinks.map(({ title, link }) => (
             <li key={title}>
               <Link
                 href={link}
                 className={clsx(
                   "nav-hover-btn",
-                  pathName === link && "text-base font-aeoReg"
+                  pathName === link && "text-base font-semibold"
                 )}
               >
                 {title}
@@ -94,7 +94,7 @@ const Header = () => {
       </nav>
       <Button
         cta="Contact Us"
-        className="bg-primary text-white max-md:hidden"
+        className="bg-primary text-white max-md:hidden !px-7"
         link="/contact"
       />
       <button

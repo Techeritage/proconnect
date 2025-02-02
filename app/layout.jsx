@@ -1,5 +1,4 @@
-import "../public/Aeonik/stylesheet.css";
-import { Raleway } from "next/font/google";
+import { DM_Sans, Raleway } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
@@ -8,6 +7,10 @@ export const metadata = {
     "ProConnect connects employers with top talent and helps job seekers find their dream jobs. Explore our recruitment services and industry insights today.",
 };
 
+export const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 export const raleway = Raleway({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -16,7 +19,7 @@ export const raleway = Raleway({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="font-aeoLight antialiased">{children}</body>
+      <body className={`${dmSans.className} antialiased`}>{children}</body>
     </html>
   );
 }

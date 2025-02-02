@@ -58,11 +58,6 @@ export default {
           5: "hsl(var(--chart-5))",
         },
       },
-      fontFamily: {
-        aeoBold: ["Aeonik-Bold", "sans-serif"],
-        aeoReg: ["Aeonik-Regular", "sans-serif"],
-        aeoLight: ["Aeonik-Light", "sans-serif"],
-      },
       backgroundImage: {
         service: "linear-gradient(180deg, #e6ebf9 0%, #FFFFFF 100%);",
         wavy: "url('/wavy.svg')",
