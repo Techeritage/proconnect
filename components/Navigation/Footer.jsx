@@ -14,8 +14,17 @@ import Confetti from "react-confetti";
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const { email, setEmail, isLoading, error, success, handleSubmit } =
-    useFormSubmission();
+  const { formData, handleChange, handleSubmit, isLoading, error, success } =
+    useFormSubmission({
+      endpoint: "/api/newsLetter/suscribe",
+      defaultValues: { email: "" },
+      validate: (data) => {
+        if (!data.email || !data.email.includes("@")) {
+          return "Please enter a valid email address.";
+        }
+        return null;
+      },
+    });
   const [showConfetti, setShowConfetti] = useState(false);
   const [windowSize, setWindowSize] = useState({
     width: 0,
@@ -96,8 +105,9 @@ const Footer = () => {
               <input
                 type="email"
                 id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 required
                 placeholder="Enter your email address"
                 className="w-full focus:outline-none placeholder:text-sm placeholder:text-black/80"

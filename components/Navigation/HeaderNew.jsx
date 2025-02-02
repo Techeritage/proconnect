@@ -80,7 +80,7 @@ const HeaderNew = () => {
             <Image
               src="/logo998.png"
               width={70}
-              height={100}
+              height={70}
               alt="office"
               className="object-contain max-md:w-[80px] mt-3 ml-4"
             />
@@ -88,7 +88,7 @@ const HeaderNew = () => {
             <Image
               src="/logo998.png"
               width={70}
-              height={100}
+              height={70}
               alt="office"
               className="object-contain max-md:w-[80px] mt-3 ml-4"
             />
@@ -96,7 +96,7 @@ const HeaderNew = () => {
             <Image
               src="/logoo2.png"
               width={130}
-              height={100}
+              height={70}
               alt="office"
               className="object-contain max-md:w-[120px]"
             />
@@ -110,7 +110,8 @@ const HeaderNew = () => {
                   href={link}
                   className={clsx(
                     "nav-hover-btn",
-                    pathName === link && "text-base font-semibold"
+                    pathName === link && "text-base font-semibold",
+                    isNavVisible2 && "text-black"
                   )}
                 >
                   {title}

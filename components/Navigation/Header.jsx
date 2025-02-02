@@ -70,7 +70,7 @@ const Header = () => {
         <Image
           src="/logo.png"
           width={90}
-          height={100}
+          height={90}
           alt="office"
           className="object-contain max-md:w-[80px] -mb-7"
         />

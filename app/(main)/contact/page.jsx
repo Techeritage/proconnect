@@ -59,7 +59,10 @@ const ContactPage = () => {
                 </p>
                 <p className="opacity-85">We're available to help via email</p>
               </div>
-              <a className="opacity-85 w-fit font-aeoReg underline max-md:text-sm" href="#">
+              <a
+                className="opacity-85 w-fit font-aeoReg underline max-md:text-sm"
+                href="#form"
+              >
                 send ticket
               </a>
             </div>
@@ -75,7 +78,10 @@ const ContactPage = () => {
                 </p>
                 <p className="opacity-85">Visit our location in real life</p>
               </div>
-              <a className="opacity-85 w-fit font-aeoReg underline max-md:text-sm" href="#">
+              <a
+                className="opacity-85 w-fit font-aeoReg underline max-md:text-sm"
+                href="#"
+              >
                 18, Karimu Street, Surulere
               </a>
             </div>
@@ -101,7 +107,10 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-      <ContactForm />
+      <div id="form">
+        <ContactForm />
+      </div>
+
       <FAQs faqs={ContactFaqs} />
       <Map />
     </main>
