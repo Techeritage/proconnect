@@ -138,7 +138,7 @@
   }
 
   .floating-nav {
-    @apply bg-black;
+    @apply bg-white;
   }
 
   .nav-hover-btn {

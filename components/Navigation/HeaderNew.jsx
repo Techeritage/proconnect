@@ -71,6 +71,7 @@ const HeaderNew = () => {
         ref={innerContainerRef}
         className="w-full glassmorphism h-[65px] rounded-full myFlex justify-between px-2 max-lg:pr-3"
       >
+        {is}
         <Link href="/" className="z-[5000]">
           <Image
             src="/logoo2.png"
