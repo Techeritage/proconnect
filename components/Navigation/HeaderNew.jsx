@@ -64,9 +64,9 @@ const HeaderNew = () => {
   return (
     <header
       ref={navContainerRef}
-      className="fixed top-0 left-0 right-0 z-[1000] pt-3 px-[3%] md:px-[5%] transition-all duration-700"
+      className="fixed top-0 left-0 right-0 z-[1000] pt-3 px-[3%] lg:px-[5%] transition-all duration-700"
     >
-      <div className="w-full glassmorphism h-[65px] rounded-full myFlex justify-between px-2 max-md:pr-3">
+      <div className="w-full glassmorphism h-[65px] rounded-full myFlex justify-between px-2 max-lg:pr-3">
         <Link href="/" className="z-[5000]">
           <Image
             src="/logoo2.png"
@@ -95,72 +95,78 @@ const HeaderNew = () => {
         </nav>
         <Button
           cta="Contact Us"
-          className="bg-primary text-white max-md:hidden !px-7"
+          className="bg-primary text-white max-lg:hidden !px-7"
           link="/contact"
         />
         <button
-          className="z-[5000] lg:hidden transition-all duration-300"
+          className="z-[5000] lg:hidden"
           onClick={() => setIsNavActive(!isNavActive)}
         >
-          {isNavActive ? (
-            <X strokeWidth={1.7} size={32} />
-          ) : (
-            <Menu strokeWidth={1.7} size={32} />
-          )}
+          <Menu strokeWidth={1.7} size={32} />
         </button>
-
-        {menuVisible && (
-          <nav
-            className={clsx(
-              "fixed top-0 myFlex justify-center z-[1000] h-dvh bottom-0 right-0 left-0 bg-bgGray",
-              isNavActive ? "animate-slide-in" : "animate-slide-out"
-            )}
-          >
-            <ul className="grid gap-5">
-              {MobileNavLinks.map(({ title, link }) => (
-                <li key={title} className="text-center">
-                  <Link
-                    onClick={() => setIsNavActive(false)}
-                    href={link}
-                    className={clsx(
-                      "nav-hover-btn !ml-0 text-3xl font-aeoReg",
-                      pathName === link && "text-primary !font-aeoBold"
-                    )}
-                  >
-                    {title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="myFlex absolute bottom-10 gap-4 opacity-85">
-              <a
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:scale-105 transition-all duration-300"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:scale-105 transition-all duration-300"
-              >
-                <Facebook size={24} />
-              </a>
-              <a
-                href="http://"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:scale-105 transition-all duration-300"
-              >
-                <Instagram size={24} />
-              </a>
-            </div>
-          </nav>
-        )}
       </div>
+      {menuVisible && (
+        <nav
+          className={clsx(
+            "fixed top-0 myFlex justify-center z-[1000] h-dvh text-black bottom-0 right-0 left-0 bg-white",
+            isNavActive ? "animate-slide-in" : "animate-slide-out"
+          )}
+        >
+          <button
+            className="z-[5000] absolute right-9 top-9 lg:hidden"
+            onClick={() => setIsNavActive(!isNavActive)}
+          >
+            <X
+              strokeWidth={1.7}
+              size={32}
+              color="#000"
+              className="!text-black"
+            />
+          </button>
+          <ul className="grid gap-5">
+            {MobileNavLinks.map(({ title, link }) => (
+              <li key={title} className="text-center">
+                <Link
+                  onClick={() => setIsNavActive(false)}
+                  href={link}
+                  className={clsx(
+                    "nav-hover-btn !ml-0 text-3xl font-aeoReg",
+                    pathName === link && "text-primary !font-aeoBold"
+                  )}
+                >
+                  {title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="myFlex absolute bottom-10 gap-4 opacity-85">
+            <a
+              href="http://"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-105 transition-all duration-300"
+            >
+              <Linkedin size={24} />
+            </a>
+            <a
+              href="http://"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-105 transition-all duration-300"
+            >
+              <Facebook size={24} />
+            </a>
+            <a
+              href="http://"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-105 transition-all duration-300"
+            >
+              <Instagram size={24} />
+            </a>
+          </div>
+        </nav>
+      )}
     </header>
   );
 };
