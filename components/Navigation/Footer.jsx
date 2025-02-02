@@ -60,11 +60,19 @@ const Footer = () => {
           width={windowSize.width}
           height={windowSize.height}
           recycle={false} // Stop after one burst
-          numberOfPieces={300} // Adjust confetti pieces
-          run={showConfetti}
+          numberOfPieces={150} // Moderate confetti for a pop effect
+          gravity={0.8} // Slower falling speed for smoother burst
+          initialVelocityY={15} // Controlled upward burst
+          angle={90} // Shoot straight up
+          spread={120} // Wide burst spread like champagne pop
+          origin={{
+            x: 0.5, // Center horizontally
+            y: (scrollY + windowSize.height / 2) / windowSize.height,
+          }} // Adjust based on current scroll position
           style={{ position: "fixed", top: 0, left: 0, bottom: 0, right: 0 }}
         />
       )}
+
       <div className="flex lg:items-end max-lg:flex-col gap-7 justify-between pb-12 border-b">
         <div>
           <h4 className="text-lg md:text-2xl">
