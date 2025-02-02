@@ -22,6 +22,7 @@ const HeaderNew = () => {
 
   const { y: currentScrollY } = useWindowScroll();
   const [isNavVisible, setIsNavVisible] = useState(true);
+  const [isNavVisible2, setIsNavVisible2] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavActive, setIsNavActive] = useState(false);
@@ -40,14 +41,17 @@ const HeaderNew = () => {
   useEffect(() => {
     if (currentScrollY === 0) {
       // Topmost position: show navbar without floating-nav
+      setIsNavVisible2(false);
       setIsNavVisible(true);
       innerContainerRef.current.classList.remove("floating-nav");
     } else if (currentScrollY > lastScrollY) {
       // Scrolling down: hide navbar and apply floating-nav
+      setIsNavVisible2(false);
       setIsNavVisible(false);
       innerContainerRef.current.classList.add("floating-nav");
     } else if (currentScrollY < lastScrollY) {
       // Scrolling up: show navbar with floating-nav
+      setIsNavVisible2(true);
       setIsNavVisible(true);
       innerContainerRef.current.classList.add("floating-nav");
     }
@@ -71,14 +75,24 @@ const HeaderNew = () => {
         ref={innerContainerRef}
         className="w-full glassmorphism h-[65px] rounded-full myFlex justify-between px-2 max-lg:pr-3"
       >
-        <Link href="/" className="z-[5000]">
-          <Image
-            src="/logoo2.png"
-            width={130}
-            height={100}
-            alt="office"
-            className="object-contain max-md:w-[120px]"
-          />
+        <Link href="/" className="z-[5000] transition-all duration-300">
+          {isNavVisible2 ? (
+            <Image
+              src="/logo.png"
+              width={70}
+              height={100}
+              alt="office"
+              className="object-contain max-md:w-[80px] mt-3 ml-4"
+            />
+          ) : (
+            <Image
+              src="/logoo2.png"
+              width={130}
+              height={100}
+              alt="office"
+              className="object-contain max-md:w-[120px]"
+            />
+          )}
         </Link>
         <nav className="max-lg:hidden">
           <ul className="myFlex justify-between space-x-1 text-sm">
@@ -106,7 +120,11 @@ const HeaderNew = () => {
           className="z-[5000] lg:hidden"
           onClick={() => setIsNavActive(!isNavActive)}
         >
-          <Menu strokeWidth={1.7} size={32} />
+          <Menu
+            strokeWidth={1.7}
+            size={32}
+            className={`${isNavVisible2 && "text-black"}`}
+          />
         </button>
       </div>
       {menuVisible && (

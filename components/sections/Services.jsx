@@ -7,11 +7,11 @@ const Services = () => {
   return (
     <section className="bg-bgGray">
       <div className="myContainer">
-        <h2 className="font-aeoBold">
+        <h2 className="font-semibold">
           Services Tailored <br /> to Your Needs
         </h2>
         <p className="opacity-85 mt-2 text-sm w-[90%]">
-          From finding top talent to simplifying recruitment, <br /> ProConnect
+          From finding top talent to simplifying recruitment, <br className="max-md:hidden" /> ProConnect
           offers a range of services designed to empower your business.
         </p>
         {/**Services Grid */}
@@ -31,7 +31,7 @@ const Services = () => {
                   className={`${raleway.className} font-bold lineText opacity-50 !text-6xl absolute right-0 top-[50%] translate-y-[-50%]`}
                 >{`0${index + 1}`}</h1>
               </div>
-              <p className="text-base md:text-lg font-aeoBold max-w-[80%]">
+              <p className="text-base md:text-lg font-semibold max-w-[80%]">
                 {serv.title}
               </p>
               <p className="max-w-[85%] opacity-90">{serv.description}</p>
