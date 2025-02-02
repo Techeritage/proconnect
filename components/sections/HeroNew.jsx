@@ -44,7 +44,7 @@ const HeroNew = () => {
 
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-7 md:gap-8 text-white bg-black/60 z-40 px-4">
-        <h1 className="text-center font-medium">
+        <h1 className="text-center">
           Empowering Talent. <br />
           <span>Building Exceptional Teams.</span>
         </h1>
