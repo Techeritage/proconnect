@@ -48,7 +48,7 @@ const Footer = () => {
   useEffect(() => {
     if (success) {
       setShowConfetti(true);
-      const timer = setTimeout(() => setShowConfetti(false), 10000);
+      const timer = setTimeout(() => setShowConfetti(false), 3000);
       return () => clearTimeout(timer);
     }
   }, [success]);
@@ -106,7 +106,7 @@ const Footer = () => {
                 )}
               </button>
             </div>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p style={{ color: "red", fontSize: "14px" }}>{error}</p>}
             {success && (
               <p style={{ color: "green" }}>Form submitted successfully!</p>
             )}
