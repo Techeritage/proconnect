@@ -42,7 +42,7 @@
   }
 
   h2 {
-    @apply text-3xl md:text-5xl md:leading-[64.8px];
+    @apply text-3xl md:text-5xl md:leading-[64.8px] font-semibold;
   }
 
   h3 {
