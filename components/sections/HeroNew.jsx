@@ -26,7 +26,7 @@ const HeroNew = () => {
       {/* Mobile Video */}
       <video
         autoPlay
-        src="/hero99.mp4"
+        src="/hero77.mp4"
         loop
         muted
         //onLoadedData={handleVideoLoad}
