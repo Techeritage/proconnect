@@ -17,6 +17,7 @@ import { Instagram } from "lucide-react";
 
 const HeaderNew = () => {
   const navContainerRef = useRef(null);
+  const innerContainerRef = useRef(null);
   const pathName = usePathname();
 
   const { y: currentScrollY } = useWindowScroll();
@@ -40,15 +41,15 @@ const HeaderNew = () => {
     if (currentScrollY === 0) {
       // Topmost position: show navbar without floating-nav
       setIsNavVisible(true);
-      //navContainerRef.current.classList.remove("floating-nav");
+      innerContainerRef.current.classList.remove("floating-nav");
     } else if (currentScrollY > lastScrollY) {
       // Scrolling down: hide navbar and apply floating-nav
       setIsNavVisible(false);
-      //navContainerRef.current.classList.add("floating-nav");
+      innerContainerRef.current.classList.add("floating-nav");
     } else if (currentScrollY < lastScrollY) {
       // Scrolling up: show navbar with floating-nav
       setIsNavVisible(true);
-      //navContainerRef.current.classList.add("floating-nav");
+      innerContainerRef.current.classList.add("floating-nav");
     }
 
     setLastScrollY(currentScrollY);
@@ -66,7 +67,10 @@ const HeaderNew = () => {
       ref={navContainerRef}
       className="fixed top-0 left-0 right-0 z-[1000] pt-3 px-[3%] lg:px-[5%] transition-all duration-700"
     >
-      <div className="w-full glassmorphism h-[65px] rounded-full myFlex justify-between px-2 max-lg:pr-3">
+      <div
+        ref={innerContainerRef}
+        className="w-full glassmorphism h-[65px] rounded-full myFlex justify-between px-2 max-lg:pr-3"
+      >
         <Link href="/" className="z-[5000]">
           <Image
             src="/logoo2.png"
