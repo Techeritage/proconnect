@@ -69,7 +69,7 @@ const HeaderNew = () => {
   return (
     <header
       ref={navContainerRef}
-      className="fixed top-0 left-0 right-0 z-[1000] pt-3 px-[3%] lg:px-[5%] transition-all duration-700"
+      className="fixed top-0 left-0 right-0 z-[1000] pt-3 px-[3%] lg:px-[5%] transition-all duration-300"
     >
       <div
         ref={innerContainerRef}
@@ -77,6 +77,14 @@ const HeaderNew = () => {
       >
         <Link href="/" className="z-[5000] transition-all duration-300">
           {isNavVisible2 ? (
+            <Image
+              src="/logo998.png"
+              width={70}
+              height={100}
+              alt="office"
+              className="object-contain max-md:w-[80px] mt-3 ml-4"
+            />
+          ) : !isNavVisible2 && pathName !== "/" ? (
             <Image
               src="/logo998.png"
               width={70}
@@ -123,7 +131,7 @@ const HeaderNew = () => {
           <Menu
             strokeWidth={1.7}
             size={32}
-            className={`${isNavVisible2 && "text-black"}`}
+            className={`${(isNavVisible2 || pathName !== "/") && "text-black"}`}
           />
         </button>
       </div>
