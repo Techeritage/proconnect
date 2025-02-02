@@ -7,9 +7,12 @@ import { Facebook } from "lucide-react";
 import { Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [isLoading, setLoading] = useState("");
   return (
     <footer className="myContainer !pb-0">
       <div className="flex lg:items-end max-lg:flex-col gap-7 justify-between pb-12 border-b">
@@ -46,7 +49,7 @@ const Footer = () => {
       </div>
       <div className="lg:flex border-b w-full pt-10 md:py-12">
         <div className="md:basis-[35%]">
-          <Image src="/logo.png" width={100} height={100} alt="office" />
+          <Image src="/logo998.png" width={100} height={100} alt="office" />
           <p className="opacity-85 -mt-3 -ml-1 md:max-w-[80%] md:font-aeoReg">
             ProConnect offers seamless recruitment solutions tailored to your
             business. We connect you with top professionals to achieve your

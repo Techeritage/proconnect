@@ -78,7 +78,7 @@ const HeaderNew = () => {
         <Link href="/" className="z-[5000] transition-all duration-300">
           {isNavVisible2 ? (
             <Image
-              src="/logo.png"
+              src="/logo998.png"
               width={70}
               height={100}
               alt="office"
