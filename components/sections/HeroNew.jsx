@@ -12,7 +12,7 @@ const HeroNew = () => {
   return (
     <section className="relative min-h-screen overflow-hidden">
       {/* Desktop Video */}
-      <video
+      {/* <video
         autoPlay
         src="/hero.mp4"
         loop
@@ -21,12 +21,12 @@ const HeroNew = () => {
         playsInline
         preload="auto"
         className="absolute max-md:hidden inset-0 w-full h-full object-cover object-center"
-      />
+      /> */}
 
       {/* Mobile Video */}
       <video
         autoPlay
-        src="/hero77.mp4"
+        src="/hero99.mp4"
         loop
         muted
         onLoadedData={handleVideoLoad}
