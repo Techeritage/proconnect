@@ -1,5 +1,5 @@
 import connectDb from "@/utils/config/db";
-import blog from "@/utils/models/blog";
+import postJobs from '@/utils/models/jobs';
 import { NextResponse } from "next/server";
 
 export async function PUT(req, {params}) {
@@ -8,34 +8,40 @@ export async function PUT(req, {params}) {
         await connectDb();
 
         const { id } = await params;
-        const blogPost = await blog.findById(id);
+        const jobPost = await postJobs.findById(id);
 
-        if(!blogPost){
+        if(!jobPost){
             return NextResponse.json({
                 message: "cant find post you want to update",
                 status: 404
             })
         }
 
-        const { blogTitle, blogBody, excerpt,  thumbNail, blogReadTime } = await req.json();
+        const { companyName,
+            jobTitle, 
+            jobDescription, 
+            requiredSkills, 
+            experience, 
+            location } = await req.json();
 
         const updatedData = {
-            blogTitle: blogTitle || blogPost.blogTitle,
-            blogBody: blogBody || blogPost.blogBody,
-            thumbNail: thumbNail || blogPost.thumbNail,
-            excerpt: excerpt || blogPost.excerpt,
-            blogReadTime: blogReadTime || blogPost.blogReadTime,
+            companyName: companyName || jobPost.companyName,
+            jobTitle:  jobTitle || jobPost. jobTitle,
+            jobDescription:  jobDescription|| jobPost. jobDescription,
+            requiredSkills: requiredSkills || jobPost.requiredSkills,
+            experience: experience || jobPost.experience,
+            location: location || jobPost.location,
             updatedAt: new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' }) 
         }
 
-        const updatedBlog = await blog.findByIdAndUpdate(
+        const updatedJob = await postJobs.findByIdAndUpdate(
             id, 
             updatedData, 
             {new: true, runValidators: true});
 
             return NextResponse.json({
                 message: "you updated a blog Post",
-                data: updatedBlog,
+                data: updatedJob,
                 status: 201
             })
     } catch (error) {

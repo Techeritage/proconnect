@@ -8,25 +8,18 @@ export async function POST(req) {
     try {
 
         const { 
-            companyName, 
             fullName, 
             email, 
             phone, 
             jobTitle, 
-            jobDescription, 
-            requiredSkills, 
-            experience, 
-            location} = await req.json()
+            jobDescription
+          } = await req.json()
 
-            if(!companyName || 
-                !fullName ||
+            if( !fullName ||
                 !email ||
                 !phone ||
                 !jobTitle ||
-                !jobDescription ||
-                !requiredSkills ||
-                !experience ||
-                !location
+                !jobDescription 
             ) {
                 return NextResponse.json({
                     message: 'fill all available fields',
@@ -36,16 +29,12 @@ export async function POST(req) {
 
             await connectDb();
 
-            const hireData = new hireTalent({
-            companyName, 
+            const hireData = new hireTalent({ 
             fullName, 
             email, 
             phone, 
             jobTitle, 
             jobDescription, 
-            requiredSkills, 
-            experience, 
-            location,
             createdAt: new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' })
             })
 

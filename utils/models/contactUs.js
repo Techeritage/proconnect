@@ -17,6 +17,12 @@ const contactSchema = new mongoose.Schema({
         required: true,
     },
 
+    status: {
+        type: String,
+        enum: ['Pending', 'Resolved', 'Cancel'],
+        default: 'Pending'
+    },
+
     messageUs: {
         type: String,
         required: true
@@ -24,8 +30,11 @@ const contactSchema = new mongoose.Schema({
 
     createdAt: {
         type: String
-    }
+    },  
 
+    updatedAt: {
+        type: String
+    }
 })
 
 const contactUs = mongoose.models.contactUs || mongoose.model('contactUs', contactSchema)
