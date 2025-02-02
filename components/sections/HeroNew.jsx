@@ -33,7 +33,7 @@ const HeroNew = () => {
           Empowering Talent. <br />
           <span>Building Exceptional Teams.</span>
         </h1>
-        <p className="opacity-80 max-w-[90%] lg:max-w-[60%] mx-auto text-center md:text-lg">
+        <p className="opacity-80 max-w-[98%] md:max-w-[60%] mx-auto text-center md:text-lg">
           At ProConnect, we don’t just connect you with top talent—we help
           nurture it. From skill development and leadership training to seamless
           recruitment solutions, we fuel your business growth with people who

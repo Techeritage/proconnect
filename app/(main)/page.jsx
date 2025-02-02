@@ -12,7 +12,7 @@ import { CommonFaqs } from "@/constant/CommonFaqs";
 
 const HomePage = () => {
   return (
-    <main className="overflow-hidden">
+    <main>
       {/* <Hero /> */}
       <HeroNew />
       <WhyChooseUs />

@@ -1,20 +1,70 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { FooterLinks } from "@/constant/FooterLinks";
+import useFormSubmission from "@/hooks/useFormSubmission";
 import { Send2 } from "iconsax-react";
+import { Loader2 } from "lucide-react";
 import { Instagram } from "lucide-react";
 import { Facebook } from "lucide-react";
 import { Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import Confetti from "react-confetti";
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const [email, setEmail] = useState("");
-  const [isLoading, setLoading] = useState("");
+  const { email, setEmail, isLoading, error, success, handleSubmit } =
+    useFormSubmission();
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [windowSize, setWindowSize] = useState({
+    width: 0,
+    height: 0,
+  });
+  const [scrollY, setScrollY] = useState(0);
+
+  // Update window size and scroll position
+  useEffect(() => {
+    const updateWindowSize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+      setScrollY(window.scrollY); // Track scroll position
+    };
+
+    window.addEventListener("resize", updateWindowSize);
+    window.addEventListener("scroll", updateWindowSize);
+
+    updateWindowSize(); // Initial call
+
+    return () => {
+      window.removeEventListener("resize", updateWindowSize);
+      window.removeEventListener("scroll", updateWindowSize);
+    };
+  }, []);
+
+  // Show confetti on form success
+  useEffect(() => {
+    if (success) {
+      setShowConfetti(true);
+      const timer = setTimeout(() => setShowConfetti(false), 10000);
+      return () => clearTimeout(timer);
+    }
+  }, [success]);
   return (
-    <footer className="myContainer !pb-0">
+    <footer className="myContainer !pb-0" style={{ position: "relative" }}>
+      {/* Confetti with dynamic scroll position */}
+      {showConfetti && (
+        <Confetti
+          width={windowSize.width}
+          height={windowSize.height}
+          recycle={false} // Stop after one burst
+          numberOfPieces={300} // Adjust confetti pieces
+          run={showConfetti}
+          style={{ position: "fixed", top: 0, left: 0, bottom: 0, right: 0 }}
+        />
+      )}
       <div className="flex lg:items-end max-lg:flex-col gap-7 justify-between pb-12 border-b">
         <div>
           <h4 className="text-lg md:text-2xl">
@@ -30,21 +80,37 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          <div>
-            <label className="text-sm max-lg:hidden">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email" className="text-sm max-lg:hidden">
               Sign up for our <span className="font-semibold">Newsletter</span>{" "}
             </label>
             <div className="w-[300px] lg:mt-2 h-[50px] pl-3 pr-1 myFlex gap-3 justify-between rounded-[14px] border border-primary border-black">
               <input
-                type="text"
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 placeholder="Enter your email address"
                 className="w-full focus:outline-none placeholder:text-sm placeholder:text-black/80"
               />
-              <button className="bg-primary p-2 rounded-xl myFlex justify-between">
-                <Send2 size="24" color="#ffffff" variant="Bold" />
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="bg-primary p-2 rounded-xl myFlex justify-between"
+              >
+                {isLoading ? (
+                  <Loader2 size="24" className="animate-spin" color="#ffffff" />
+                ) : (
+                  <Send2 size="24" color="#ffffff" variant="Bold" />
+                )}
               </button>
             </div>
-          </div>
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            {success && (
+              <p style={{ color: "green" }}>Form submitted successfully!</p>
+            )}
+          </form>
         </div>
       </div>
       <div className="lg:flex border-b w-full pt-10 md:py-12">

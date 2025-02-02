@@ -14,7 +14,7 @@ const useFormSubmission = () => {
     setSuccess(false);
 
     try {
-      const response = await fetch("/api/newsletter", {
+      const response = await fetch("/api/newsLetter/suscribe", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,6 +27,7 @@ const useFormSubmission = () => {
       }
 
       const data = await response.json();
+      setEmail("");
       setSuccess(true); // Set success state
       console.log("Form submitted successfully:", data);
     } catch (err) {
