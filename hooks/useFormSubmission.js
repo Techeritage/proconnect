@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "@/firebaseConfig";
 
 const useFormSubmission = (config) => {
   const { endpoint, defaultValues, validate } = config;
@@ -9,7 +11,7 @@ const useFormSubmission = (config) => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
-  // Handle input changes (for both regular inputs and select inputs)
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -26,11 +28,45 @@ const useFormSubmission = (config) => {
     }));
   };
 
+  // Handle file changes
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setFormData((prev) => ({
+        ...prev,
+        cv: file,
+      }));
+    }
+  };
+
+  // Handle file deletion
+  const handleDeleteFile = () => {
+    setFormData((prev) => ({
+      ...prev,
+      cv: null,
+    }));
+  };
+
+  // Upload file to Firebase Storage
+  const uploadFileToFirebase = async (file) => {
+    if (!file) return null;
+
+    try {
+      const storageRef = ref(storage, `uploads/${Date.now()}_${file.name}`);
+      await uploadBytes(storageRef, file);
+      const downloadURL = await getDownloadURL(storageRef);
+      return downloadURL;
+    } catch (err) {
+      console.error("File upload error:", err);
+      throw err;
+    }
+  };
+
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate form data (if validation function is provided)
+    // Validate form data
     if (validate) {
       const validationError = validate(formData);
       if (validationError) {
@@ -44,26 +80,39 @@ const useFormSubmission = (config) => {
     setSuccess(false);
 
     try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to submit form");
+      // Upload CV file to Firebase Storage
+      let cvUrl = null;
+      if (formData.cv) {
+        cvUrl = await uploadFileToFirebase(formData.cv);
       }
 
-      const data = await response.json();
-      setSuccess(true); // Set success state
-      console.log("Form submitted successfully:", data);
+      // Prepare submission data
+      const submissionData = {
+        ...formData,
+        cv: cvUrl,
+      };
+
+      if (endpoint) {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(submissionData),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to submit form");
+        }
+      }
+
+      setSuccess(true);
+      console.log("Form submitted successfully");
     } catch (err) {
-      setError(err.message); // Set error state
+      setError(err.message);
       console.error("Form submission error:", err);
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false);
     }
   };
 
@@ -78,6 +127,8 @@ const useFormSubmission = (config) => {
     formData,
     handleChange,
     handleSelectChange,
+    handleFileChange,
+    handleDeleteFile,
     handleSubmit,
     isLoading,
     error,

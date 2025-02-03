@@ -111,7 +111,7 @@ const HeaderNew = () => {
                   className={clsx(
                     "nav-hover-btn",
                     pathName === link && "text-base font-semibold",
-                    isNavVisible2 && "text-black"
+                    (isNavVisible2 || pathName !== "/") && "!text-black"
                   )}
                 >
                   {title}
