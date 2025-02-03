@@ -1,5 +1,6 @@
 import { DM_Sans, Raleway } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "ProConnect - Your Recruitment Partner",
@@ -19,7 +20,10 @@ export const raleway = Raleway({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${dmSans.className} antialiased`}>{children}</body>
+      <body className={`${dmSans.className} antialiased`}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

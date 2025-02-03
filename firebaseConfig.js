@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCKKbmFg79OmoqUPbd3up6SkqkCVo5kAys",
-  authDomain: "proconnect-732e6.firebaseapp.com",
-  projectId: "proconnect-732e6",
-  storageBucket: "proconnect-732e6.firebasestorage.app",
-  messagingSenderId: "1003356482600",
-  appId: "1:1003356482600:web:2979f5d8f3d83ed6a6591d",
-  measurementId: "G-G4P0E3RSRY",
+  apiKey: "AIzaSyDV9hOhNhjPCpNOUpFupIXUAJUcSd_buiA",
+  authDomain: "e-commerce-2a028.firebaseapp.com",
+  projectId: "e-commerce-2a028",
+  storageBucket: "e-commerce-2a028.appspot.com",
+  messagingSenderId: "613739816489",
+  appId: "1:613739816489:web:21088f031a9b525f98de38",
+  measurementId: "G-8DHN4TYPLL"
 };
 
 const app = initializeApp(firebaseConfig);

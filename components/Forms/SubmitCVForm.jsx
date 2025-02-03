@@ -32,7 +32,6 @@ const SubmitCVForm = () => {
     handleSubmit,
     isLoading,
     error,
-    success,
   } = useFormSubmission({
     endpoint: "/api/hireTalent/cvUpload/upload",
     defaultValues: {
@@ -50,7 +49,8 @@ const SubmitCVForm = () => {
         !data.email ||
         !data.phone ||
         !data.jobTitle ||
-        !data.experience
+        !data.experience ||
+        !data.cv
       ) {
         return "All fields are required.";
       }
@@ -182,10 +182,7 @@ const SubmitCVForm = () => {
             {isLoading ? "Submitting..." : "Submit"}
           </button>
 
-          {error && <p className="text-red-500">{error}</p>}
-          {success && (
-            <p className="text-green-500">Form submitted successfully!</p>
-          )}
+          {error && <p className="text-red-500 text-sm">{error}</p>}
         </form>
       </div>
     </section>
@@ -194,10 +191,7 @@ const SubmitCVForm = () => {
 
 export function SelectDemo({ label, options, name, handleChange }) {
   return (
-    <Select
-      name={name}
-      onValueChange={(value) => handleChange(name, value)}
-    >
+    <Select name={name} onValueChange={(value) => handleChange(name, value)}>
       <SelectTrigger className="w-full select">
         <SelectValue placeholder={label} />
       </SelectTrigger>

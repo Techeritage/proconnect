@@ -9,7 +9,6 @@ const ContactForm = () => {
     handleSubmit,
     isLoading,
     error,
-    success,
   } = useFormSubmission({
     endpoint: "/api/contactUs/reachOut", // Replace with your API endpoint
     defaultValues: {
@@ -91,9 +90,6 @@ const ContactForm = () => {
           </button>
 
           {error && <p className="text-red-500">{error}</p>}
-          {success && (
-            <p className="text-green-500">Form submitted successfully!</p>
-          )}
         </form>
       </div>
     </section>

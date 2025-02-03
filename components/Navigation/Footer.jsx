@@ -62,7 +62,7 @@ const Footer = () => {
     }
   }, [success]);
   return (
-    <footer className="myContainer !pb-0" style={{ position: "relative" }}>
+    <footer className="myContainer border-t !pb-0" style={{ position: "relative" }}>
       {/* Confetti with dynamic scroll position */}
       {showConfetti && (
         <Confetti
@@ -125,9 +125,6 @@ const Footer = () => {
               </button>
             </div>
             {error && <p style={{ color: "red", fontSize: "14px" }}>{error}</p>}
-            {success && (
-              <p style={{ color: "green" }}>Form submitted successfully!</p>
-            )}
           </form>
         </div>
       </div>

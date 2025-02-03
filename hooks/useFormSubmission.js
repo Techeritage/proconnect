@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "@/firebaseConfig";
+import toast from "react-hot-toast";
 
 const useFormSubmission = (config) => {
   const { endpoint, defaultValues, validate } = config;
@@ -49,17 +50,24 @@ const useFormSubmission = (config) => {
 
   // Upload file to Firebase Storage
   const uploadFileToFirebase = async (file) => {
-    if (!file) return null;
+    if (!file) return { url: null, error: "No file provided" }; // Or just return null
 
     try {
-      const storageRef = ref(storage, `uploads/${Date.now()}_${file.name}`);
+      const timestamp = Date.now(); // Milliseconds since epoch (more unique)
+      const storageRef = ref(storage, `cv/${file.name}_${timestamp}`); // Append timestamp to filename
       await uploadBytes(storageRef, file);
       const downloadURL = await getDownloadURL(storageRef);
-      return downloadURL;
+      return { url: downloadURL, error: null }; // Return object
     } catch (err) {
       console.error("File upload error:", err);
-      throw err;
+      return { url: null, error: err.message }; // Return object with error message
     }
+  };
+
+  // Reset form
+  const resetForm = () => {
+    setFormData(defaultValues || {});
+    setError(null);
   };
 
   // Handle form submission
@@ -83,7 +91,12 @@ const useFormSubmission = (config) => {
       // Upload CV file to Firebase Storage
       let cvUrl = null;
       if (formData.cv) {
-        cvUrl = await uploadFileToFirebase(formData.cv);
+        const uploadResult = await uploadFileToFirebase(formData.cv);
+        if (uploadResult.error) {
+          // Check for the error
+          throw new Error(`File upload failed: ${uploadResult.error}`); // Or handle differently
+        }
+        cvUrl = uploadResult.url; // Access the URL if no error
       }
 
       // Prepare submission data
@@ -107,20 +120,14 @@ const useFormSubmission = (config) => {
       }
 
       setSuccess(true);
-      console.log("Form submitted successfully");
+      toast.success("Form submitted successfully");
+      resetForm();
     } catch (err) {
       setError(err.message);
       console.error("Form submission error:", err);
     } finally {
       setLoading(false);
     }
-  };
-
-  // Reset form
-  const resetForm = () => {
-    setFormData(defaultValues || {});
-    setSuccess(false);
-    setError(null);
   };
 
   return {
