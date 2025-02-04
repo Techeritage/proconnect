@@ -6,10 +6,10 @@ const Blog = () => {
   return (
     <section className="bg-bgGray">
       <div className="myContainer">
-        <h1 className="max-w-[90%]">
+        <h2 className="max-w-[90%] font-semibold">
           Insights and Inspiration <br className="max-md:hidden" /> for Smarter
           Hiring
-        </h1>
+        </h2>
         <p className="opacity-85 mt-2 text-sm w-[90%]">
           Explore expert tips, trends, and insights to elevate your hiring
           strategies.
@@ -17,7 +17,7 @@ const Blog = () => {
         <div className="mt-10 md:mt-16 max-md:myFlex max-md:gap-4 max-md:overflow-x-scroll max-md:no-scrollbar md:grid gap-x-7 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           <div className="border border-gray-300 bg-white max-md:min-w-[330px] max-md:max-w-[330px] rounded-2xl p-2">
             <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
-            <h4 className="text-base md:text-lg font-aeoBold mt-2">
+            <h4 className="text-base md:text-lg font-semibold mt-2">
               5 Proven Strategies to Attract Top Talent in 2024
             </h4>
             <p className="line-clamp-2 mt-2">
@@ -31,7 +31,7 @@ const Blog = () => {
           </div>
           <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
             <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
-            <h4 className="text-base md:text-lg font-aeoBold mt-2">
+            <h4 className="text-base md:text-lg font-semibold mt-2">
               5 Proven Strategies to Attract Top Talent in 2024
             </h4>
             <p className="line-clamp-2 mt-2">
@@ -45,7 +45,7 @@ const Blog = () => {
           </div>
           <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
             <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
-            <h4 className="text-base md:text-lg font-aeoBold mt-2">
+            <h4 className="text-base md:text-lg font-semibold mt-2">
               5 Proven Strategies to Attract Top Talent in 2024
             </h4>
             <p className="line-clamp-2 mt-2">
@@ -59,7 +59,7 @@ const Blog = () => {
           </div>
           <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
             <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
-            <h4 className="text-base md:text-lg font-aeoBold mt-2">
+            <h4 className="text-base md:text-lg font-semibold mt-2">
               5 Proven Strategies to Attract Top Talent in 2024
             </h4>
             <p className="line-clamp-2 mt-2">
@@ -73,7 +73,7 @@ const Blog = () => {
           </div>
           <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
             <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
-            <h4 className="text-base md:text-lg font-aeoBold mt-2">
+            <h4 className="text-base md:text-lg font-semibold mt-2">
               5 Proven Strategies to Attract Top Talent in 2024
             </h4>
             <p className="line-clamp-2 mt-2">
@@ -87,7 +87,7 @@ const Blog = () => {
           </div>
           <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
             <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
-            <h4 className="text-base md:text-lg font-aeoBold mt-2">
+            <h4 className="text-base md:text-lg font-semibold mt-2">
               5 Proven Strategies to Attract Top Talent in 2024
             </h4>
             <p className="line-clamp-2 mt-2">
@@ -101,7 +101,7 @@ const Blog = () => {
           </div>
           <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
             <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
-            <h4 className="text-base md:text-lg font-aeoBold mt-2">
+            <h4 className="text-base md:text-lg font-semibold mt-2">
               5 Proven Strategies to Attract Top Talent in 2024
             </h4>
             <p className="line-clamp-2 mt-2">
@@ -115,7 +115,7 @@ const Blog = () => {
           </div>
           <div className="border border-gray-300 bg-white rounded-2xl p-2 max-md:min-w-[330px] max-md:max-w-[330px]">
             <div className="bg-gray-100 h-[250px] w-full rounded-[8px]" />
-            <h4 className="text-base md:text-lg font-aeoBold mt-2">
+            <h4 className="text-base md:text-lg font-semibold mt-2">
               5 Proven Strategies to Attract Top Talent in 2024
             </h4>
             <p className="line-clamp-2 mt-2">

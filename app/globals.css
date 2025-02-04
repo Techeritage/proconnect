@@ -38,11 +38,11 @@
   }
 
   h1 {
-    @apply text-4xl md:text-5xl md:leading-[57.6px] lg:text-[56px] font-aeoBold;
+    @apply text-[40px] max-md:leading-[50px] md:text-5xl lg:leading-[67px] lg:text-[63px] font-medium;
   }
 
   h2 {
-    @apply text-3xl md:text-5xl md:leading-[64.8px];
+    @apply text-3xl md:text-5xl md:leading-[64.8px] font-semibold;
   }
 
   h3 {
@@ -58,7 +58,6 @@
   }
 
   label {
-    @apply font-aeoReg;
   }
 
   .input,
@@ -77,6 +76,15 @@
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Glassmorphism div styling */
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    color: #fff; /* White text */
   }
 
   /* Hide scrollbar for IE, Edge and Firefox */
@@ -129,9 +137,9 @@
     clip-path: polygon(5% 0, 100% 0, 100% 72%, 94% 100%, 0 100%, 0 30%);
   }
 
-  .floating-nav {
+  /* .floating-nav {
     @apply bg-white;
-  }
+  } */
 
   .nav-hover-btn {
     @apply relative ms-10 after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-custom-ease hover:after:origin-bottom-left hover:after:scale-x-100 cursor-pointer;

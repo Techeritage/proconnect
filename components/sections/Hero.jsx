@@ -87,38 +87,40 @@ const Hero = () => {
 
   return (
     <>
-      <section className="bg-bgGray pt-24 relative min-h-[100dvh] w-[100vw]">
+      <section className="pt-24 relative min-h-[100dvh] w-[100vw]">
         {/** Hero Container */}
         <div className="myFlex myContainer max-md:flex-col">
           {/** Hero Content */}
-          <div className="basis-1/2 space-y-7 check">
+          <div className="basis-1/2 check">
             <h1 className="opacity-0 translate-y-4">
-              Discover Top Talent, <br /> Build Exceptional <br /> Teams.
+              Empowering Talent. <br />{" "}
+              <span className="">Building Exceptional Teams.</span>
             </h1>
-            <div className="opacity-0 translate-y-4">
-              <p className="opacity-85 max-w-[80%]">
-                ProConnect offers seamless recruitment solutions tailored to
-                your business. We connect you with top professionals to achieve
-                your goals faster.
+            <div className="opacity-0 translate-y-6 mt-4">
+              <p className="opacity-95 max-w-[85%]">
+                At ProConnect, we don’t just connect you with top talent—we help
+                nurture it. From skill development and leadership training to
+                seamless recruitment solutions, we fuel your business growth
+                with people who thrive.
               </p>
             </div>
-            <div className="myFlex max-md:flex-col max-md:!items-start max-md:gap-y-5 md:space-x-4 opacity-0 translate-y-4">
+            <div className="myFlex mt-12 max-md:flex-col max-md:!items-start max-md:gap-y-5 md:space-x-4 opacity-0 translate-y-4">
               <Button
-                cta="Get Started Today"
-                className="bg-primary text-white"
+                cta="Get Started"
+                className="bg-primary text-white !px-10"
                 link="/contact"
               />
               <Button
-                cta="Browse Our Services"
+                cta="Explore Our Services"
                 link="/services"
                 className="bg-white ring-1 ring-gray-200"
               />
             </div>
-            <div className="myFlex max-md:!items-start max-md:gap-y-7 gap-10 max-md:flex-col md:pt-7 opacity-0 translate-y-4">
+            <div className="myFlex max-md:!items-start max-md:gap-y-7 gap-10 max-md:flex-col md:mt-10 opacity-0 translate-y-4">
               <div className="myFlex space-x-3">
                 <Briefcase color="#023BC6" size={28} variant="Bold" />
                 <div className="space-y-[2px]">
-                  <p className="font-aeoBold text-sm">Streamlined Hiring</p>
+                  <p className="font-semibold text-sm">Streamlined Hiring</p>
                   <p className="opacity-85 text-sm whitespace-nowrap">
                     Simplify your recruitment process.
                   </p>
@@ -127,16 +129,18 @@ const Hero = () => {
               <div className="myFlex space-x-3">
                 <MedalStar color="#023BC6" size={28} variant="Bold" />
                 <div className="space-y-[2px]">
-                  <p className="font-aeoBold text-sm">Exceptional Talent</p>
+                  <p className="font-aeoBold text-sm">
+                    Talent Growth & Excellence
+                  </p>
                   <p className="opacity-85 text-sm whitespace-nowrap">
-                    Find the best fit for your team.
+                    Nurture skills through training & assessments.
                   </p>
                 </div>
               </div>
             </div>
           </div>
           {/** Hero Image */}
-          <div className="basis-1/2 myFlex justify-center bg-bgGray">
+          <div className="basis-1/2 myFlex justify-center">
             {/** Hero Container */}
             <div
               id="imageCont"
@@ -185,7 +189,7 @@ const Hero = () => {
                   </div>
 
                   <Image
-                    src="/officeee.jpg"
+                    src="/49375.jpg"
                     width={1000}
                     height={225}
                     alt="office"
@@ -201,7 +205,7 @@ const Hero = () => {
                   className="relative w-[170px] h-[170px] md:w-[225px] md:h-[225px]"
                 >
                   <Image
-                    src="/officeee.jpg"
+                    src="/2149.jpg"
                     width={1000}
                     height={225}
                     alt="office"
@@ -273,7 +277,7 @@ const Hero = () => {
                     className="relative w-[170px] h-[250px] md:w-[225px] md:h-[325px]"
                   >
                     <Image
-                      src="/officeee.jpg"
+                      src="/1085.jpg"
                       width={1000}
                       height={1000}
                       alt="office"
@@ -282,11 +286,11 @@ const Hero = () => {
                   </div>
                 </div>
                 {/** Row 2 */}
-                <div className="w-[170px] h-[90px] md:w-[225px] md:h-[125px] bg-[#e6f5f8] rounded-br-2xl relative overflow-hidden">
+                <div className="w-[170px] h-[90px] md:w-[225px] md:h-[125px] bg-[#e6ebf9] rounded-br-2xl relative overflow-hidden">
                   <SpiralCircle
                     position="-left-[160px] -top-5"
-                    mainColor="#83cbdc"
-                    dimColor="#e6f5f8"
+                    mainColor="#b3c4ee"
+                    dimColor="#e6ebf9"
                   />
 
                   <ArrowUpRight
@@ -302,44 +306,8 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        {/** Partners */}
-        <div className="myFlex mt-10 !hidden check">
-          <div className="basis-[35%] px-[3%] lg:px-[5%] opacity-0 transalate-y-4">
-            <p className="font-aeoBold text-sm">
-              We collaborate with 1000+ companies
-            </p>
-          </div>
-          <div
-            style={{
-              clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0% 100%)",
-            }}
-            className="basis-[65%] px-[3%] lg:px-[5%] w-full opacity-0 transalate-y-4 h-[100px] bg-white myFlex justify-around"
-          >
-            <Image
-              src="/partner1.png"
-              width={100}
-              height={40}
-              alt="office"
-              style={{ filter: "grayscale(100%)" }}
-            />
-            <Image
-              src="/partner1.png"
-              width={100}
-              height={40}
-              alt="office"
-              style={{ filter: "grayscale(100%)" }}
-            />
-            <Image
-              src="/partner1.png"
-              width={100}
-              height={40}
-              alt="office"
-              style={{ filter: "grayscale(100%)" }}
-            />
-          </div>
-        </div>
       </section>
-      <div className="max-xs:pt-[400px] max-md:pt-[300px] bg-bgGray" />
+      <div className="max-xs:pt-[400px] max-md:pt-[300px]" />
     </>
   );
 };

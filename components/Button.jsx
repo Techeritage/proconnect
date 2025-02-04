@@ -5,7 +5,7 @@ const Button = ({ cta, link, action, icon, className }) => {
   return (
     <button
       className={clsx(
-        "group h-[48px] rounded-full px-5 font-aeoBold tracking-wider",
+        "group h-[48px] rounded-full px-5 font-semibold tracking-wider",
         className
       )}
       onClick={action && action}
@@ -13,10 +13,10 @@ const Button = ({ cta, link, action, icon, className }) => {
       {link ? (
         <Link href={link} className="myFlex">
           <span className="relative inline-flex overflow-hidden">
-            <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:translate-y-[-160%] group-hover:skew-y-12">
+            <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:translate-y-[-177%] group-hover:skew-y-12">
               {cta}
             </div>
-            <div className="absolute translate-y-[164%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+            <div className="absolute translate-y-[174%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
               {cta}
             </div>
           </span>{" "}
@@ -25,10 +25,10 @@ const Button = ({ cta, link, action, icon, className }) => {
       ) : (
         <div className="myFlex">
           <span className="relative inline-flex overflow-hidden">
-            <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:translate-y-[-160%] group-hover:skew-y-12">
+            <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:translate-y-[-177%] group-hover:skew-y-12">
               {cta}
             </div>
-            <div className="absolute translate-y-[164%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+            <div className="absolute translate-y-[174%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
               {cta}
             </div>
           </span>

@@ -4,9 +4,9 @@ import Steps from "../Steps";
 const HiringSteps = () => {
   return (
     <section className="myContainer">
-      <h1>
+      <h2 className="font-semibold">
         Simplified <br /> Hiring Process
-      </h1>
+      </h2>
       <p className="opacity-85 mt-2 text-sm w-[90%] max-md:mb-16">
         Finding the right talent doesn’t have to be complicated.{" "}
         <br className="max-md:hidden" /> Follow these three easy steps to

@@ -1,25 +1,32 @@
 "use client";
-import * as React from "react";
-import { useState } from "react";
+
+import useFormSubmission from "@/hooks/useFormSubmission";
 
 const ContactForm = () => {
-  const [form, setForm] = useState({
-    contactPerson: "",
-    email: "",
-    phone: "",
-    message: "",
+  const {
+    formData,
+    handleChange,
+    handleSubmit,
+    isLoading,
+    error,
+  } = useFormSubmission({
+    endpoint: "/api/contactUs/reachOut", // Replace with your API endpoint
+    defaultValues: {
+      fullName: "",
+      email: "",
+      phone: "",
+      messageUs: "",
+    },
+    validate: (data) => {
+      if (!data.fullName || !data.email || !data.phone || !data.messageUs) {
+        return "All fields are required.";
+      }
+      if (!data.email.includes("@")) {
+        return "Please enter a valid email address.";
+      }
+      return null;
+    },
   });
-
-  const handleFormChange = (e) => {
-    const { name, value } = e.target;
-
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
-  };
 
   return (
     <section className="py-16 max-md:mt-10 px-[3%] bg-bgGray">
@@ -32,10 +39,10 @@ const ContactForm = () => {
             <input
               className="input"
               type="text"
-              name="contactPerson"
+              name="fullName"
               required
-              value={form.contactPerson}
-              onChange={handleFormChange}
+              value={formData.fullName}
+              onChange={handleChange}
             />
           </div>
           <div className="grid md:grid-cols-2 gap-7 md:gap-3">
@@ -46,8 +53,8 @@ const ContactForm = () => {
                 type="email"
                 name="email"
                 required
-                value={form.email}
-                onChange={handleFormChange}
+                value={formData.email}
+                onChange={handleChange}
               />
             </div>
             <div className="grid gap-1">
@@ -57,49 +64,36 @@ const ContactForm = () => {
                 type="text"
                 name="phone"
                 required
-                value={form.phone}
-                onChange={handleFormChange}
+                value={formData.phone}
+                onChange={handleChange}
               />
             </div>
           </div>
           <div className="grid gap-1">
-            <label>Message</label>
+            <label>message</label>
             <textarea
+              className="input"
               type="text"
-              name="message"
+              name="messageUs"
               rows={5}
               required
-              value={form.message}
-              onChange={handleFormChange}
+              value={formData.messageUs}
+              onChange={handleChange}
             />
           </div>
-
-          <button className="w-full h-[56px] tracking-wider bg-primary rounded-lg text-white font-aeoBold">
-            Submit
+          <button
+            className="w-full h-[56px] tracking-wider bg-primary rounded-lg text-white font-aeoBold"
+            type="submit"
+            disabled={isLoading}
+          >
+            {isLoading ? "Submitting..." : "Submit"}
           </button>
+
+          {error && <p className="text-red-500">{error}</p>}
         </form>
       </div>
     </section>
   );
 };
-
-export function SelectDemo({ label, options, name, handleChange }) {
-  return (
-    <Select name={name} onValueChange={(value) => handleChange(name, value)}>
-      <SelectTrigger className="w-full select">
-        <SelectValue placeholder={label} />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          {options.map((opt, i) => (
-            <SelectItem key={i} value={opt.value}>
-              {opt.item}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-  );
-}
 
 export default ContactForm;
