@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { Trash2 } from "lucide-react";
 import SelectBtn from "../SelectBtn";
+import useFormSubmission from "@/hooks/useFormSubmission";
 
 export const experienceOption = [
   { item: "Entry-Level", value: "Entry-Level" },
@@ -20,50 +20,46 @@ export const locationOption = [
 ];
 
 const HireTalentForm = () => {
-  const [form, setForm] = useState({
-    companyName: "",
-    contactPerson: "",
-    email: "",
-    phone: "",
-    jobTitle: "",
-    jobDescription: "",
-    requiredSkills: [""],
-    experienceLevel: "",
-    location: "",
+  const {
+    formData,
+    handleChange,
+    handleSubmit,
+    handleSelectChange,
+    handleSkillChange,
+    addSkill,
+    removeSkill,
+    isLoading,
+    error,
+  } = useFormSubmission({
+    endpoint: "/api/hireTalent/requirements",
+    defaultValues: {
+      companyName: "",
+      fullName: "",
+      email: "",
+      phone: "",
+      jobTitle: "",
+      jobDescription: "",
+      requiredSkills: [""],
+      experience: "",
+      location: "",
+    },
+    validate: (data) => {
+      if (
+        !data.fullName ||
+        !data.email ||
+        !data.phone ||
+        !data.jobDescription ||
+        !data.jobTitle ||
+        !data.companyName
+      ) {
+        return "All fields are required excluding the last three";
+      }
+      if (!data.email.includes("@")) {
+        return "Please enter a valid email address.";
+      }
+      return null;
+    },
   });
-
-  const handleFormChange = (e) => {
-    const { name, value } = e.target;
-
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSelectChange = (name, value) => {
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSkillChange = (index, value) => {
-    const updatedSkills = [...form.requiredSkills];
-    updatedSkills[index] = value;
-    setForm((prev) => ({ ...prev, requiredSkills: updatedSkills }));
-  };
-
-  const addSkill = () => {
-    setForm((prev) => ({
-      ...prev,
-      requiredSkills: [...prev.requiredSkills, ""],
-    }));
-  };
-
-  const removeSkill = (index) => {
-    const updatedSkills = form.requiredSkills.filter((_, i) => i !== index);
-    setForm((prev) => ({ ...prev, requiredSkills: updatedSkills }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
-  };
 
   return (
     <section className="py-16 max-md:mt-10 px-[3%] bg-bgGray">
@@ -76,8 +72,8 @@ const HireTalentForm = () => {
                 className="input"
                 type="text"
                 name="companyName"
-                value={form.companyName}
-                onChange={handleFormChange}
+                value={formData.companyName}
+                onChange={handleChange}
               />
             </div>
             <div className="grid gap-1">
@@ -85,10 +81,10 @@ const HireTalentForm = () => {
               <input
                 className="input"
                 type="text"
-                name="contactPerson"
+                name="fullName"
                 required
-                value={form.contactPerson}
-                onChange={handleFormChange}
+                value={formData.fullName}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -100,8 +96,8 @@ const HireTalentForm = () => {
                 type="email"
                 name="email"
                 required
-                value={form.email}
-                onChange={handleFormChange}
+                value={formData.email}
+                onChange={handleChange}
               />
             </div>
             <div className="grid gap-1">
@@ -111,8 +107,8 @@ const HireTalentForm = () => {
                 type="text"
                 name="phone"
                 required
-                value={form.phone}
-                onChange={handleFormChange}
+                value={formData.phone}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -123,8 +119,8 @@ const HireTalentForm = () => {
               type="text"
               name="jobTitle"
               required
-              value={form.jobTitle}
-              onChange={handleFormChange}
+              value={formData.jobTitle}
+              onChange={handleChange}
             />
           </div>
           <div className="grid gap-1">
@@ -134,8 +130,8 @@ const HireTalentForm = () => {
               name="jobDescription"
               rows={5}
               required
-              value={form.jobDescription}
-              onChange={handleFormChange}
+              value={formData.jobDescription}
+              onChange={handleChange}
             />
           </div>
           <div className="grid gap-1">
@@ -149,7 +145,7 @@ const HireTalentForm = () => {
               </p>
             </div>
 
-            {form.requiredSkills.map((skill, index) => (
+            {formData.requiredSkills.map((skill, index) => (
               <div key={index} className="flex items-center gap-2 mb-3">
                 <input
                   type="text"
@@ -170,7 +166,7 @@ const HireTalentForm = () => {
           <div className="grid grid-cols-2 gap-3">
             <div className="grid gap-1">
               <SelectBtn
-                name="experienceLevel"
+                name="experience"
                 handleChange={handleSelectChange}
                 label="Select Experience Level"
                 options={experienceOption}
@@ -185,9 +181,14 @@ const HireTalentForm = () => {
               />
             </div>
           </div>
-          <button className="w-full h-[56px] tracking-wider bg-primary rounded-lg text-white font-aeoBold">
-            Submit
+          <button
+            className="w-full h-[56px] tracking-wider bg-primary rounded-lg text-white font-aeoBold"
+            type="submit"
+            disabled={isLoading}
+          >
+            {isLoading ? "Submitting..." : "Submit"}
           </button>
+          {error && <p className="text-red-500">{error}</p>}
         </form>
       </div>
     </section>

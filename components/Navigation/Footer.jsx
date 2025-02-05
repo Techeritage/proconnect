@@ -57,7 +57,7 @@ const Footer = () => {
   useEffect(() => {
     if (success) {
       setShowConfetti(true);
-      const timer = setTimeout(() => setShowConfetti(false), 3000);
+      const timer = setTimeout(() => setShowConfetti(false), 5000);
       return () => clearTimeout(timer);
     }
   }, [success]);
@@ -130,7 +130,7 @@ const Footer = () => {
       </div>
       <div className="lg:flex border-b w-full pt-10 md:py-12">
         <div className="md:basis-[35%]">
-          <Image src="/logo998.png" width={100} height={100} alt="office" />
+          <Image src="/logo656.png" width={100} height={100} alt="office" />
           <p className="opacity-85 -mt-3 -ml-1 md:max-w-[80%] md:font-aeoReg">
             ProConnect offers seamless recruitment solutions tailored to your
             business. We connect you with top professionals to achieve your

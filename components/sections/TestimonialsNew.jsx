@@ -11,6 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Image from "next/image";
 
 const TestimonialsNew = () => {
   return (
@@ -28,13 +29,14 @@ const TestimonialsNew = () => {
           <CarouselPlugin />
         </div>
         <div className="max-md:hidden md:basis-[40%]">
-          <div
-            style={{
-              clipPath:
-                "polygon(15% 0, 100% 0, 100% 72%, 85% 100%, 0 100%, 0 30%)",
-            }}
-            className="bg-bgGray h-[400px] w-full max-w-[500px] rounded-tr-2xl rounded-bl-2xl rounded-tl-[95px] rounded-br-[90px]"
-          />
+          <div className="h-[400px] w-full max-w-[500px]">
+            <Image
+              src="/happy2.svg"
+              width={500}
+              height={400}
+              alt="happy client"
+            />
+          </div>
         </div>
       </div>
     </section>

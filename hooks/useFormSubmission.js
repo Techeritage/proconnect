@@ -64,6 +64,24 @@ const useFormSubmission = (config) => {
     }
   };
 
+  const handleSkillChange = (index, value) => {
+    const updatedSkills = [...formData.requiredSkills];
+    updatedSkills[index] = value;
+    setFormData((prev) => ({ ...prev, requiredSkills: updatedSkills }));
+  };
+
+  const addSkill = () => {
+    setFormData((prev) => ({
+      ...prev,
+      requiredSkills: [...prev.requiredSkills, ""],
+    }));
+  };
+
+  const removeSkill = (index) => {
+    const updatedSkills = formData.requiredSkills.filter((_, i) => i !== index);
+    setFormData((prev) => ({ ...prev, requiredSkills: updatedSkills }));
+  };
+
   // Reset form
   const resetForm = () => {
     setFormData(defaultValues || {});
@@ -141,6 +159,9 @@ const useFormSubmission = (config) => {
     error,
     success,
     resetForm,
+    handleSkillChange,
+    addSkill,
+    removeSkill,
   };
 };
 

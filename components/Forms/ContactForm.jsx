@@ -3,30 +3,25 @@
 import useFormSubmission from "@/hooks/useFormSubmission";
 
 const ContactForm = () => {
-  const {
-    formData,
-    handleChange,
-    handleSubmit,
-    isLoading,
-    error,
-  } = useFormSubmission({
-    endpoint: "/api/contactUs/reachOut", // Replace with your API endpoint
-    defaultValues: {
-      fullName: "",
-      email: "",
-      phone: "",
-      messageUs: "",
-    },
-    validate: (data) => {
-      if (!data.fullName || !data.email || !data.phone || !data.messageUs) {
-        return "All fields are required.";
-      }
-      if (!data.email.includes("@")) {
-        return "Please enter a valid email address.";
-      }
-      return null;
-    },
-  });
+  const { formData, handleChange, handleSubmit, isLoading, error } =
+    useFormSubmission({
+      endpoint: "/api/contactUs/reachOut",
+      defaultValues: {
+        fullName: "",
+        email: "",
+        phone: "",
+        messageUs: "",
+      },
+      validate: (data) => {
+        if (!data.fullName || !data.email || !data.phone || !data.messageUs) {
+          return "All fields are required.";
+        }
+        if (!data.email.includes("@")) {
+          return "Please enter a valid email address.";
+        }
+        return null;
+      },
+    });
 
   return (
     <section className="py-16 max-md:mt-10 px-[3%] bg-bgGray">

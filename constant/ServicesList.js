@@ -9,6 +9,18 @@ import { Target } from "lucide-react";
 
 export const ServicesList = [
   {
+    title: "Training and Development",
+    icon: <Book size={32} strokeWidth={1.4} />,
+    description:
+      "Upskill your workforce with customized training programs to boost productivity.",
+    keyOfferings: [
+      "Skills Development Programs",
+      "Leadership Training",
+      "Onboarding Assistance",
+    ],
+    link: "/outsourcing",
+  },
+  {
     title: "Talent Acquisition and Recruitment",
     icon: <Target size={32} strokeWidth={1.4} />,
     description:
@@ -40,18 +52,6 @@ export const ServicesList = [
     keyOfferings: [
       "End-to-End Recruitment Management",
       "Customizable RPO Packages",
-    ],
-    link: "/outsourcing",
-  },
-  {
-    title: "Training and Development",
-    icon: <Book size={32} strokeWidth={1.4} />,
-    description:
-      "Upskill your workforce with customized training programs to boost productivity.",
-    keyOfferings: [
-      "Skills Development Programs",
-      "Leadership Training",
-      "Onboarding Assistance",
     ],
     link: "/outsourcing",
   },
