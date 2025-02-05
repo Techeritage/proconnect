@@ -13,8 +13,7 @@ export async function PUT(req) {
         if(!email) {
             return NextResponse.json({
                 message: "you're trying cancel subscription pls provide your email address",
-                status: 400
-            })
+            }, { status: 400 })
         }
 
         await connectDb();
@@ -23,8 +22,7 @@ export async function PUT(req) {
         if(!checkEmail) {
             return NextResponse.json({
                 message: "you're not on our subscribers list",
-                status: 404
-            })
+            }, { status: 400 })
         }
 
         const suscribedId = checkEmail._id;

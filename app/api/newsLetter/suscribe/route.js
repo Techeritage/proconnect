@@ -9,8 +9,7 @@ export async function POST(req) {
         if(!email) {
             return NextResponse.json({
                 message: 'email field cannot be empty',
-                status: 400
-            })
+            }, { status: 400 })
         }
 
         await connectDb()
@@ -18,8 +17,8 @@ export async function POST(req) {
         const checkIfSuscribed = await newsLetter.findOne({ email })
         if(checkIfSuscribed) {
             return NextResponse.json({
-                message: `${email} already suscribed, Thanks for checking us out`
-            })
+                message: `${email} already suscribed, Thanks for checking us out`,
+            }, { status: 400 })
         }
         const suscribeData = new newsLetter ({
             email,
@@ -30,15 +29,13 @@ export async function POST(req) {
         return NextResponse.json({
             data: suscribeData,
             message: `you subscribed, hooray`,
-            status: 201
-        })
+        }, { status: 200 })
 
     } catch (error) {
         console.error('internal error:', error.message)
         return NextResponse.json({
             error: error.message,
             message: 'server error',
-            status: 500
-        }) 
+        }, { status: 500 }) 
     }
 }

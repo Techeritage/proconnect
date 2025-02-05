@@ -18,8 +18,7 @@ export async function GET(req) {
       return NextResponse.json({
         message: 'No active subscribers found',
         count: 0,
-        status: 400,
-      });
+      }, { status: 404 });
     }
 
     return NextResponse.json({
