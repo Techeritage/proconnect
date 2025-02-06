@@ -1,4 +1,4 @@
-import { HireTalentTable } from "@/components/Table/HireTalentTable";
+import { JobsTable } from "@/components/Table/JobsTable";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
@@ -22,7 +22,7 @@ const JobPostingPage = async ({ searchParams }) => {
             </Button>
           </Link>
         </div>
-        <HireTalentTable />
+        <JobsTable />
       </div>
     </main>
   );

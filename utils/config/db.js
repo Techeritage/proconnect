@@ -1,15 +1,23 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
+
+let isConnected = false;
 
 const connectDb = async () => {
-    try {
-        console.log('attempting to connect to mongodb');
-        console.log('mongodb url:', process.env.mongoUrl);
-        const connection = await mongoose.connect(process.env.mongoUrl);
-        console.log(`mongoose connection established @${connection.connection.host}`);
-    } catch (error) {
-        console.error('mongodb connection error:',  error)
-        process.exit(1)
-    }
-}
+  if (isConnected) {
+    console.log("Reusing existing MongoDB connection");
+    return;
+  }
 
-export default connectDb
+  try {
+    console.log("Attempting to connect to MongoDB...");
+    const connection = await mongoose.connect(process.env.mongoUrl);
+
+    isConnected = connection.connections[0].readyState;
+    console.log(`MongoDB connected @ ${connection.connection.host}`);
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+    process.exit(1);
+  }
+};
+
+export default connectDb;

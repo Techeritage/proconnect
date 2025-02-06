@@ -1,6 +1,7 @@
 import { DM_Sans, Raleway } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import SWRProviders from "@/context/SWRProvider";
 
 export const metadata = {
   title: "ProConnect - Your Recruitment Partner",
@@ -21,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${dmSans.className} antialiased`}>
-        {children}
+        <SWRProviders>{children}</SWRProviders>
         <Toaster />
       </body>
     </html>

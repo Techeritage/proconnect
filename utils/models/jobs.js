@@ -13,22 +13,18 @@ const postJobsSchema = new mongoose.Schema({
 
   jobDescription: {
     type: String,
-    required: true,
   },
 
   requiredSkills: {
     type: [String],
-    required: true,
   },
 
   experience: {
     type: String,
-    required: true,
   },
 
   location: {
     type: String,
-    required: true,
   },
 
   createdAt: {

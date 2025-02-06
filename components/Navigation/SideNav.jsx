@@ -12,7 +12,7 @@ const SideNav = () => {
     <aside className="fixed top-0 bottom-0 left-0 w-[300px] bg-white px-3">
       <div className="pt-2 border-b">
         <Link href="/admin?signIn=true" className="z-[5000]">
-          <Image src="/logo.png" width={60} height={100} alt="office" />
+          <Image src="/logo656.png" width={60} height={100} alt="office" />
         </Link>
       </div>
       <nav className="grid gap-6 mt-8">

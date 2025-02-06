@@ -11,23 +11,22 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useHireTalent } from "@/services/queries";
-import { formatDate } from "@/lib/helper";
+import { useSubmitCV } from "@/services/queries";
 import Null from "@/components/Null";
 import { ActionCell } from "../data-table/action-cell";
 import { DataTable } from "../data-table/data-table";
-import { useUpdateTalentRequest } from "@/services/mutation";
 import toast from "react-hot-toast";
 import { Trash } from "iconsax-react";
+import { Download } from "lucide-react";
 
-export function HireTalentTable() {
-  const { data, error, isLoading } = useHireTalent();
-  const { trigger, isMutating } = useUpdateTalentRequest();
+export function SubmitCVTable() {
+  const { data, error, isLoading } = useSubmitCV();
   const [selectedAction, setSelectedAction] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
   const [open, setOpen] = useState(null);
+  //const [isCVVisible, setIsCVVisible] = useState(false);
 
-  const hireTalentAction = ["View", "Update", "Delete"];
+  const hireTalentAction = ["View", "Delete"];
 
   const columns = [
     {
@@ -55,32 +54,19 @@ export function HireTalentTable() {
       ),
     },
     {
-      accessorKey: "status",
+      accessorKey: "jobTitle",
       header: ({ column }) => (
         <Button
           variant="ghost"
           className="text-base font-aeoBold text-black/90"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Status <ArrowUpDown className="ml-2 h-4 w-4" />
+          Job Title <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       ),
       cell: ({ row }) => (
-        <div className="capitalize">{row.getValue("status")}</div>
+        <div className="capitalize">{row.getValue("jobTitle")}</div>
       ),
-    },
-    {
-      accessorKey: "createdAt",
-      header: ({ column }) => (
-        <Button
-          variant="ghost"
-          className="text-base font-aeoBold text-black/90"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Date <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      ),
-      cell: ({ row }) => <div>{formatDate(row.getValue("createdAt"))}</div>,
     },
     {
       id: "actions",
@@ -93,34 +79,20 @@ export function HireTalentTable() {
           }}
           open={open}
           setOpen={setOpen}
-          setSelectedRow={setSelectedRow}
           action={hireTalentAction}
-          updateStatus={handleRequestUpdate}
-          disable={isMutating}
         />
       ),
     },
   ];
 
-  const handleRequestUpdate = async (status) => {
-    try {
-      await trigger({
-        id: selectedRow._id ? selectedRow._id : null,
-        status,
-      });
-      toast.success("Status Updated");
-    } catch (error) {
-      alert("Failed to update request. Please try again.");
-      console.error("Error during optimistic update:", error);
-    }
-  };
+  // const handleRevealCV = () => {
+  //   setIsCVVisible(() => !isCVVisible);
+  // };
 
   if (error) return <div>Error fetching request</div>;
   if (isLoading)
     return (
-      <div className="min-h-[200px] myFlex justify-center">
-        Loading Request...
-      </div>
+      <div className="min-h-[200px] myFlex justify-center">Loading CVs...</div>
     );
   if (data?.data?.length < 1 || !data.data) return <Null />;
 
@@ -151,12 +123,18 @@ export function HireTalentTable() {
                 : "Are you sure"}
             </DialogTitle>
           </DialogHeader>
-          {selectedAction === "View" && <ViewModal selectedRow={selectedRow} />}
+          {selectedAction === "View" && (
+            <ViewModal
+              selectedRow={selectedRow}
+              // handleRevealCV={handleRevealCV}
+            />
+          )}
           {selectedAction === "Delete" && (
             <DeleteModal selectedRow={selectedRow} />
           )}
         </DialogContent>
       </Dialog>
+      {/* {isCVVisible && <DocumentViewer fileUrl={selectedRow.cv} />} */}
     </>
   );
 }
@@ -168,10 +146,6 @@ const ViewModal = ({ selectedRow }) => {
         <span className="font-semibold">Name:</span> {selectedRow.fullName}
       </p>
       <p>
-        <span className="font-semibold">Company's Name:</span>{" "}
-        {selectedRow.companyName}
-      </p>
-      <p>
         <span className="font-semibold">Email:</span> {selectedRow.email}
       </p>
       <p>
@@ -180,33 +154,27 @@ const ViewModal = ({ selectedRow }) => {
       <p>
         <span className="font-semibold">Job Title:</span> {selectedRow.jobTitle}
       </p>
-      <p>
-        <span className="font-semibold">Job Description:</span>{" "}
-        {selectedRow.jobDescription}
-      </p>
       {selectedRow.experience && (
         <p>
           <span className="font-semibold">Experience:</span>{" "}
           {selectedRow.experience}
         </p>
       )}
-      {selectedRow.requiredSkills.length > 0 && (
-        <div>
-          <p className="font-semibold space-y-1">Required Skills:</p>
-          <ul className="ml-7 list-disc">
-            {selectedRow.requiredSkills.map((skill, i) => (
-              <li className="text-sm" key={i}>
-                {skill}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      {selectedRow.location && (
-        <p>
-          <span className="font-semibold">Location:</span>{" "}
-          {selectedRow.location}
-        </p>
+      {selectedRow.cv && (
+        <Button
+          // onClick={handleRevealCV}
+          className="shadow-none ring-0 border-0 hover:bg-primary hover:scale-105 h-[48px] px-8"
+        >
+          <a
+            href={selectedRow.cv}
+            target="_blank"
+            download={`${selectedRow.name}/cv`}
+            className="flex items-center gap-1"
+          >
+            <Download className="w-4 h-4" />
+            Download CV
+          </a>
+        </Button>
       )}
     </div>
   );
@@ -235,3 +203,20 @@ const DeleteModal = ({ selectedRow }) => {
     </div>
   );
 };
+
+// const DocumentViewer = ({ fileUrl }) => {
+//   const isDocOrDocx = fileUrl.endsWith(".doc") || fileUrl.endsWith(".docx");
+//   const viewerUrl = isDocOrDocx
+//     ? `https://docs.google.com/gview?url=${fileUrl}&embedded=true`
+//     : fileUrl;
+
+//   return (
+//     <div className="w-full h-screen fixed right-0 left-0 top-0 bottom-0 z-[10000] p-4">
+//       <iframe
+//         src={viewerUrl}
+//         className="w-full h-full border rounded-md shadow-md"
+//         title="Document Viewer"
+//       />
+//     </div>
+//   );
+// };

@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { Trash2 } from "lucide-react";
 import SelectBtn from "../SelectBtn";
 import Editor from "../Editor";
+import useFormSubmission from "@/hooks/useFormSubmission";
 
 export const experienceOption = [
   { item: "Entry-Level", value: "Entry-Level" },
@@ -58,51 +58,38 @@ export const locationOption = [
 ];
 
 const JobCreationForm = () => {
-  const [form, setForm] = useState({
-    companyName: "",
-    jobTitle: "",
-    jobDescription: "",
-    requiredSkills: [""],
-    experienceLevel: "",
-    location: "",
+  const {
+    formData,
+    handleChange,
+    handleSelectChange,
+    handleSubmit,
+    isLoading,
+    error,
+    handleSkillChange,
+    addSkill,
+    removeSkill,
+  } = useFormSubmission({
+    endpoint: "/api/jobs/postJobs",
+    defaultValues: {
+      companyName: "",
+      jobTitle: "",
+      jobDescription: "",
+      requiredSkills: [""],
+      experienceLevel: "",
+      location: "",
+    },
+    validate: (formData) => {
+      if (!formData.companyName || !formData.jobTitle) {
+        return "Company Name and Job Title are required.";
+      }
+      return null;
+    },
   });
 
-  const handleFormChange = (e) => {
-    const { name, value } = e.target;
-
-    setForm((prev) => ({ ...prev, [name]: value }));
+  const handleEditorChange = (content) => {
+    handleChange({ target: { name: "jobDescription", value: content } });
   };
 
-  const handleEditorChange = (e) => {
-    setForm((prev) => ({ ...prev, jobDescription: e }));
-  };
-
-  const handleSelectChange = (name, value) => {
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSkillChange = (index, value) => {
-    const updatedSkills = [...form.requiredSkills];
-    updatedSkills[index] = value;
-    setForm((prev) => ({ ...prev, requiredSkills: updatedSkills }));
-  };
-
-  const addSkill = () => {
-    setForm((prev) => ({
-      ...prev,
-      requiredSkills: [...prev.requiredSkills, ""],
-    }));
-  };
-
-  const removeSkill = (index) => {
-    const updatedSkills = form.requiredSkills.filter((_, i) => i !== index);
-    setForm((prev) => ({ ...prev, requiredSkills: updatedSkills }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
-  };
   return (
     <section>
       <form className="space-y-7 mt-10" onSubmit={handleSubmit}>
@@ -113,8 +100,8 @@ const JobCreationForm = () => {
               className="input"
               type="text"
               name="companyName"
-              value={form.companyName}
-              onChange={handleFormChange}
+              value={formData.companyName}
+              onChange={handleChange}
             />
           </div>
           <div className="grid gap-1">
@@ -124,15 +111,18 @@ const JobCreationForm = () => {
               type="text"
               name="jobTitle"
               required
-              value={form.jobTitle}
-              onChange={handleFormChange}
+              value={formData.jobTitle}
+              onChange={handleChange}
             />
           </div>
         </div>
 
         <div className="grid gap-1">
           <label>Job Description</label>
-          <Editor content={form.jobDescription} onChange={handleEditorChange} />
+          <Editor
+            content={formData.jobDescription}
+            onChange={handleEditorChange}
+          />
         </div>
         <div className="grid gap-1">
           <div className="myFlex justify-between">
@@ -142,7 +132,7 @@ const JobCreationForm = () => {
             </p>
           </div>
 
-          {form.requiredSkills.map((skill, index) => (
+          {formData.requiredSkills.map((skill, index) => (
             <div key={index} className="flex items-center gap-2 mb-3">
               <input
                 type="text"
@@ -178,9 +168,14 @@ const JobCreationForm = () => {
             />
           </div>
         </div>
-        <button className="w-full h-[56px] tracking-wider bg-primary rounded-lg text-white font-aeoBold">
-          Submit
+        <button
+          type="submit"
+          className="w-full h-[56px] tracking-wider bg-primary rounded-lg text-white font-aeoBold"
+          disabled={isLoading}
+        >
+          {isLoading ? "Submitting..." : "Submit"}
         </button>
+        {error && <p className="text-red-500">{error}</p>}
       </form>
     </section>
   );

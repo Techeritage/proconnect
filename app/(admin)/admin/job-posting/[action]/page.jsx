@@ -15,7 +15,7 @@ const JobsActionPage = async ({ searchParams, params }) => {
       <div className="font-aeoReg myFlex gap-1">
         <Link
           className="opacity-85 hover:opacity-100"
-          href="/admin/blog?signIn=true"
+          href="/admin/job-posting?signIn=true"
         >
           Jobs
         </Link>

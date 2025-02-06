@@ -29,6 +29,43 @@ const useFormSubmission = (config) => {
     }));
   };
 
+  // Handle file changes (for images)
+  const handleImageChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file && file.type.startsWith("image/")) {
+      setFormData((prev) => ({
+        ...prev,
+        thumbnail: file,
+      }));
+    } else {
+      setError("Please upload a valid image file (PNG, JPEG, etc.).");
+    }
+  };
+
+  // Handle file deletion
+  const handleDeleteImage = () => {
+    setFormData((prev) => ({
+      ...prev,
+      thumbnail: null,
+    }));
+  };
+
+  // Upload image to Firebase Storage
+  const uploadImageToFirebase = async (file) => {
+    if (!file) return { url: null, error: "No file provided" };
+
+    try {
+      const timestamp = Date.now();
+      const storageRef = ref(storage, `images/${file.name}_${timestamp}`);
+      await uploadBytes(storageRef, file);
+      const downloadURL = await getDownloadURL(storageRef);
+      return { url: downloadURL, error: null };
+    } catch (err) {
+      console.error("Image upload error:", err);
+      return { url: null, error: err.message };
+    }
+  };
+
   // Handle file changes
   const handleFileChange = (e) => {
     const file = e.target.files?.[0];
@@ -106,6 +143,16 @@ const useFormSubmission = (config) => {
     setSuccess(false);
 
     try {
+      // Upload thumbnail image to Firebase Storage
+      let thumbnailUrl = null;
+      if (formData.thumbnail) {
+        const uploadResult = await uploadImageToFirebase(formData.thumbnail);
+        if (uploadResult.error) {
+          throw new Error(`Image upload failed: ${uploadResult.error}`);
+        }
+        thumbnailUrl = uploadResult.url;
+      }
+
       // Upload CV file to Firebase Storage
       let cvUrl = null;
       if (formData.cv) {
@@ -121,6 +168,7 @@ const useFormSubmission = (config) => {
       const submissionData = {
         ...formData,
         cv: cvUrl,
+        thumbnail: thumbnailUrl,
       };
 
       if (endpoint) {
@@ -156,6 +204,8 @@ const useFormSubmission = (config) => {
     handleDeleteFile,
     handleSubmit,
     isLoading,
+    handleImageChange,
+    handleDeleteImage,
     error,
     success,
     resetForm,
