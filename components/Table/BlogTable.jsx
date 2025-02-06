@@ -76,8 +76,6 @@ export function BlogTable() {
             setSelectedAction(action);
             setSelectedRow(rowData);
           }}
-          open={open}
-          setOpen={setOpen}
           action={hireTalentAction}
         />
       ),
@@ -100,9 +98,7 @@ export function BlogTable() {
   if (error) return <div>Error fetching request</div>;
   if (isLoading)
     return (
-      <div className="min-h-[200px] myFlex justify-center">
-        Loading Blog...
-      </div>
+      <div className="min-h-[200px] myFlex justify-center">Loading Blog...</div>
     );
 
   if (data?.data?.length < 1 || !data.data) return <Null />;

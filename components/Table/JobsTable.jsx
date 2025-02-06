@@ -90,8 +90,6 @@ export function JobsTable() {
             setSelectedAction(action);
             setSelectedRow(rowData);
           }}
-          open={open}
-          setOpen={setOpen}
           action={hireTalentAction}
         />
       ),

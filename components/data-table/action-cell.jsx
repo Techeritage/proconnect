@@ -18,8 +18,6 @@ import { useCallback } from "react";
 export function ActionCell({
   row,
   onActionSelect,
-  open,
-  setOpen,
   action,
   updateStatus,
   disable,
@@ -29,7 +27,7 @@ export function ActionCell({
     setSelectedRow(row.original);
   }, [row.original, setSelectedRow]);
   return (
-    <DropdownMenu open={open} onOpenChange={setOpen}>
+    <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="h-8 w-8 p-0">
           <span className="sr-only">Open menu</span>
