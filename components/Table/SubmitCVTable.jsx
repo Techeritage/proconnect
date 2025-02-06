@@ -77,8 +77,6 @@ export function SubmitCVTable() {
             setSelectedAction(action);
             setSelectedRow(rowData);
           }}
-          open={open}
-          setOpen={setOpen}
           action={hireTalentAction}
         />
       ),

@@ -91,8 +91,6 @@ export function HireTalentTable() {
             setSelectedAction(action);
             setSelectedRow(rowData);
           }}
-          open={open}
-          setOpen={setOpen}
           setSelectedRow={setSelectedRow}
           action={hireTalentAction}
           updateStatus={handleRequestUpdate}

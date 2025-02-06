@@ -96,8 +96,6 @@ export function ContactTable() {
             setSelectedAction(action);
             setSelectedRow(rowData);
           }}
-          open={open}
-          setOpen={setOpen}
           setSelectedRow={setSelectedRow}
           action={hireTalentAction}
           updateStatus={handleRequestUpdate}
