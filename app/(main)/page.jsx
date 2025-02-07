@@ -21,14 +21,14 @@ const HomePage = () => {
     <main>
       <Hero />
       {/* <HeroNew /> */}
-      <WhyChooseUs />
+      {/* <WhyChooseUs />
       <Stats />
       <Services />
       <HiringSteps />
       <TestimonialsNew />
       <Blog />
       <FAQs faqs={CommonFaqs} />
-      <CTA />
+      <CTA /> */}
     </main>
   );
 };
