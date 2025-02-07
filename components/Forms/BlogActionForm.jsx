@@ -1,16 +1,20 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Editor from "../Editor";
 import Image from "next/image";
 import { UploadCloud, X } from "lucide-react";
-import useFormSubmission from "@/hooks/useFormSubmission"; // Adjust the import path as needed
+import useFormSubmission from "@/hooks/useFormSubmission";
+import { useOneBlog } from "@/services/queries";
 
-const BlogActionForm = () => {
+const BlogActionForm = ({ id }) => {
   const fileInputRef = useRef();
+
+  const { data, isLoading: loading } = useOneBlog(id || null);
 
   const {
     formData,
+    setFormData,
     handleChange,
     handleImageChange,
     handleDeleteImage,
@@ -18,21 +22,35 @@ const BlogActionForm = () => {
     isLoading,
     error,
   } = useFormSubmission({
-    endpoint: "/api/blog/createBlog", // Replace with your API endpoint
+    id: id,
+    endpoint: id ? `/api/blog/updateBlog/${id}` : "/api/blog/createBlog",
     defaultValues: {
       blogTitle: "",
       excerpt: "",
-      thumbnail: null, // Use null instead of an empty string for files
+      thumbNail: null,
       blogBody: "",
-      readingTime: "",
+      blogReadTime: "",
     },
     validate: (formData) => {
-      if (!formData.blogTitle || !formData.excerpt || !formData.readingTime) {
+      if (!formData.blogTitle || !formData.excerpt || !formData.blogReadTime) {
         return "Blog Title, Excerpt, and Reading Time are required.";
       }
       return null;
     },
   });
+
+  useEffect(() => {
+    if (data?.data) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        blogTitle: data.data.blogTitle || "",
+        blogBody: data.data.blogBody || "",
+        excerpt: data.data.excerpt || "",
+        blogReadTime: data.data.blogReadTime || "",
+        thumbNail: data.data.thumbNail || null,
+      }));
+    }
+  }, [data, setFormData]);
 
   const handleEditorChange = (content) => {
     handleChange({ target: { name: "blogBody", value: content } });
@@ -43,6 +61,8 @@ const BlogActionForm = () => {
       fileInputRef.current.click();
     }
   };
+
+  if (id && loading) return <p>Loading...</p>;
 
   return (
     <section>
@@ -55,7 +75,7 @@ const BlogActionForm = () => {
               type="text"
               name="blogTitle"
               required
-              value={formData.blogTitle}
+              value={formData.blogTitle || ""}
               onChange={handleChange}
             />
           </div>
@@ -66,7 +86,7 @@ const BlogActionForm = () => {
               type="text"
               name="excerpt"
               required
-              value={formData.excerpt}
+              value={formData.excerpt || ""}
               onChange={handleChange}
             />
           </div>
@@ -75,26 +95,29 @@ const BlogActionForm = () => {
             <input
               className="input"
               type="text"
-              name="readingTime"
+              name="blogReadTime"
               required
-              value={formData.readingTime}
+              value={formData.blogReadTime || ""}
               onChange={handleChange}
             />
           </div>
         </div>
         <div className="grid gap-1">
           <label>Blog Body</label>
-          <Editor content={formData.blogBody} onChange={handleEditorChange} />
+          <Editor
+            content={formData.blogBody || ""}
+            onChange={handleEditorChange}
+          />
         </div>
         <div>
           <div className="h-[180px] rounded-lg border border-gray-300 myFlex justify-center bg-white">
-            {formData.thumbnail ? (
+            {formData.thumbNail ? (
               <div className="relative">
                 <Image
                   src={
-                    typeof formData.thumbnail === "string"
-                      ? formData.thumbnail // If it's a URL (after upload)
-                      : URL.createObjectURL(formData.thumbnail) // If it's a File object (before upload)
+                    typeof formData.thumbNail === "string"
+                      ? formData.thumbNail
+                      : URL.createObjectURL(formData.thumbNail)
                   }
                   width={1000}
                   height={150}
@@ -122,7 +145,7 @@ const BlogActionForm = () => {
                   className="hidden"
                 />
                 <UploadCloud />
-                <p className="text-sm">Click to select thumbnail</p>
+                <p className="text-sm">Click to select thumbNail</p>
               </div>
             )}
           </div>

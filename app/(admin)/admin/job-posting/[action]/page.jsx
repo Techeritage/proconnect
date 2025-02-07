@@ -7,6 +7,12 @@ const JobsActionPage = async ({ searchParams, params }) => {
   const { signIn } = await searchParams;
   const { action } = await params;
 
+  let id;
+
+  if (action.includes("edit")) {
+    id = action.split("-")[1];
+  }
+
   if (!signIn || signIn !== "true") {
     return redirect("/sign-in");
   }
@@ -27,7 +33,7 @@ const JobsActionPage = async ({ searchParams, params }) => {
       <h2 className="font-aeoBold mt-6">
         {action === "create" ? "Create" : "Edit"} Jobs
       </h2>
-      <JobCreationForm />
+      <JobCreationForm id={id} />
     </main>
   );
 };

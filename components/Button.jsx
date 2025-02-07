@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import Link from "next/link";
 
-const Button = ({ cta, link, action, icon, className }) => {
+const Button = ({ cta, link, action, icon, className, ref }) => {
   return (
     <button
+      ref={ref}
       className={clsx(
         "group h-[48px] rounded-full px-5 font-semibold tracking-wider",
         className

@@ -19,3 +19,11 @@ export function useJobs() {
 export function useBlogs() {
   return useSWR("/api/blog/getBlog");
 }
+
+export function useOneBlog(id) {
+  return useSWR(`/api/blog/getOneBlog/${id}`);
+}
+
+export function useOneJob(id) {
+  return useSWR(`/api/jobs/getOneJob/${id}`);
+}

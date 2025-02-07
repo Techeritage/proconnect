@@ -1,6 +1,12 @@
 import useSWRMutation from "swr/mutation";
 import { deleteRequest, updateHireRequest } from "./api";
-import { useContact, useHireTalent, useJobs } from "./queries";
+import {
+  useBlogs,
+  useContact,
+  useHireTalent,
+  useJobs,
+  useSubmitCV,
+} from "./queries";
 
 export function useUpdateTalentRequest() {
   const { mutate } = useHireTalent();
@@ -41,10 +47,49 @@ export function useDeleteContact() {
   });
 }
 
+export function useDeleteCV() {
+  const { mutate } = useSubmitCV();
+
+  return useSWRMutation(`/api/hireTalent/cvUpload/delete/`, deleteRequest, {
+    onError(error) {
+      console.error("Delete error:", error);
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+}
+
+export function useDeleteTalent() {
+  const { mutate } = useHireTalent();
+
+  return useSWRMutation(`/api/hireTalent/delete/`, deleteRequest, {
+    onError(error) {
+      console.error("Delete error:", error);
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+}
+
 export function useDeleteJob() {
   const { mutate } = useJobs();
 
   return useSWRMutation(`/api/jobs/deleteJobs/`, deleteRequest, {
+    onError(error) {
+      console.error("Delete error:", error);
+    },
+    onSuccess: () => {
+      mutate();
+    },
+  });
+}
+
+export function useDeleteBlog() {
+  const { mutate } = useBlogs();
+
+  return useSWRMutation(`/api/blog/delete/`, deleteRequest, {
     onError(error) {
       console.error("Delete error:", error);
     },

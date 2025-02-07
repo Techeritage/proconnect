@@ -7,9 +7,16 @@ const BlogActionPage = async ({ searchParams, params }) => {
   const { signIn } = await searchParams;
   const { action } = await params;
 
+  let id;
+
+  if (action.includes("edit")) {
+    id = action.split("-")[1];
+  }
+
   if (!signIn || signIn !== "true") {
     return redirect("/sign-in");
   }
+
   return (
     <main className="myContainer bg-bgGray min-h-dvh h-full">
       <div className="font-aeoReg myFlex gap-1">
@@ -27,7 +34,7 @@ const BlogActionPage = async ({ searchParams, params }) => {
       <h2 className="font-aeoBold mt-6">
         {action === "create" ? "Create" : "Edit"} Blog
       </h2>
-      <BlogActionForm />
+      <BlogActionForm id={id} />
     </main>
   );
 };

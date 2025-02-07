@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import {
   Select,
   SelectContent,
@@ -10,11 +9,23 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
-const SelectBtn = ({ label, options, name, handleChange, className }) => {
+const SelectBtn = ({
+  label,
+  options,
+  name,
+  handleChange,
+  className,
+  value,
+}) => {
   return (
-    <Select name={name} onValueChange={(value) => handleChange(name, value)}>
+    <Select
+      value={value || ""}
+      onValueChange={(selectedValue) => handleChange(name, selectedValue)}
+    >
       <SelectTrigger className={cn("w-full select", className)}>
-        <SelectValue placeholder={label} />
+        <SelectValue placeholder={value ? value : label}>
+          {options.find((opt) => opt.value === value)?.item || label}
+        </SelectValue>
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>

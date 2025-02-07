@@ -4,7 +4,7 @@ import { storage } from "@/firebaseConfig";
 import toast from "react-hot-toast";
 
 const useFormSubmission = (config) => {
-  const { endpoint, defaultValues, validate } = config;
+  const { endpoint, defaultValues, validate, id } = config;
 
   // State for form data, loading, error, and success
   const [formData, setFormData] = useState(defaultValues || {});
@@ -35,7 +35,7 @@ const useFormSubmission = (config) => {
     if (file && file.type.startsWith("image/")) {
       setFormData((prev) => ({
         ...prev,
-        thumbnail: file,
+        thumbNail: file,
       }));
     } else {
       setError("Please upload a valid image file (PNG, JPEG, etc.).");
@@ -46,7 +46,7 @@ const useFormSubmission = (config) => {
   const handleDeleteImage = () => {
     setFormData((prev) => ({
       ...prev,
-      thumbnail: null,
+      thumbNail: null,
     }));
   };
 
@@ -87,17 +87,17 @@ const useFormSubmission = (config) => {
 
   // Upload file to Firebase Storage
   const uploadFileToFirebase = async (file) => {
-    if (!file) return { url: null, error: "No file provided" }; // Or just return null
+    if (!file) return { url: null, error: "No file provided" };
 
     try {
-      const timestamp = Date.now(); // Milliseconds since epoch (more unique)
-      const storageRef = ref(storage, `cv/${file.name}_${timestamp}`); // Append timestamp to filename
+      const timestamp = Date.now();
+      const storageRef = ref(storage, `cv/${file.name}_${timestamp}`);
       await uploadBytes(storageRef, file);
       const downloadURL = await getDownloadURL(storageRef);
-      return { url: downloadURL, error: null }; // Return object
+      return { url: downloadURL, error: null };
     } catch (err) {
       console.error("File upload error:", err);
-      return { url: null, error: err.message }; // Return object with error message
+      return { url: null, error: err.message };
     }
   };
 
@@ -119,17 +119,14 @@ const useFormSubmission = (config) => {
     setFormData((prev) => ({ ...prev, requiredSkills: updatedSkills }));
   };
 
-  // Reset form
   const resetForm = () => {
     setFormData(defaultValues || {});
     setError(null);
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate form data
     if (validate) {
       const validationError = validate(formData);
       if (validationError) {
@@ -143,37 +140,41 @@ const useFormSubmission = (config) => {
     setSuccess(false);
 
     try {
-      // Upload thumbnail image to Firebase Storage
-      let thumbnailUrl = null;
-      if (formData.thumbnail) {
-        const uploadResult = await uploadImageToFirebase(formData.thumbnail);
+      let submissionData = formData;
+      let thumbNailUrl = null;
+
+      if (formData.thumbNail instanceof File) {
+        const uploadResult = await uploadImageToFirebase(formData.thumbNail);
         if (uploadResult.error) {
           throw new Error(`Image upload failed: ${uploadResult.error}`);
         }
-        thumbnailUrl = uploadResult.url;
+        thumbNailUrl = uploadResult.url;
+        submissionData = {
+          ...formData,
+          thumbNail: thumbNailUrl,
+        };
+      } else if (typeof formData.thumbNail === "string") {
+        thumbNailUrl = formData.thumbNail;
       }
 
-      // Upload CV file to Firebase Storage
       let cvUrl = null;
-      if (formData.cv) {
+      if (formData.cv instanceof File) {
         const uploadResult = await uploadFileToFirebase(formData.cv);
         if (uploadResult.error) {
-          // Check for the error
-          throw new Error(`File upload failed: ${uploadResult.error}`); // Or handle differently
+          throw new Error(`File upload failed: ${uploadResult.error}`);
         }
-        cvUrl = uploadResult.url; // Access the URL if no error
+        cvUrl = uploadResult.url;
+        submissionData = {
+          ...formData,
+          cv: cvUrl,
+        };
+      } else if (typeof formData.cv === "string") {
+        cvUrl = formData.cv;
       }
-
-      // Prepare submission data
-      const submissionData = {
-        ...formData,
-        cv: cvUrl,
-        thumbnail: thumbnailUrl,
-      };
 
       if (endpoint) {
         const response = await fetch(endpoint, {
-          method: "POST",
+          method: id ? "PUT" : "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -187,7 +188,9 @@ const useFormSubmission = (config) => {
 
       setSuccess(true);
       toast.success("Form submitted successfully");
-      resetForm();
+      if (!id) {
+        resetForm();
+      }
     } catch (err) {
       setError(err.message);
       console.error("Form submission error:", err);
@@ -198,6 +201,7 @@ const useFormSubmission = (config) => {
 
   return {
     formData,
+    setFormData,
     handleChange,
     handleSelectChange,
     handleFileChange,

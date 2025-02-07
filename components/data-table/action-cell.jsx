@@ -22,6 +22,7 @@ export function ActionCell({
   updateStatus,
   disable,
   setSelectedRow,
+  baseUrl,
 }) {
   const handleRowSelection = useCallback(() => {
     setSelectedRow(row.original);
@@ -67,7 +68,11 @@ export function ActionCell({
               </DropdownMenuSub>
             ) : act === "Edit" ? (
               <DropdownMenuItem key={i}>
-                <Link href={`/admin/job-posting/edit?signIn=true`}>{act}</Link>
+                <Link
+                  href={`/admin/${baseUrl}/edit-${row.original._id}?signIn=true`}
+                >
+                  {act}
+                </Link>
               </DropdownMenuItem>
             ) : (
               <DropdownMenuItem

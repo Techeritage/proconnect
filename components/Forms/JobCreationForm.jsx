@@ -4,6 +4,8 @@ import { Trash2 } from "lucide-react";
 import SelectBtn from "../SelectBtn";
 import Editor from "../Editor";
 import useFormSubmission from "@/hooks/useFormSubmission";
+import { useOneJob } from "@/services/queries";
+import { useEffect } from "react";
 
 export const experienceOption = [
   { item: "Entry-Level", value: "Entry-Level" },
@@ -57,9 +59,11 @@ export const locationOption = [
   { item: "FCT - Abuja", value: "FCT - Abuja" },
 ];
 
-const JobCreationForm = () => {
+const JobCreationForm = ({ id }) => {
+  const { data, isLoading: loading } = useOneJob(id || null);
   const {
     formData,
+    setFormData,
     handleChange,
     handleSelectChange,
     handleSubmit,
@@ -69,13 +73,14 @@ const JobCreationForm = () => {
     addSkill,
     removeSkill,
   } = useFormSubmission({
-    endpoint: "/api/jobs/postJobs",
+    id: id,
+    endpoint: id ? `/api/jobs/updateJobs/${id}` : "/api/jobs/postJobs",
     defaultValues: {
       companyName: "",
       jobTitle: "",
       jobDescription: "",
       requiredSkills: [""],
-      experienceLevel: "",
+      experience: "",
       location: "",
     },
     validate: (formData) => {
@@ -86,9 +91,25 @@ const JobCreationForm = () => {
     },
   });
 
+  useEffect(() => {
+    if (data?.data) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        companyName: data.data.companyName || "",
+        jobTitle: data.data.jobTitle || "",
+        jobDescription: data.data.jobDescription || "",
+        requiredSkills: data.data.requiredSkills || [""],
+        experience: data.data.experience || "",
+        location: data.data.location || "",
+      }));
+    }
+  }, [data, setFormData]);
+
   const handleEditorChange = (content) => {
     handleChange({ target: { name: "jobDescription", value: content } });
   };
+
+  if (id && loading) return <p>Loading...</p>;
 
   return (
     <section>
@@ -153,8 +174,9 @@ const JobCreationForm = () => {
         <div className="grid grid-cols-2 gap-3">
           <div className="grid gap-1">
             <SelectBtn
-              name="experienceLevel"
+              name="experience"
               handleChange={handleSelectChange}
+              value={formData.experience}
               label="Select Experience Level"
               options={experienceOption}
             />
@@ -164,6 +186,7 @@ const JobCreationForm = () => {
               label="Select Location"
               options={locationOption}
               name="location"
+              value={formData.location}
               handleChange={handleSelectChange}
             />
           </div>

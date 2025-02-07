@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -16,13 +15,13 @@ import Null from "@/components/Null";
 import { ActionCell } from "../data-table/action-cell";
 import { DataTable } from "../data-table/data-table";
 import toast from "react-hot-toast";
-import { Trash } from "iconsax-react";
-import { useDeleteJob } from "@/services/mutation";
-import Image from "next/image";
+import { useDeleteBlog } from "@/services/mutation";
+import DeleteModal from "../modal/DeleteModal";
 
 export function BlogTable() {
   const { data, error, isLoading } = useBlogs();
-  const { trigger: deleteTrigger, isMutating: deleteMutating } = useDeleteJob();
+  const { trigger: deleteTrigger, isMutating: deleteMutating } =
+    useDeleteBlog();
   const [selectedAction, setSelectedAction] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
   const [open, setOpen] = useState(false);
@@ -71,10 +70,12 @@ export function BlogTable() {
       id: "actions",
       cell: ({ row }) => (
         <ActionCell
+          baseUrl={"blog"}
           row={row}
           onActionSelect={(action, rowData) => {
             setSelectedAction(action);
             setSelectedRow(rowData);
+            setOpen(true);
           }}
           action={hireTalentAction}
         />
@@ -112,10 +113,11 @@ export function BlogTable() {
       />
 
       <Dialog
-        open={!!selectedAction}
+        open={open}
         onOpenChange={() => {
           setSelectedAction(null);
           setSelectedRow(null);
+          setOpen(false);
         }}
       >
         <DialogContent>
@@ -168,34 +170,6 @@ const ViewModal = ({ selectedRow }) => {
           height={200}
         />
       )} */}
-    </div>
-  );
-};
-
-const DeleteModal = ({ selectedRow, handleDelete, isMutating, setOpen }) => {
-  return (
-    <div>
-      <p>You are about to delete this request, this cannot be undone.</p>
-      <div className="myFlex gap-3 mt-10">
-        <Button
-          onClick={() => handleDelete(selectedRow._id)}
-          disabled={isMutating}
-          className="bg-red-500 shadow-none ring-0 border-0 hover:bg-red-500/85 h-[48px] px-6"
-        >
-          <Trash color="#ffffff" size={30} />
-          <span>{isMutating ? "Deleting..." : "Delete"}</span>
-        </Button>
-        <DialogClose asChild>
-          <Button
-            disabled={isMutating}
-            onClick={() => setOpen(false)}
-            className="h-[48px] shadow-none px-6"
-            variant="outline"
-          >
-            <span>Cancel</span>
-          </Button>
-        </DialogClose>
-      </div>
     </div>
   );
 };

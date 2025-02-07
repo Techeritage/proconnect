@@ -31,6 +31,7 @@ import {
 } from "@/components/ui/select";
 import { FontSize } from "@/hooks/useFontSize";
 import { LineHeight } from "@/hooks/useLineHeight";
+import { useEffect } from "react";
 
 const Toolbar = ({ editor }) => {
   if (!editor) return null;
@@ -219,9 +220,10 @@ const Editor = ({ content, onChange }) => {
       }),
     ],
     immediatelyRender: false,
-    content,
+    content: content || "",
     onUpdate: ({ editor }) => {
-      onChange?.(editor.getHTML());
+      const html = editor.getHTML();
+      onChange?.(html);
     },
     editorProps: {
       attributes: {
@@ -230,6 +232,13 @@ const Editor = ({ content, onChange }) => {
       },
     },
   });
+
+  // Use useEffect to handle content changes
+  useEffect(() => {
+    if (editor && content !== undefined) {
+      editor.commands.setContent(content || "");
+    }
+  }, [content, editor]);
 
   return (
     <div className="border border-gray-300 rounded-md">

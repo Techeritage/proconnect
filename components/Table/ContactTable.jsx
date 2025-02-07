@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -16,8 +15,8 @@ import Null from "@/components/Null";
 import { ActionCell } from "../data-table/action-cell";
 import { DataTable } from "../data-table/data-table";
 import toast from "react-hot-toast";
-import { Trash } from "iconsax-react";
 import { useDeleteContact, useUpdateContact } from "@/services/mutation";
+import DeleteModal from "../modal/DeleteModal";
 
 export function ContactTable() {
   const { data, error, isLoading } = useContact();
@@ -95,6 +94,7 @@ export function ContactTable() {
           onActionSelect={(action, rowData) => {
             setSelectedAction(action);
             setSelectedRow(rowData);
+            setOpen(true);
           }}
           setSelectedRow={setSelectedRow}
           action={hireTalentAction}
@@ -150,10 +150,11 @@ export function ContactTable() {
       />
 
       <Dialog
-        open={!!selectedAction}
+        open={open}
         onOpenChange={() => {
           setSelectedAction(null);
           setSelectedRow(null);
+          setOpen(false);
         }}
       >
         <DialogContent>
@@ -174,7 +175,6 @@ export function ContactTable() {
               selectedRow={selectedRow}
               handleDelete={handleRequestDelete}
               isMutating={deleteMutating}
-              setOpen={setOpen}
             />
           )}
         </DialogContent>
@@ -198,34 +198,6 @@ const ViewModal = ({ selectedRow }) => {
       <p>
         <span className="font-semibold">Message:</span> {selectedRow.messageUs}
       </p>
-    </div>
-  );
-};
-
-const DeleteModal = ({ selectedRow, handleDelete, isMutating, setOpen }) => {
-  return (
-    <div>
-      <p>You are about to delete this request, this cannot be undone.</p>
-      <div className="myFlex gap-3 mt-10">
-        <Button
-          onClick={() => handleDelete(selectedRow._id)}
-          disabled={isMutating}
-          className="bg-red-500 shadow-none ring-0 border-0 hover:bg-red-500/85 h-[48px] px-6"
-        >
-          <Trash color="#ffffff" size={30} />
-          <span>{isMutating ? "Deleting..." : "Delete"}</span>
-        </Button>
-        <DialogClose asChild>
-          <Button
-            disabled={isMutating}
-            onClick={() => setOpen(false)}
-            className="h-[48px] shadow-none px-6"
-            variant="outline"
-          >
-            <span>Cancel</span>
-          </Button>
-        </DialogClose>
-      </div>
     </div>
   );
 };

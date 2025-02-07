@@ -85,10 +85,12 @@ export function JobsTable() {
       id: "actions",
       cell: ({ row }) => (
         <ActionCell
+          baseUrl={"job-posting"}
           row={row}
           onActionSelect={(action, rowData) => {
             setSelectedAction(action);
             setSelectedRow(rowData);
+            setOpen(true);
           }}
           action={hireTalentAction}
         />
@@ -128,10 +130,11 @@ export function JobsTable() {
       />
 
       <Dialog
-        open={!!selectedAction}
+        open={open}
         onOpenChange={() => {
           setSelectedAction(null);
           setSelectedRow(null);
+          setOpen(false);
         }}
       >
         <DialogContent>

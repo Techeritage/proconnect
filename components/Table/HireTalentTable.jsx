@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -16,13 +15,15 @@ import { formatDate } from "@/lib/helper";
 import Null from "@/components/Null";
 import { ActionCell } from "../data-table/action-cell";
 import { DataTable } from "../data-table/data-table";
-import { useUpdateTalentRequest } from "@/services/mutation";
+import { useDeleteTalent, useUpdateTalentRequest } from "@/services/mutation";
 import toast from "react-hot-toast";
-import { Trash } from "iconsax-react";
+import DeleteModal from "../modal/DeleteModal";
 
 export function HireTalentTable() {
   const { data, error, isLoading } = useHireTalent();
   const { trigger, isMutating } = useUpdateTalentRequest();
+  const { trigger: deleteTrigger, isMutating: deleteMutating } =
+    useDeleteTalent();
   const [selectedAction, setSelectedAction] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
   const [open, setOpen] = useState(null);
@@ -90,6 +91,7 @@ export function HireTalentTable() {
           onActionSelect={(action, rowData) => {
             setSelectedAction(action);
             setSelectedRow(rowData);
+            setOpen(true);
           }}
           setSelectedRow={setSelectedRow}
           action={hireTalentAction}
@@ -107,6 +109,19 @@ export function HireTalentTable() {
         status,
       });
       toast.success("Status Updated");
+    } catch (error) {
+      alert("Failed to update request. Please try again.");
+      console.error("Error during optimistic update:", error);
+    }
+  };
+
+  const handleRequestDelete = async () => {
+    try {
+      await deleteTrigger({
+        id: selectedRow._id ? selectedRow._id : null,
+      });
+      toast.success("Ticket Deleted");
+      setOpen(false);
     } catch (error) {
       alert("Failed to update request. Please try again.");
       console.error("Error during optimistic update:", error);
@@ -131,10 +146,11 @@ export function HireTalentTable() {
       />
 
       <Dialog
-        open={!!selectedAction}
+        open={open}
         onOpenChange={() => {
           setSelectedAction(null);
           setSelectedRow(null);
+          setOpen(false);
         }}
       >
         <DialogContent>
@@ -151,7 +167,12 @@ export function HireTalentTable() {
           </DialogHeader>
           {selectedAction === "View" && <ViewModal selectedRow={selectedRow} />}
           {selectedAction === "Delete" && (
-            <DeleteModal selectedRow={selectedRow} />
+            <DeleteModal
+              selectedRow={selectedRow}
+              handleDelete={handleRequestDelete}
+              isMutating={deleteMutating}
+              setOpen={setOpen}
+            />
           )}
         </DialogContent>
       </Dialog>
@@ -206,30 +227,6 @@ const ViewModal = ({ selectedRow }) => {
           {selectedRow.location}
         </p>
       )}
-    </div>
-  );
-};
-
-const DeleteModal = ({ selectedRow }) => {
-  return (
-    <div>
-      <p>You are about to delete this request, this cannot be undone.</p>
-      <div className="myFlex gap-3 mt-10">
-        <Button className="bg-red-500 shadow-none ring-0 border-0 hover:bg-red-500/85 h-[48px] px-6">
-          <Trash color="#ffffff" size={30} />
-          <span>Delete</span>
-        </Button>
-        <DialogClose asChild>
-          <Button
-            // disabled={isMutating}
-            // onClick={() => setOpen(false)}
-            className="h-[48px] shadow-none px-6"
-            variant="outline"
-          >
-            <span>Cancel</span>
-          </Button>
-        </DialogClose>
-      </div>
     </div>
   );
 };
