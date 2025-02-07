@@ -19,8 +19,8 @@ export const metadata = {
 const HomePage = () => {
   return (
     <main>
-      {/* <Hero /> */}
-      <HeroNew />
+      <Hero />
+      {/* <HeroNew /> */}
       <WhyChooseUs />
       <Stats />
       <Services />

@@ -5,8 +5,8 @@ import HeaderNew from "@/components/Navigation/HeaderNew";
 const MainLayout = ({ children }) => {
   return (
     <div>
-      {/* <Header /> */}
-      <HeaderNew />
+      <Header />
+      {/* <HeaderNew /> */}
       {children}
       <Footer />
     </div>
