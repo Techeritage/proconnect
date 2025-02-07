@@ -12,7 +12,7 @@ export async function GET(req, {params}) {
 
         if(!blogPost) {
             return NextResponse.json({
-                message: "unable to display article",
+                message: "unable to display article/Not Found",
                 status: 404
             })
         }
