@@ -9,30 +9,30 @@ import Button from "../Button";
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroNew = () => {
-  const heroRef = useRef(null);
+ // const heroRef = useRef(null);
   const headlineRef = useRef(null);
   const paragraphRef = useRef(null);
   const buttonRef = useRef(null);
 
-  useGSAP(() => {
-    // Video frame animation
-    gsap.set(heroRef.current, {
-      scale: 0.9,
-      borderRadius: "20px",
-    });
-    gsap.from(heroRef.current, {
-      scale: 1,
-      borderRadius: "0",
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: "center center",
-        end: "bottom center",
-        scrub: true,
-      },
-    });
-  });
-  
+  // useGSAP(() => {
+  //   // Video frame animation
+  //   gsap.set(heroRef.current, {
+  //     scale: 0.9,
+  //     borderRadius: "20px",
+  //   });
+  //   gsap.from(heroRef.current, {
+  //     scale: 1,
+  //     borderRadius: "0",
+  //     ease: "power1.inOut",
+  //     scrollTrigger: {
+  //       trigger: heroRef.current,
+  //       start: "center center",
+  //       end: "bottom center",
+  //       scrub: true,
+  //     },
+  //   });
+  // });
+
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
@@ -80,7 +80,10 @@ const HeroNew = () => {
   });
 
   return (
-    <section ref={heroRef} className="relative min-h-screen overflow-hidden">
+    <section
+      // ref={heroRef}
+      className="relative min-h-screen overflow-hidden"
+    >
       {/* Desktop Video */}
       <video
         autoPlay
