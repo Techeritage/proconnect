@@ -89,10 +89,10 @@ const Hero = () => {
     <>
       <section className="pt-24 relative min-h-[100dvh] w-[100vw]">
         {/** Hero Container */}
-        <div className="myFlex myContainer max-md:flex-col">
+        <div className="myFlex myContainer max-md:!pt-10 max-md:flex-col">
           {/** Hero Content */}
           <div className="basis-1/2 check">
-            <h1 className="opacity-0 translate-y-4 max-w-[80%] font-semibold">
+            <h1 className="opacity-0 translate-y-4 lg:max-w-[80%] font-semibold">
               Empowering Talent. <br />{" "}
               <span className="">Building Exceptional Teams.</span>
             </h1>
@@ -116,7 +116,7 @@ const Hero = () => {
                 className="bg-white ring-1 ring-gray-200"
               />
             </div>
-            <div className="myFlex max-md:!items-start max-md:gap-y-7 gap-10 max-md:flex-col md:mt-16 opacity-0 translate-y-4">
+            <div className="myFlex max-md:!items-start max-md:gap-y-7 gap-10 max-md:flex-col mt-10 md:mt-16 opacity-0 translate-y-4">
               <div className="flex space-x-3">
                 <Briefcase color="#023BC6" size={28} variant="Bold" />
                 <div className="space-y-[2px]">

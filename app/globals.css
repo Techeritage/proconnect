@@ -38,7 +38,7 @@
   }
 
   h1 {
-    @apply text-[40px] max-md:leading-[50px] md:text-5xl font-medium;
+    @apply text-4xl max-md:leading-[50px] md:text-5xl font-medium;
   }
 
   h2 {
