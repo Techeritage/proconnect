@@ -1,10 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
 import Autoplay from "embla-carousel-autoplay";
 
 import { QuoteUp } from "iconsax-react";
@@ -17,62 +13,13 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const TestimonialsNew = () => {
-  const sectionRef = useRef(null);
-  const headingRef = useRef(null);
-  const paragraphRef = useRef(null);
-
-  useGSAP(() => {
-    // Animate heading
-    gsap.fromTo(
-      headingRef.current,
-      {
-        opacity: 0,
-        y: 50,
-        scale: 0.9,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      }
-    );
-
-    // Animate paragraph
-    gsap.fromTo(
-      paragraphRef.current,
-      {
-        opacity: 0,
-        y: 50,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 0.3,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      }
-    );
-  });
-
   return (
-    <section ref={sectionRef} className="myContainer border-t">
-      <h2 ref={headingRef} className="font-semibold">
+    <section className="myContainer border-t">
+      <h2 className="font-semibold">
         What Our <br /> Clients Say
       </h2>
-      <p ref={paragraphRef} className="opacity-85 mt-2 text-sm w-[90%]">
+      <p className="opacity-85 mt-2 text-sm w-[90%]">
         Discover the experiences of employers and job seekers who have{" "}
         <br className="max-md:hidden" /> successfully connected through
         ProConnect.

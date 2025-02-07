@@ -1,76 +1,23 @@
 "use client";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
 import { Clock } from "lucide-react";
 import Button from "../Button";
 import { useBlogs } from "@/services/queries";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Blog = () => {
-  const sectionRef = useRef(null);
-  const headingRef = useRef(null);
-  const paragraphRef = useRef(null);
-
   const { data, isLoading, error } = useBlogs();
-
-  useGSAP(() => {
-    // Animate heading
-    gsap.fromTo(
-      headingRef.current,
-      {
-        opacity: 0,
-        y: 50,
-        scale: 0.9,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      }
-    );
-
-    // Animate paragraph
-    gsap.fromTo(
-      paragraphRef.current,
-      {
-        opacity: 0,
-        y: 50,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 0.3,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      }
-    );
-  });
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Coming Soon</p>;
 
   return (
-    <section ref={sectionRef} className="bg-bgGray">
+    <section className="bg-bgGray">
       <div className="myContainer">
-        <h2 ref={headingRef} className="max-w-[90%] font-semibold">
+        <h2 className="max-w-[90%] font-semibold">
           Insights and Inspiration <br className="max-md:hidden" /> for Smarter
           Hiring
         </h2>
-        <p ref={paragraphRef} className="opacity-85 mt-2 text-sm w-[90%]">
+        <p className="opacity-85 mt-2 text-sm w-[90%]">
           Explore expert tips, trends, and insights to elevate your hiring
           strategies.
         </p>

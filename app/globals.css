@@ -38,7 +38,7 @@
   }
 
   h1 {
-    @apply text-[40px] max-md:leading-[50px] md:text-5xl lg:leading-[67px] lg:text-[63px] font-medium;
+    @apply text-[40px] max-md:leading-[50px] md:text-5xl font-medium;
   }
 
   h2 {
