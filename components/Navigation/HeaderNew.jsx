@@ -71,13 +71,23 @@ const HeaderNew = () => {
     }
   }, [isNavVisible]);
 
-  const logoSrc = isNavVisible2 || (pathName !== "/" && !isNavVisible2)
-    ? "/logo656.png"
-    : "/logoo2.png";
-  
-  const logoSize = logoSrc === "/logo656.png" 
-    ? { width: 70, height: 50, className: "object-contain max-md:w-[80px] mt-3 ml-4" }
-    : { width: 130, height: 50, className: "object-contain max-md:w-[120px]" };
+  const logoSrc =
+    isNavVisible2 || (pathName !== "/" && !isNavVisible2)
+      ? "/logo656.png"
+      : "/logoo2.png";
+
+  const logoSize =
+    logoSrc === "/logo656.png"
+      ? {
+          width: 70,
+          height: 50,
+          className: "object-contain max-md:w-[80px] mt-3 ml-4",
+        }
+      : {
+          width: 130,
+          height: 50,
+          className: "object-contain max-md:w-[120px]",
+        };
 
   return (
     <header
@@ -89,11 +99,7 @@ const HeaderNew = () => {
         className="w-full glassmorphism h-[65px] rounded-full myFlex justify-between px-2 max-lg:pr-3"
       >
         <Link href="/" className="z-[5000] transition-all duration-300">
-          <Image
-            src={logoSrc}
-            alt="office"
-            {...logoSize}
-          />
+          <Image src={logoSrc} alt="office" {...logoSize} />
         </Link>
 
         <nav className="max-lg:hidden">
@@ -128,7 +134,9 @@ const HeaderNew = () => {
           <Menu
             strokeWidth={1.7}
             size={32}
-            className={clsx((isNavVisible2 || pathName !== "/") && "text-black")}
+            className={clsx(
+              (isNavVisible2 || pathName !== "/") && "text-black"
+            )}
           />
         </button>
       </div>

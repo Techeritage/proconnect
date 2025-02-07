@@ -18,13 +18,13 @@ const Steps = () => {
       // Create separate animations for each step
       gsap.fromTo(
         step,
-        { 
-          opacity: 0, 
+        {
+          opacity: 0,
           y: 100,
-          scale: 0.9
+          scale: 0.9,
         },
-        { 
-          opacity: 1, 
+        {
+          opacity: 1,
           y: 0,
           scale: 1,
           duration: 1,
@@ -33,52 +33,52 @@ const Steps = () => {
           scrollTrigger: {
             trigger: step,
             start: "top 90%",
-          }
+          },
         }
       );
 
       // Hover effect for steps
-      step.addEventListener('mouseenter', () => {
-        gsap.to(step.querySelector('.step-number'), {
+      step.addEventListener("mouseenter", () => {
+        gsap.to(step.querySelector(".step-number"), {
           scale: 1.1,
           rotation: 360,
           duration: 0.5,
-          ease: "elastic.out(1, 0.3)"
+          ease: "elastic.out(1, 0.3)",
         });
-        
+
         gsap.to(step, {
           scale: 1.05,
           boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
           duration: 0.3,
-          ease: "power1.inOut"
+          ease: "power1.inOut",
         });
       });
 
-      step.addEventListener('mouseleave', () => {
-        gsap.to(step.querySelector('.step-number'), {
+      step.addEventListener("mouseleave", () => {
+        gsap.to(step.querySelector(".step-number"), {
           scale: 1,
           rotation: 0,
           duration: 0.5,
-          ease: "elastic.out(1, 0.3)"
+          ease: "elastic.out(1, 0.3)",
         });
-        
+
         gsap.to(step, {
           scale: 1,
           boxShadow: "none",
           duration: 0.3,
-          ease: "power1.inOut"
+          ease: "power1.inOut",
         });
       });
     });
-  }, { scope: stepsRef });
+  });
 
   return (
-    <div 
+    <div
       ref={stepsRef}
       className="md:relative max-md:grid gap-y-20 md:gap-y-10 md:bg-wavy wavy md:max-w-4xl mx-auto bg-contain md:mt-28 md:min-w-max md:min-h-[300px]"
     >
-      <div 
-        ref={el => stepRefs.current[0] = el}
+      <div
+        ref={(el) => (stepRefs.current[0] = el)}
         className="md:absolute -top-7 -left-[120px] myFlex flex-col md:max-w-[300px] justify-center gap-3"
       >
         <div className="bg-primary rounded-full size-16 flex-center step-number">
@@ -93,8 +93,8 @@ const Steps = () => {
         </p>
       </div>
 
-      <div 
-        ref={el => stepRefs.current[1] = el}
+      <div
+        ref={(el) => (stepRefs.current[1] = el)}
         className="md:absolute top-4 left-[50%] md:max-w-[300px] md:-translate-x-[50%] myFlex flex-col justify-center gap-3"
       >
         <div className="bg-primary rounded-full size-16 flex-center step-number">
@@ -109,8 +109,8 @@ const Steps = () => {
         </p>
       </div>
 
-      <div 
-        ref={el => stepRefs.current[2] = el}
+      <div
+        ref={(el) => (stepRefs.current[2] = el)}
         className="md:absolute -right-[120px] -top-7 md:max-w-[300px] myFlex flex-col justify-center gap-3"
       >
         <div className="bg-primary rounded-full size-16 flex-center step-number">
@@ -128,4 +128,4 @@ const Steps = () => {
   );
 };
 
-export default Steps
+export default Steps;

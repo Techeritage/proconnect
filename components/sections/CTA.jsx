@@ -23,85 +23,82 @@ const CTA = ({
   const buttonRef = useRef(null);
   const backgroundRef = useRef(null);
 
-  useGSAP(
-    () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          once: true,
-        },
-      });
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        once: true,
+      },
+    });
 
-      // Animate background
-      tl.fromTo(
-        backgroundRef.current,
-        {
-          scale: 0.8,
-          opacity: 0,
-        },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 1,
-          ease: "power2.out",
-        }
-      );
+    // Animate background
+    tl.fromTo(
+      backgroundRef.current,
+      {
+        scale: 0.8,
+        opacity: 0,
+      },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+      }
+    );
 
-      // Animate heading
-      tl.fromTo(
-        headingRef.current,
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          ease: "power2.out",
-        },
-        "-=0.5" // Overlap with previous animation
-      );
+    // Animate heading
+    tl.fromTo(
+      headingRef.current,
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "-=0.5" // Overlap with previous animation
+    );
 
-      // Animate paragraph
-      tl.fromTo(
-        paragraphRef.current,
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-        },
-        "-=0.7"
-      );
+    // Animate paragraph
+    tl.fromTo(
+      paragraphRef.current,
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "-=0.7"
+    );
 
-      // Animate button
-      tl.fromTo(
-        buttonRef.current,
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          ease: "back.out(1.7)",
-        },
-        "-=0.5"
-      );
-    },
-    { scope: sectionRef }
-  );
+    // Animate button
+    tl.fromTo(
+      buttonRef.current,
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        ease: "back.out(1.7)",
+      },
+      "-=0.5"
+    );
+  });
 
   return (
     <section

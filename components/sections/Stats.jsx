@@ -84,7 +84,7 @@ const Stats = ({ className }) => {
         }
       }
     );
-  }, { scope: sectionRef });
+  });
 
   return (
     <section

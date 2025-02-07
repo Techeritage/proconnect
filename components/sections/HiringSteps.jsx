@@ -15,67 +15,64 @@ const HiringSteps = () => {
   const subtitleRef = useRef(null);
   const buttonRef = useRef(null);
 
-  useGSAP(
-    () => {
-      // Animate section title
-      gsap.fromTo(
-        titleRef.current,
-        {
-          opacity: 0,
-          y: 50,
+  useGSAP(() => {
+    // Animate section title
+    gsap.fromTo(
+      titleRef.current,
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
         },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-          },
-        }
-      );
+      }
+    );
 
-      // Animate subtitle
-      gsap.fromTo(
-        subtitleRef.current,
-        {
-          opacity: 0,
-          y: 50,
+    // Animate subtitle
+    gsap.fromTo(
+      subtitleRef.current,
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.3,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
         },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          delay: 0.3,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-          },
-        }
-      );
+      }
+    );
 
-      // Animate button
-      gsap.fromTo(
-        buttonRef.current,
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.9,
+    // Animate button
+    gsap.fromTo(
+      buttonRef.current,
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: buttonRef.current,
+          start: "top 90%",
         },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          scrollTrigger: {
-            trigger: buttonRef.current,
-            start: "top 90%",
-          },
-        }
-      );
-    },
-    { scope: sectionRef }
-  );
+      }
+    );
+  });
 
   return (
     <section ref={sectionRef} className="myContainer">

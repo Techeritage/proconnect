@@ -17,51 +17,48 @@ const Blog = () => {
 
   const { data, isLoading, error } = useBlogs();
 
-  useGSAP(
-    () => {
-      // Animate heading
-      gsap.fromTo(
-        headingRef.current,
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.9,
+  useGSAP(() => {
+    // Animate heading
+    gsap.fromTo(
+      headingRef.current,
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
         },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-          },
-        }
-      );
+      }
+    );
 
-      // Animate paragraph
-      gsap.fromTo(
-        paragraphRef.current,
-        {
-          opacity: 0,
-          y: 50,
+    // Animate paragraph
+    gsap.fromTo(
+      paragraphRef.current,
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
         },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          delay: 0.3,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-          },
-        }
-      );
-    },
-    { scope: sectionRef }
-  );
+      }
+    );
+  });
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Coming Soon</p>;

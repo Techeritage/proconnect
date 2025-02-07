@@ -34,13 +34,38 @@ const HeroNew = () => {
       },
     });
   });
-  useGSAP(
-    () => {
-      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+  useGSAP(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-      // Staggered entrance animations
-      tl.fromTo(
-        headlineRef.current,
+    // Staggered entrance animations
+    tl.fromTo(
+      headlineRef.current,
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+      }
+    )
+      .fromTo(
+        paragraphRef.current,
+        {
+          opacity: 0,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+        }
+      )
+      .fromTo(
+        buttonRef.current,
         {
           opacity: 0,
           y: 50,
@@ -52,36 +77,8 @@ const HeroNew = () => {
           scale: 1,
           duration: 1,
         }
-      )
-        .fromTo(
-          paragraphRef.current,
-          {
-            opacity: 0,
-            y: 50,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-          }
-        )
-        .fromTo(
-          buttonRef.current,
-          {
-            opacity: 0,
-            y: 50,
-            scale: 0.9,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 1,
-          }
-        );
-    },
-    { scope: heroRef }
-  );
+      );
+  });
 
   return (
     <section

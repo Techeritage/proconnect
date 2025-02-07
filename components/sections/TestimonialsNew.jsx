@@ -28,13 +28,13 @@ const TestimonialsNew = () => {
     // Animate heading
     gsap.fromTo(
       headingRef.current,
-      { 
-        opacity: 0, 
+      {
+        opacity: 0,
         y: 50,
-        scale: 0.9
+        scale: 0.9,
       },
-      { 
-        opacity: 1, 
+      {
+        opacity: 1,
         y: 0,
         scale: 1,
         duration: 1,
@@ -42,19 +42,19 @@ const TestimonialsNew = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
-        }
+        },
       }
     );
 
     // Animate paragraph
     gsap.fromTo(
       paragraphRef.current,
-      { 
-        opacity: 0, 
-        y: 50
+      {
+        opacity: 0,
+        y: 50,
       },
-      { 
-        opacity: 1, 
+      {
+        opacity: 1,
         y: 0,
         duration: 1,
         delay: 0.3,
@@ -62,23 +62,17 @@ const TestimonialsNew = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
-        }
+        },
       }
     );
-  }, { scope: sectionRef });
+  });
 
   return (
     <section ref={sectionRef} className="myContainer border-t">
-      <h2 
-        ref={headingRef}
-        className="font-semibold"
-      >
+      <h2 ref={headingRef} className="font-semibold">
         What Our <br /> Clients Say
       </h2>
-      <p 
-        ref={paragraphRef}
-        className="opacity-85 mt-2 text-sm w-[90%]"
-      >
+      <p ref={paragraphRef} className="opacity-85 mt-2 text-sm w-[90%]">
         Discover the experiences of employers and job seekers who have{" "}
         <br className="max-md:hidden" /> successfully connected through
         ProConnect.
@@ -143,6 +137,6 @@ export function CarouselPlugin() {
       </Carousel>
     </div>
   );
-};
+}
 
 export default TestimonialsNew;
