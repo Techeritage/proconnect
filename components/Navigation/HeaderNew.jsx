@@ -76,8 +76,8 @@ const HeaderNew = () => {
     : "/logoo2.png";
   
   const logoSize = logoSrc === "/logo656.png" 
-    ? { width: 70, height: 70, className: "object-contain max-md:w-[80px] mt-3 ml-4" }
-    : { width: 130, height: 70, className: "object-contain max-md:w-[120px]" };
+    ? { width: 70, height: 50, className: "object-contain max-md:w-[80px] mt-3 ml-4" }
+    : { width: 130, height: 50, className: "object-contain max-md:w-[120px]" };
 
   return (
     <header
