@@ -79,24 +79,24 @@ const Services = () => {
           }
         );
 
-        // Subtle hover effect
-        card.addEventListener("mouseenter", () => {
-          gsap.to(card, {
-            scale: 1.05,
-            boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-            duration: 0.3,
-            ease: "power1.inOut",
-          });
-        });
+        // // Subtle hover effect
+        // card.addEventListener("mouseenter", () => {
+        //   gsap.to(card, {
+        //     scale: 1.05,
+        //     boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+        //     duration: 0.3,
+        //     ease: "power1.inOut",
+        //   });
+        // });
 
-        card.addEventListener("mouseleave", () => {
-          gsap.to(card, {
-            scale: 1,
-            boxShadow: "none",
-            duration: 0.3,
-            ease: "power1.inOut",
-          });
-        });
+        // card.addEventListener("mouseleave", () => {
+        //   gsap.to(card, {
+        //     scale: 1,
+        //     boxShadow: "none",
+        //     duration: 0.3,
+        //     ease: "power1.inOut",
+        //   });
+        // });
       });
 
       // Animate call-to-action section

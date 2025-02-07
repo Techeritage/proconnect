@@ -3,12 +3,6 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import SWRProviders from "@/context/SWRProvider";
 
-// export const metadata = {
-//   title: "ProConnect - Your Recruitment Partner",
-//   description:
-//     "ProConnect connects employers with top talent and helps job seekers find their dream jobs. Explore our recruitment services and industry insights today.",
-// };
-
 export const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],

@@ -10,6 +10,12 @@ import TestimonialsNew from "@/components/sections/TestimonialsNew";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import { CommonFaqs } from "@/constant/CommonFaqs";
 
+export const metadata = {
+  title: "ProConnect - Your Recruitment Partner",
+  description:
+    "ProConnect connects employers with top talent and helps job seekers find their dream jobs. Explore our recruitment services and industry insights today.",
+};
+
 const HomePage = () => {
   return (
     <main>

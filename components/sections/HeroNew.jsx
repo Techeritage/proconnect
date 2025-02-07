@@ -16,26 +16,27 @@ const HeroNew = () => {
   const videoDesktopRef = useRef(null);
   const videoMobileRef = useRef(null);
 
+  useGSAP(() => {
+    // Video frame animation
+    gsap.set("#video-frame", {
+      scale: 0.9,
+      borderRadius: "20px",
+    });
+    gsap.from("#video-frame", {
+      scale: 1,
+      borderRadius: "0",
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: "#video-frame",
+        start: "center center",
+        end: "bottom center",
+        scrub: true,
+      },
+    });
+  });
   useGSAP(
     () => {
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-
-      // Video frame animation
-      gsap.set("#video-frame", {
-        scale: 0.9,
-        borderRadius: "20px",
-      });
-      gsap.from("#video-frame", {
-        scale: 1,
-        borderRadius: "0",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: "#video-frame",
-          start: "center center",
-          end: "bottom center",
-          scrub: true,
-        },
-      });
 
       // Staggered entrance animations
       tl.fromTo(
