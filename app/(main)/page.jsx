@@ -20,7 +20,7 @@ const HomePage = () => {
   return (
     <main>
       {/* <Hero /> */}
-      <HeroNew />
+      {/* <HeroNew /> */}
       <WhyChooseUs />
       <Stats />
       <Services />
