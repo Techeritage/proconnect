@@ -48,7 +48,6 @@ const Steps = () => {
 
         gsap.to(step, {
           scale: 1.05,
-          boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
           duration: 0.3,
           ease: "power1.inOut",
         });
@@ -64,7 +63,6 @@ const Steps = () => {
 
         gsap.to(step, {
           scale: 1,
-          boxShadow: "none",
           duration: 0.3,
           ease: "power1.inOut",
         });
