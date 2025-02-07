@@ -2,7 +2,6 @@
 
 import React, { useEffect } from "react";
 import Button from "../Button";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Briefcase, MedalStar } from "iconsax-react";
@@ -42,7 +41,7 @@ const Hero = () => {
       const tl = gsap.timeline();
       tl.to("#imageCont", {
         scale: 0.9,
-        top: "970px",
+        top: "1000px",
         ease: "power2.inOut",
         duration: 1.2,
       }).to(".check > *", {
@@ -62,7 +61,7 @@ const Hero = () => {
       const tl = gsap.timeline();
       tl.to("#imageCont", {
         scale: 1,
-        top: "740px",
+        top: "840px",
         left: "50%",
         transform: "translateX(-50%)",
         ease: "power2.inOut",
@@ -97,7 +96,7 @@ const Hero = () => {
               <span className="">Building Exceptional Teams.</span>
             </h1>
             <div className="opacity-0 translate-y-6 mt-4">
-              <p className="opacity-95 max-w-[85%]">
+              <p className="opacity-95 lg:max-w-[85%]">
                 At ProConnect, we don’t just connect you with top talent—we help
                 nurture it. From skill development and leadership training to
                 seamless recruitment solutions, we fuel your business growth
@@ -177,7 +176,7 @@ const Hero = () => {
                       </div>
                     </div>
                     <div className="md:space-y-2">
-                      <p className="text-[10px] md:text-sm font-aeoReg whitespace-nowrap">
+                      <p className="text-[10px] md:text-sm whitespace-nowrap">
                         Effortless Hiring
                       </p>
                       <div className="w-14 h-[7px] md:h-[9px] rounded-full bg-gradient-to-r from-gray-300 via-gray-200 to-gray-100" />
@@ -193,7 +192,7 @@ const Hero = () => {
                     width={1000}
                     height={225}
                     alt="office"
-                    className="absolute inset-0 h-[170px] md:h-[225px] object-cover rounded-tl-2xl bg-white"
+                    className="absolute w-full inset-0 h-[170px] md:h-[225px] object-cover rounded-tl-2xl bg-white"
                   />
                 </div>
                 {/** Row 2 */}
@@ -209,13 +208,13 @@ const Hero = () => {
                     width={1000}
                     height={225}
                     alt="office"
-                    className="absolute rounded-bl-[55px] md:rounded-bl-[70px] inset-0 h-[170px] md:h-[225px] object-cover bg-white"
+                    className="absolute rounded-bl-[55px] md:rounded-bl-[70px] w-full inset-0 h-[170px] md:h-[225px] object-cover bg-white"
                   />
                 </div>
                 {/** Mobile Effortless Hiring */}
                 <div className="absolute md:hidden min-w-[150px] p-2 md:py-3 myFlex gap-x-2 md:gap-x-4 rounded-lg bg-white shadow-2xl bottom-3 -left-5 md:-left-24 z-50">
                   <div className="myFlex">
-                    <p className="text-lg md:text-3xl font-aeoBold text-primary">
+                    <p className="text-lg md:text-3xl font-semibold text-primary">
                       100
                     </p>
                     <div className="flex flex-col w-fit -mt-1.5 md:-mt-3 ml-[1px] md:ml-[2px]">
@@ -239,7 +238,7 @@ const Hero = () => {
                     </div>
                   </div>
                   <div className="md:space-y-2">
-                    <p className="text-[10px] md:text-sm font-aeoReg whitespace-nowrap">
+                    <p className="text-[10px] md:text-sm whitespace-nowrap">
                       Effortless Hiring
                     </p>
                     <div className="w-14 h-[7px] md:h-[9px] rounded-full bg-gradient-to-r from-gray-300 via-gray-200 to-gray-100" />
@@ -262,7 +261,7 @@ const Hero = () => {
                       variant="Bold"
                     />
                     <div className="md:space-y-2">
-                      <p className="text-[10px] md:text-sm font-aeoReg whitespace-nowrap">
+                      <p className="text-[10px] md:text-sm whitespace-nowrap">
                         Employers Satisfaction
                       </p>
                       <div className="w-14 h-[7px] md:h-[9px] rounded-full bg-gradient-to-r from-gray-300 via-gray-200 to-gray-100" />
@@ -281,7 +280,7 @@ const Hero = () => {
                       width={1000}
                       height={1000}
                       alt="office"
-                      className="absolute rounded-tr-[47px] md:rounded-tr-[60px] h-[250px] md:h-[325px] object-cover inset-0 bg-white"
+                      className="absolute rounded-tr-[47px] w-full md:rounded-tr-[60px] h-[250px] md:h-[325px] object-cover inset-0 bg-white"
                     />
                   </div>
                 </div>
