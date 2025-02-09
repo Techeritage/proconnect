@@ -1,23 +1,23 @@
 import mongoose from "mongoose";
 
-let isConnected = false;
+// MongoDB connection string
+const mongoURI = process.env.mongoUrl || "";
 
-const connectDb = async () => {
-  if (isConnected) {
-    console.log("Reusing existing MongoDB connection");
-    return;
-  }
-
+// Function to connect to MongoDB
+const connectToMongoDB = async () => {
   try {
-    console.log("Attempting to connect to MongoDB...");
-    const connection = await mongoose.connect(process.env.mongoUrl);
-
-    isConnected = connection.connections[0].readyState;
-    console.log(`MongoDB connected @ ${connection.connection.host}`);
+    // Connect to MongoDB without the deprecated options
+    await mongoose.connect(mongoURI, {
+      // Add any required connection options here
+    });
+    console.log("Connected to MongoDB");
   } catch (error) {
     console.error("MongoDB connection error:", error);
-    process.exit(1);
   }
 };
 
-export default connectDb;
+export async function connectDb() {
+  if (mongoose.connection.readyState === 0) {
+    await connectToMongoDB();
+  }
+}
