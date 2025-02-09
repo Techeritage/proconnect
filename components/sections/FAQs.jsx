@@ -12,8 +12,9 @@ const FAQs = ({ faqs }) => {
         Got Questions? <br />{" "}
         <span className="opacity-50"> We’ve Got Answers</span>
       </h2>
-      <p className="opacity-95 text-center mt-2 text-sm w-[90%] md:w-[50%] mx-auto">
-        Discover FAQs for employers and job seekers. Need more help? Contact us!
+      <p className="opacity-95 text-center mt-4 md:w-[50%] mx-auto">
+        Discover FAQs for employers and job seekers.{" "}
+        <br className="max-md:hidden" /> Need more help? Contact us!
       </p>
       <div className="max-w-3xl mx-auto mt-10 md:mt-16">
         <AccordionDemo faqs={faqs} />
