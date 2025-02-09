@@ -1,34 +1,35 @@
-import connectDb from '@/utils/config/db';
-import contactUs from '@/utils/models/contactUs';
-import { NextResponse } from 'next/server';
-import handleEmail from '@/utils/config/sendEmail'
+import { connectDb } from "@/utils/config/db";
+import contactUs from "@/utils/models/contactUs";
+import { NextResponse } from "next/server";
+import handleEmail from "@/utils/config/sendEmail";
 
 export async function POST(req) {
-    try {
+  try {
+    const { fullName, email, phone, messageUs } = await req.json();
 
-        const { fullName, email, phone, messageUs } = await req.json();
+    if (!fullName || !email || !phone || !messageUs) {
+      return NextResponse.json({
+        message: "fields cannot be empty",
+        status: 400,
+      });
+    }
 
-        if(!fullName || !email || !phone || !messageUs) {
-            return NextResponse.json({
-                message: 'fields cannot be empty',
-                status: 400
-            })
-        }
+    await connectDb();
 
-        await connectDb()
+    const contactData = new contactUs({
+      fullName,
+      email,
+      phone,
+      messageUs,
+      createdAt: new Date().toLocaleString("en-NG", {
+        timeZone: "Africa/Lagos",
+      }),
+    });
 
-        const contactData = new contactUs({
-            fullName,
-            email,
-            phone,
-            messageUs,
-            createdAt: new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' }) 
-        })
-        
-        await contactData.save()
+    await contactData.save();
 
-        const subject = '✨ Received! ✨';
-        const message = `
+    const subject = "✨ Received! ✨";
+    const message = `
       <html>
         <head>
           <style>
@@ -102,24 +103,24 @@ export async function POST(req) {
         </body>
       </html>
     `;
-    
-         await handleEmail({
-        recipientEmail: email,
-        subject,
-        message,
-      });
 
-        return NextResponse.json({
-            message: "we received your request, and already looking into it",
-            data: contactData,
-            status: 201
-        })
-    } catch (error) {
-        console.error(error);
-        return NextResponse.json({
-            error: error.message,
-            message: 'server error',
-            status: 500
-        })
-    } 
+    await handleEmail({
+      recipientEmail: email,
+      subject,
+      message,
+    });
+
+    return NextResponse.json({
+      message: "we received your request, and already looking into it",
+      data: contactData,
+      status: 201,
+    });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({
+      error: error.message,
+      message: "server error",
+      status: 500,
+    });
+  }
 }

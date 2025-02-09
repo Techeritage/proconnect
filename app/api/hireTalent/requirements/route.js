@@ -1,55 +1,50 @@
-import connectDb from '@/utils/config/db';
-import { NextResponse } from 'next/server';
-import hireTalent from '@/utils/models/hireTalent';
-import handleEmail from '@/utils/config/sendEmail';
-
+import { connectDb } from "@/utils/config/db";
+import { NextResponse } from "next/server";
+import hireTalent from "@/utils/models/hireTalent";
+import handleEmail from "@/utils/config/sendEmail";
 
 export async function POST(req) {
-    try {
+  try {
+    const {
+      companyName,
+      fullName,
+      email,
+      phone,
+      jobTitle,
+      jobDescription,
+      requiredSkills,
+      experience,
+      location,
+    } = await req.json();
 
-        const { 
-            companyName,
-            fullName, 
-            email, 
-            phone, 
-            jobTitle, 
-            jobDescription,
-            requiredSkills,
-            experience,
-            location
-          } = await req.json()
+    if (!fullName || !email || !phone || !jobTitle || !jobDescription) {
+      return NextResponse.json({
+        message: "fill all required fields",
+        status: 400,
+      });
+    }
 
-            if( !fullName ||
-                !email ||
-                !phone ||
-                !jobTitle ||
-                !jobDescription 
-            ) {
-                return NextResponse.json({
-                    message: 'fill all required fields',
-                    status: 400
-                })
-            }
+    await connectDb();
 
-            await connectDb();
+    const hireData = new hireTalent({
+      companyName,
+      fullName,
+      email,
+      phone,
+      jobTitle,
+      jobDescription,
+      requiredSkills,
+      experience,
+      location,
+      createdAt: new Date().toLocaleString("en-NG", {
+        timeZone: "Africa/Lagos",
+      }),
+    });
 
-            const hireData = new hireTalent({ 
-            companyName,
-            fullName, 
-            email, 
-            phone, 
-            jobTitle, 
-            jobDescription,
-            requiredSkills,
-            experience,
-            location, 
-            createdAt: new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' })
-            })
+    await hireData.save();
 
-            await hireData.save()
-
-            const subject = '✨ Received! ✨';
-            const message = `
+    const subject = "✨ Received! ✨";
+    const message = `
           <html>
             <head>
               <style>
@@ -123,25 +118,24 @@ export async function POST(req) {
             </body>
           </html>
         `;
-        
-            await handleEmail({
-            recipientEmail: email,
-            subject,
-            message,
-          });
 
-            return NextResponse.json({
-                message: `We received your requirement posting, check your mail for feedback`,
-                data: hireData,
-                status: 201
-            })
-        
-    } catch (error) {
-        console.error('internal error', error.message);
-        return NextResponse.json({
-            error: error.message,
-            message: 'server error',
-            status: 500
-        })
-    }
+    await handleEmail({
+      recipientEmail: email,
+      subject,
+      message,
+    });
+
+    return NextResponse.json({
+      message: `We received your requirement posting, check your mail for feedback`,
+      data: hireData,
+      status: 201,
+    });
+  } catch (error) {
+    console.error("internal error", error.message);
+    return NextResponse.json({
+      error: error.message,
+      message: "server error",
+      status: 500,
+    });
+  }
 }

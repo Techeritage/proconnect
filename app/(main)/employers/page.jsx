@@ -3,7 +3,6 @@ import CTA from "@/components/sections/CTA";
 import FAQs from "@/components/sections/FAQs";
 import Steps from "@/components/Steps";
 import { HireTalentFaqs } from "@/constant/HireTalentFaqs";
-import React from "react";
 
 const HireTalentPage = () => {
   return (
@@ -17,7 +16,7 @@ const HireTalentPage = () => {
           faster and smarter.
         </p>
       </section>
-      <Steps />
+      {/* <Steps /> */}
       <HireTalentForm />
       <FAQs faqs={HireTalentFaqs} />
       <CTA

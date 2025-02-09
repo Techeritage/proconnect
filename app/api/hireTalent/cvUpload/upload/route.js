@@ -1,36 +1,38 @@
-import connectDb from '@/utils/config/db';
-import cvUpload from '@/utils/models/cvUpload';
-import { NextResponse } from 'next/server';
-import handleEmail from '@/utils/config/sendEmail';
+import { connectDb } from "@/utils/config/db";
+import cvUpload from "@/utils/models/cvUpload";
+import { NextResponse } from "next/server";
+import handleEmail from "@/utils/config/sendEmail";
 
 export async function POST(req) {
-    try {
+  try {
+    const { fullName, email, phone, jobTitle, experience, cv } =
+      await req.json();
 
-        const {fullName, email, phone, jobTitle, experience, cv} = await req.json();
+    if (!fullName || !email || !phone || !jobTitle || !experience || !cv) {
+      return NextResponse.json({
+        message: "input fields cannot be empty",
+        status: 400,
+      });
+    }
 
-        if(!fullName || !email || !phone || !jobTitle || !experience || !cv) {
-            return NextResponse.json({
-                message: 'input fields cannot be empty',
-                status: 400
-            })
-        }
+    await connectDb();
 
-        await connectDb()
+    const newCV = new cvUpload({
+      fullName,
+      email,
+      phone,
+      jobTitle,
+      experience,
+      cv,
+      createdAt: new Date().toLocaleString("en-NG", {
+        timeZone: "Africa/Lagos",
+      }),
+    });
 
-        const newCV = new cvUpload({
-            fullName,
-            email,
-            phone,
-            jobTitle,
-            experience,
-            cv,
-            createdAt: new Date().toLocaleString('en-NG', { timeZone: 'Africa/Lagos' })
-        })
+    await newCV.save();
 
-        await newCV.save()
-
-        const subject = '✨ Received! ✨';
-        const message = `
+    const subject = "✨ Received! ✨";
+    const message = `
       <html>
         <head>
           <style>
@@ -104,28 +106,24 @@ export async function POST(req) {
         </body>
       </html>
     `;
-    
-         await handleEmail({
-        recipientEmail: email,
-        subject,
-        message,
-      });
 
-        return NextResponse.json({
-            data: newCV,
-            message: `we've received your request, await our response`,
-            status: 200
+    await handleEmail({
+      recipientEmail: email,
+      subject,
+      message,
+    });
 
-        })
-    } catch (error) {
-        console.error('internal error: ' + error.message)
-        return NextResponse.json({
-            error: error.message,
-            message: `internal error: ${error.message}`,
-            status: 500
-        })
-        
-
-        
-    }
+    return NextResponse.json({
+      data: newCV,
+      message: `we've received your request, await our response`,
+      status: 200,
+    });
+  } catch (error) {
+    console.error("internal error: " + error.message);
+    return NextResponse.json({
+      error: error.message,
+      message: `internal error: ${error.message}`,
+      status: 500,
+    });
+  }
 }

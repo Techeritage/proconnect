@@ -1,4 +1,4 @@
-import connectDb from '@/utils/config/db';
+import { connectDb } from '@/utils/config/db';
 import newsLetter from '@/utils/models/newsLetter';
 import { NextResponse } from 'next/server';
 
