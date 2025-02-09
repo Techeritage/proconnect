@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
-
 import { QuoteUp } from "iconsax-react";
 import {
   Carousel,
@@ -12,23 +11,81 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const TestimonialsNew = () => {
+  const sectionRef = React.useRef(null);
+  const textRef = React.useRef(null);
+  const imageRef = React.useRef(null);
+  const carouselRef = React.useRef(null);
+
+  React.useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const scrollAnimation = gsap.context(() => {
+      gsap.from(textRef.current.children, {
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          end: "bottom top",
+        },
+      });
+
+      gsap.from(imageRef.current, {
+        opacity: 0,
+        scale: 0.9,
+        duration: 1.2,
+        delay: 0.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      gsap.from(carouselRef.current, {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          end: "bottom top",
+        },
+      });
+    }, sectionRef);
+
+    return () => scrollAnimation.revert();
+  }, []);
+
   return (
-    <section className="myContainer border-t">
-      <h2 className="font-semibold">
-        What Our <br /> Clients Say
-      </h2>
-      <p className="opacity-85 mt-2 text-sm w-[90%]">
-        Discover the experiences of employers and job seekers who have{" "}
-        <br className="max-md:hidden" /> successfully connected through
-        ProConnect.
-      </p>
+    <section ref={sectionRef} className="myContainer border-t">
+      <div ref={textRef}>
+        <h2 className="font-semibold">
+          What Our <br /> Clients Say
+        </h2>
+        <p className="opacity-85 mt-2 text-sm w-[90%]">
+          Discover the experiences of employers and job seekers who have{" "}
+          <br className="max-md:hidden" /> successfully connected through
+          ProConnect.
+        </p>
+      </div>
+
       <div className="md:myFlex mt-16 md:gap-10 max-w-[1440px] mx-auto">
-        <div className="md:basis-[60%]">
+        <div ref={carouselRef} className="md:basis-[60%]">
           <CarouselPlugin />
         </div>
-        <div className="max-md:hidden md:basis-[40%]">
+        <div ref={imageRef} className="max-md:hidden md:basis-[40%]">
           <div className="h-[400px] w-full max-w-[500px]">
             <Image
               src="/happy2.svg"
