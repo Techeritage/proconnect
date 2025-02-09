@@ -18,13 +18,13 @@ const Stats = ({ className }) => {
       // Initial setup
       gsap.set(".stat-number", { opacity: 0, y: 30 });
       gsap.set(".stat-text", { opacity: 0, y: 20 });
-      
+
       // Spiral animations
       gsap.to(spiralRefs.current, {
         rotation: 360,
-        duration: 20,
+        duration: 10,
         repeat: -1,
-        ease: "none"
+        ease: "none",
       });
 
       // Stats container animation
@@ -36,14 +36,14 @@ const Stats = ({ className }) => {
         scrollTrigger: {
           trigger: ".stat",
           start: "top 80%",
-        }
+        },
       });
 
       // Number counting animations
       const stats = [
         { value: 10, suffix: "K+" },
         { value: 100, suffix: "K+" },
-        { value: 95, suffix: "%" }
+        { value: 95, suffix: "%" },
       ];
 
       numberRefs.current.forEach((el, index) => {
@@ -56,7 +56,7 @@ const Stats = ({ className }) => {
           scrollTrigger: {
             trigger: ".stat",
             start: "top 80%",
-          }
+          },
         });
 
         let currentValue = { val: 0 };
@@ -70,9 +70,11 @@ const Stats = ({ className }) => {
           },
           onUpdate: () => {
             if (el) {
-              el.textContent = `${Math.round(currentValue.val)}${stats[index].suffix}`;
+              el.textContent = `${Math.round(currentValue.val)}${
+                stats[index].suffix
+              }`;
             }
-          }
+          },
         });
       });
 
@@ -87,27 +89,27 @@ const Stats = ({ className }) => {
         scrollTrigger: {
           trigger: ".stat",
           start: "top 80%",
-        }
+        },
       });
 
       // Hover effect for stat items
-      const statItems = document.querySelectorAll('.stat-item');
-      statItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
+      const statItems = document.querySelectorAll(".stat-item");
+      statItems.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
           gsap.to(item, {
             y: -5,
             scale: 1.05,
             duration: 0.3,
-            ease: "power2.out"
+            ease: "power2.out",
           });
         });
-        
-        item.addEventListener('mouseleave', () => {
+
+        item.addEventListener("mouseleave", () => {
           gsap.to(item, {
             y: 0,
             scale: 1,
             duration: 0.3,
-            ease: "power2.out"
+            ease: "power2.out",
           });
         });
       });
@@ -125,28 +127,22 @@ const Stats = ({ className }) => {
       )}
     >
       <div className="relative stat text-white bg-primary w-full overflow-hidden h-[450px] md:h-[300px] md:rounded-tr-2xl md:rounded-bl-2xl md:rounded-tl-[82px] md:rounded-br-[95px]">
-        <div 
-          ref={el => spiralRefs.current[0] = el}
+        <div
+          ref={(el) => (spiralRefs.current[0] = el)}
           className="absolute -bottom-[170px] -left-[170px]"
         >
-          <SpiralCircle
-            dimColor="#023BC6"
-            mainColor="#3562d1"
-          />
+          <SpiralCircle dimColor="#023BC6" mainColor="#3562d1" />
         </div>
-        <div 
-          ref={el => spiralRefs.current[1] = el}
+        <div
+          ref={(el) => (spiralRefs.current[1] = el)}
           className="absolute -top-[170px] -right-[170px]"
         >
-          <SpiralCircle
-            dimColor="#023BC6"
-            mainColor="#3562d1"
-          />
+          <SpiralCircle dimColor="#023BC6" mainColor="#3562d1" />
         </div>
         <div className="relative z-10 h-full myFlex max-md:flex-col justify-evenly">
           <div className="stat-item myFlex flex-col justify-center">
-            <h1 
-              ref={el => numberRefs.current[0] = el}
+            <h1
+              ref={(el) => (numberRefs.current[0] = el)}
               className="stat-number"
             >
               0
@@ -154,8 +150,8 @@ const Stats = ({ className }) => {
             <p className="stat-text">Verified Professionals</p>
           </div>
           <div className="stat-item myFlex flex-col justify-center">
-            <h1 
-              ref={el => numberRefs.current[1] = el}
+            <h1
+              ref={(el) => (numberRefs.current[1] = el)}
               className="stat-number"
             >
               0
@@ -163,8 +159,8 @@ const Stats = ({ className }) => {
             <p className="stat-text">Successful Connections</p>
           </div>
           <div className="stat-item myFlex flex-col justify-center">
-            <h1 
-              ref={el => numberRefs.current[2] = el}
+            <h1
+              ref={(el) => (numberRefs.current[2] = el)}
               className="stat-number"
             >
               0
